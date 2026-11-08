@@ -1,5 +1,6 @@
 #include "app.hpp"
 #include "earth_texture.hpp"
+#include "trail_view.hpp"
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -146,6 +147,7 @@ int render_loop(GLFWwindow *window, RunMode mode, const char *executable,
           : 0;
   int frames = 0;
   int peak_vertices = 0;
+  double build_seconds = 0, submit_seconds = 0;
   bool forecast_day_set = false;
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
@@ -184,13 +186,19 @@ int render_loop(GLFWwindow *window, RunMode mode, const char *executable,
       app.test_zoom(std::exp(std::log(wildlife::App::max_zoom) *
                              (1.f - std::abs(2.f * t - 1.f))));
     }
+    const double build_start = smoke ? glfwGetTime() : 0;
     app.draw();
     ImGui::Render();
     glViewport(0, 0, width, height);
     glClearColor(0.035f, 0.043f, 0.055f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     ImDrawData *draw_data = ImGui::GetDrawData();
+    const double submit_start = smoke ? glfwGetTime() : 0;
     ImGui_ImplOpenGL3_RenderDrawData(draw_data);
+    if (smoke && frames >= warmup_frames) {
+      build_seconds += submit_start - build_start;
+      submit_seconds += glfwGetTime() - submit_start;
+    }
     if (smoke && (!focus_done || glfwGetTime() - startup < stream_warmup)) {
       if (glfwGetTime() - startup > 180) {
         std::fputs("No model-backed observations became available.\n", stderr);
@@ -248,6 +256,9 @@ int render_loop(GLFWwindow *window, RunMode mode, const char *executable,
                                                    : "globe",
                   width, height, elapsed, measured_frames / elapsed,
                   peak_vertices);
+      std::printf("CPU frame build: %.2f ms | GL submission: %.2f ms\n",
+                  build_seconds * 1000 / measured_frames,
+                  submit_seconds * 1000 / measured_frames);
       std::printf("Observed animals: %zu | Cohorts: %zu | Catalog taxa: %zu | "
                   "Zoom: %.1f / %.1f\n",
                   app.observed_animals(), app.cohort_count(),
@@ -298,9 +309,13 @@ int run(GLFWwindow *window, const char *glsl_version, RunMode mode,
                      "bundled elevation and map textures.\n",
                      stderr);
         }
-        if (has_terrain || mode == RunMode::Interactive) {
+        const bool has_trails = wildlife::initialize_glow_trails();
+        if (!has_trails)
+          std::fputs("Could not initialize the continuous trail renderer.\n", stderr);
+        if (has_trails && (has_terrain || mode == RunMode::Interactive)) {
           result = render_loop(window, mode, executable, test_species);
         }
+        wildlife::shutdown_glow_trails();
         wildlife::shutdown_earth_texture();
       }
       ImGui_ImplOpenGL3_Shutdown();

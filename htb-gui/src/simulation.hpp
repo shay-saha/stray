@@ -66,6 +66,8 @@ struct AnimalTrailSegment {
 struct AnimalTrailPoint {
   Vec3 position;
   double hour;
+  // False starts a new path after a missing observation interval.
+  bool connected_to_newer = true;
 };
 Vec3 earth_position(float latitude_deg, float longitude_deg);
 float latitude_degrees(Vec3 position);

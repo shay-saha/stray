@@ -51,6 +51,7 @@ add_executable(wildlife_atlas
     src/globe.cpp
     src/habitat_view.cpp
     src/population_view.cpp
+    src/trail_view.cpp
     src/simulation.cpp
     src/forecast.cpp
 )

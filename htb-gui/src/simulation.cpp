@@ -162,22 +162,52 @@ void Simulation::sample_trail_points(
   if (span <= 0)
     return;
   Vec3 previous = sample_animal(animal, hours).position;
-  for (std::size_t sample = 1; sample <= budget; ++sample) {
-    const double age = double(sample) / budget;
-    const double at = hours - span * age * age * age;
+  double previous_hour = std::min(hours, track.hours.back());
+  const auto emit = [&](double at) {
     if (at > track.hours.back())
-      continue;
+      return;
     const auto next =
         std::upper_bound(track.hours.begin(), track.hours.end(), at);
     if (next != track.hours.begin() && next != track.hours.end() &&
         *next <= track.forecast_start_hour && *next - *(next - 1) > 6)
-      continue;
+      return;
     const auto p = sample_animal(animal, at).position;
     if (std::hypot(double(p.x - previous.x), double(p.y - previous.y),
                    double(p.z - previous.z)) < 1e-7)
-      continue;
-    points.push_back({p, at});
+      return;
+    bool connected = true;
+    if (at < track.forecast_start_hour) {
+      // Inspect all crossed observation intervals, including gaps that fall
+      // between two valid samples in a long, downsampled history.
+      for (auto end = next;
+           end != track.hours.end() && *end <= track.forecast_start_hour &&
+           *(end - 1) < previous_hour; ++end) {
+        if (*end - *(end - 1) > 6) {
+          connected = false;
+          break;
+        }
+      }
+    }
+    points.push_back({p, at, connected});
     previous = p;
+    previous_hour = at;
+  };
+  const double begin_hour = hours - span;
+  const auto begin = std::lower_bound(track.hours.begin(), track.hours.end(), begin_hour);
+  const auto end = std::lower_bound(track.hours.begin(), track.hours.end(), hours);
+  const bool clipped = begin != track.hours.end() && *begin > begin_hour;
+  if (std::size_t(end - begin) + std::size_t(clipped) <= budget) {
+    // A week/month usually contains only a handful of model horizons. Retain
+    // every real knot rather than spending the budget on redundant resamples.
+    for (auto at = end; at != begin;)
+      emit(*--at);
+    if (clipped)
+      emit(begin_hour);
+  } else {
+    for (std::size_t sample = 1; sample <= budget; ++sample) {
+      const double age = double(sample) / budget;
+      emit(hours - span * age * age * age);
+    }
   }
 }
 void Simulation::seek(double hours) {

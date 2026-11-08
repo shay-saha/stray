@@ -98,10 +98,29 @@ int main() {
   check(!points.empty() && points.size() <= 24,
         "Long histories respect their point budget");
   for (const auto &p : points)
-    check(p.hour >= -1 && p.hour <= 6,
+    check((p.hour >= -1 && p.hour <= 6) ||
+              (p.hour == -48 && !p.connected_to_newer),
           "Long trails preserve observed gaps and exclude future states");
   s.sample_trail_points({0, 0}, 6, 1000, 0, points);
   check(points.empty(), "Zero trail budget emits no samples");
+  TrackedAnimal gaps{
+      "gap-tag", "Observed taxon", "Observed taxon", "study", "study",
+      AnimalGroup::Bird, {-120, -119, -118, -10, -9, 0, 24},
+      {earth_position(0, 0), earth_position(0, 1), earth_position(0, 2),
+       earth_position(0, 3), earth_position(0, 4), earth_position(0, 5),
+       earth_position(0, 6)}};
+  gaps.forecast_start_hour = 0;
+  check(s.replace_tracks({gaps}, true), "Gap fixture should load");
+  s.sample_trail_points({0, 0}, 24, 144, 4, points);
+  check(!points.empty() && points.back().hour == -120 &&
+            !points.back().connected_to_newer,
+        "Connected ribbons must break across gaps skipped by downsampling");
+  gaps.forecast_start_hour = -120;
+  check(s.replace_tracks({gaps}, true), "Forecast fixture should load");
+  s.sample_trail_points({0, 0}, 24, 144, 4, points);
+  for (const auto &p : points)
+    check(p.connected_to_newer,
+          "Model horizons remain connected even when more than six hours apart");
   std::cout << "Observed identity, full-cohort counts, route interpolation and "
                "no-synthetic checks passed\n";
 }

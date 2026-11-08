@@ -1,4 +1,5 @@
 #include "population_view.hpp"
+#include "trail_view.hpp"
 
 #include <algorithm>
 #include <array>
@@ -99,6 +100,9 @@ std::optional<AnimalId> draw_populations(
   std::vector<float> facing;
   std::vector<AnimalTrailSegment> history;
   std::vector<AnimalTrailPoint> long_history;
+  std::vector<GlowTrailPoint> stroke;
+  if (history_hours > 0)
+    begin_glow_trails(draw);
   std::optional<AnimalId> nearest;
   float nearest_distance = 8.0f * 8.0f;
 
@@ -131,91 +135,104 @@ std::optional<AnimalId> draw_populations(
           heads[j].activity == Activity::Traveling || pixels_per_km > 0.20f;
     }
 
-    const ImU32 color =
-        species_color(species[colony.species].group, colony.species);
-    const ImU32 highlight = blend(color, ivory, 0.28f);
     if (show_history && history_hours > 0.0) {
       for (std::size_t j = 0; j < count; ++j) {
         if (facing[j] < 0.0f || (heads[j].activity != Activity::Traveling &&
                                  pixels_per_km <= 0.20f))
           continue;
-        const float limb = std::clamp(facing[j] * 4.0f, 0.0f, 1.0f);
-        if (history_hours > 96) {
-          const bool focused = selected && *selected == AnimalId{i, j};
-          simulation.sample_trail_points(
-              {i, j}, now, history_hours,
-              focused ? 128 : std::size_t(8 + 16 * detail), long_history);
-          ImVec2 previous = positions[j];
-          for (const auto &point : long_history) {
-            ImVec2 at;
-            if (!view.project(point.position, at) || !inside(at, min, max, 2))
-              continue;
-            if (distance_squared(previous, at) < 9)
-              continue;
-            previous = at;
-            const float fade = float(
-                std::clamp(1 - (now - point.hour) / history_hours, 0., 1.));
-            const float radius = 1.1f + .55f * detail;
-            const auto tint =
-                opacity(highlight, (105 + 65 * detail) * fade * fade * limb);
-            if (has_sprite) {
-              const float halo = radius * 2.8f;
-              draw.AddImage(
-                  atlas.TexRef, {at.x - halo, at.y - halo},
-                  {at.x + halo, at.y + halo}, grain.uv0, grain.uv1,
-                  opacity(color, (35 + 30 * detail) * fade * fade * limb));
-              draw.AddImage(atlas.TexRef, {at.x - radius, at.y - radius},
-                            {at.x + radius, at.y + radius}, grain.uv0,
-                            grain.uv1, tint);
-            } else
-              draw.AddCircleFilled(at, radius * .5f, tint, 6);
+        const AnimalId animal{i, j};
+        const ImU32 color = species_color(species[colony.species].group, colony.species);
+        stroke.clear();
+        const auto flush = [&] {
+          add_glow_trail(stroke, color, 3.8f + 1.6f * detail);
+          stroke.clear();
+        };
+        const auto point_at = [&](Vec3 p, double hour) {
+          ImVec2 at;
+          float facing = 0;
+          if (!view.project(p, at, &facing)) {
+            flush();
+            return;
           }
-          continue;
-        }
-        simulation.sample_trail({i, j}, now, history_hours, history);
-        for (const auto &segment : history) {
-          const auto a = segment.start, b = segment.end;
+          const float fade =
+              float(std::clamp(1 - (now - hour) / history_hours, 0., 1.));
+          const float alpha = (.70f + .12f * detail) * fade * fade *
+                              std::clamp(facing * 4.f, 0.f, 1.f);
+          if (!stroke.empty() &&
+              distance_squared(stroke.back().position, at) < .36f)
+            return;
+          stroke.push_back({at, alpha});
+        };
+        const auto segment = [&](Vec3 a, Vec3 b, double ta, double tb) {
+          ImVec2 pa, pb;
+          const bool va = view.project(a, pa), vb = view.project(b, pb);
+          if (!va && !vb) {
+            flush();
+            return;
+          }
+          if (va && vb &&
+              ((pa.x < min.x - 32 && pb.x < min.x - 32) ||
+               (pa.x > max.x + 32 && pb.x > max.x + 32) ||
+               (pa.y < min.y - 32 && pb.y < min.y - 32) ||
+               (pa.y > max.y + 32 && pb.y > max.y + 32))) {
+            flush();
+            return;
+          }
           const double chord = std::hypot(double(a.x - b.x), double(a.y - b.y),
                                           double(a.z - b.z));
           const double distance =
               2 * earth_radius_km * std::asin(std::min(1., chord * .5));
-          if (distance * pixels_per_km < .75)
-            continue;
+          // Subdivide on the globe, so a long route follows Earth's curvature
+          // rather than drawing a straight screen-space shortcut at the limb.
           const int steps = std::clamp(
-              int(std::ceil(distance * pixels_per_km / 3.0)), 1, 192);
-          for (int step = 0; step < steps; ++step) {
+              int(std::ceil(distance * pixels_per_km / 16.)), 1, 64);
+          for (int step = 1; step <= steps; ++step) {
             const double t = double(step) / steps;
+            const double hour = std::lerp(ta, tb, t);
             Vec3 p{float(std::lerp(double(a.x), double(b.x), t)),
                    float(std::lerp(double(a.y), double(b.y), t)),
                    float(std::lerp(double(a.z), double(b.z), t))};
             const double length =
                 std::hypot(double(p.x), double(p.y), double(p.z));
-            if (length < 1e-6)
+            if (length < 1e-6) {
+              flush();
               continue;
+            }
             p = {float(p.x / length), float(p.y / length), float(p.z / length)};
-            ImVec2 at;
-            if (!view.project(p, at) || !inside(at, min, max, 2))
-              continue;
-            const double time =
-                std::lerp(segment.start_hour, segment.end_hour, t);
-            const float fade =
-                float(std::clamp(1 - (now - time) / history_hours, 0., 1.));
-            const auto tint =
-                opacity(highlight, (105 + 65 * detail) * fade * fade * limb);
-            const float radius = 1.1f + .55f * detail;
-            if (has_sprite) {
-              const float halo = radius * 2.8f;
-              draw.AddImage(
-                  atlas.TexRef, {at.x - halo, at.y - halo},
-                  {at.x + halo, at.y + halo}, grain.uv0, grain.uv1,
-                  opacity(color, (35 + 30 * detail) * fade * fade * limb));
-              draw.AddImage(atlas.TexRef, {at.x - radius, at.y - radius},
-                            {at.x + radius, at.y + radius}, grain.uv0,
-                            grain.uv1, tint);
-            } else
-              draw.AddCircleFilled(at, radius * .5f, tint, 6);
+            point_at(p, hour);
+          }
+        };
+        if (history_hours > 96) {
+          const bool focused = selected && *selected == animal;
+          simulation.sample_trail_points(
+              animal, now, history_hours,
+              focused ? 128 : std::size_t(8 + 24 * detail), long_history);
+          Vec3 previous = heads[j].position;
+          double previous_hour = now;
+          point_at(previous, previous_hour);
+          for (const auto &point : long_history) {
+            if (point.connected_to_newer)
+              segment(previous, point.position, previous_hour, point.hour);
+            else {
+              flush();
+              point_at(point.position, point.hour);
+            }
+            previous = point.position;
+            previous_hour = point.hour;
+          }
+        } else {
+          simulation.sample_trail(animal, now, history_hours, history);
+          double previous_hour = -1e100;
+          for (const auto &part : history) {
+            if (std::abs(previous_hour - part.start_hour) > 1e-6) {
+              flush();
+              point_at(part.start, part.start_hour);
+            }
+            segment(part.start, part.end, part.start_hour, part.end_hour);
+            previous_hour = part.end_hour;
           }
         }
+        flush();
       }
     }
 
@@ -225,6 +242,9 @@ std::optional<AnimalId> draw_populations(
       const AnimalId animal{i, j};
       const auto point = positions[j];
       const auto &head = heads[j];
+      const ImU32 color =
+          species_color(species[colony.species].group, colony.species);
+      const ImU32 highlight = blend(color, ivory, .18f);
       const float limb = std::clamp(facing[j] * 4.0f, 0.0f, 1.0f);
       const float radius =
           std::lerp(1.10f, 1.95f, head.brightness) + .65f * detail;
@@ -258,8 +278,10 @@ std::optional<AnimalId> draw_populations(
                      position) &&
         inside(position, min, max, 5.0f)) {
       const auto index = colonies[selected->colony].species;
-      draw.AddCircle(position, 5.0f, species_color(species[index].group, index),
-                     16, 1.2f);
+      draw.AddCircle(
+          position, 5.0f,
+          species_color(species[index].group, index), 16,
+          1.2f);
     }
   }
   return nearest;

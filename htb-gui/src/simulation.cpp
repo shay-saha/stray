@@ -149,6 +149,37 @@ void Simulation::sample_trail(AnimalId animal, double hours,
                         sample_animal(animal, b).position, a, b});
   }
 }
+void Simulation::sample_trail_points(
+    AnimalId animal, double hours, double history_hours, std::size_t budget,
+    std::vector<AnimalTrailPoint> &points) const {
+  points.clear();
+  if (!budget || !std::isfinite(hours) || !std::isfinite(history_hours) ||
+      history_hours <= 0)
+    return;
+  const auto &track =
+      tracks_.at(members_.at(animal.colony).at(animal.individual));
+  const double span = std::min(history_hours, hours - track.hours.front());
+  if (span <= 0)
+    return;
+  Vec3 previous = sample_animal(animal, hours).position;
+  for (std::size_t sample = 1; sample <= budget; ++sample) {
+    const double age = double(sample) / budget;
+    const double at = hours - span * age * age * age;
+    if (at > track.hours.back())
+      continue;
+    const auto next =
+        std::upper_bound(track.hours.begin(), track.hours.end(), at);
+    if (next != track.hours.begin() && next != track.hours.end() &&
+        *next <= track.forecast_start_hour && *next - *(next - 1) > 6)
+      continue;
+    const auto p = sample_animal(animal, at).position;
+    if (std::hypot(double(p.x - previous.x), double(p.y - previous.y),
+                   double(p.z - previous.z)) < 1e-7)
+      continue;
+    points.push_back({p, at});
+    previous = p;
+  }
+}
 void Simulation::seek(double hours) {
   if (!std::isfinite(hours) || hours < 0)
     return;

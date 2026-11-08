@@ -98,6 +98,7 @@ std::optional<AnimalId> draw_populations(
   std::vector<ImVec2> positions;
   std::vector<float> facing;
   std::vector<AnimalTrailSegment> history;
+  std::vector<AnimalTrailPoint> long_history;
   std::optional<AnimalId> nearest;
   float nearest_distance = 8.0f * 8.0f;
 
@@ -139,6 +140,38 @@ std::optional<AnimalId> draw_populations(
                                  pixels_per_km <= 0.20f))
           continue;
         const float limb = std::clamp(facing[j] * 4.0f, 0.0f, 1.0f);
+        if (history_hours > 96) {
+          const bool focused = selected && *selected == AnimalId{i, j};
+          simulation.sample_trail_points(
+              {i, j}, now, history_hours,
+              focused ? 128 : std::size_t(8 + 16 * detail), long_history);
+          ImVec2 previous = positions[j];
+          for (const auto &point : long_history) {
+            ImVec2 at;
+            if (!view.project(point.position, at) || !inside(at, min, max, 2))
+              continue;
+            if (distance_squared(previous, at) < 9)
+              continue;
+            previous = at;
+            const float fade = float(
+                std::clamp(1 - (now - point.hour) / history_hours, 0., 1.));
+            const float radius = 1.1f + .55f * detail;
+            const auto tint =
+                opacity(highlight, (105 + 65 * detail) * fade * fade * limb);
+            if (has_sprite) {
+              const float halo = radius * 2.8f;
+              draw.AddImage(
+                  atlas.TexRef, {at.x - halo, at.y - halo},
+                  {at.x + halo, at.y + halo}, grain.uv0, grain.uv1,
+                  opacity(color, (35 + 30 * detail) * fade * fade * limb));
+              draw.AddImage(atlas.TexRef, {at.x - radius, at.y - radius},
+                            {at.x + radius, at.y + radius}, grain.uv0,
+                            grain.uv1, tint);
+            } else
+              draw.AddCircleFilled(at, radius * .5f, tint, 6);
+          }
+          continue;
+        }
         simulation.sample_trail({i, j}, now, history_hours, history);
         for (const auto &segment : history) {
           const auto a = segment.start, b = segment.end;

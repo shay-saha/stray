@@ -63,6 +63,10 @@ struct AnimalTrailSegment {
   Vec3 start, end;
   double start_hour, end_hour;
 };
+struct AnimalTrailPoint {
+  Vec3 position;
+  double hour;
+};
 Vec3 earth_position(float latitude_deg, float longitude_deg);
 float latitude_degrees(Vec3 position);
 float longitude_degrees(Vec3 position);
@@ -89,6 +93,9 @@ public:
   AnimalSample sample_animal(AnimalId animal, double hours) const;
   void sample_trail(AnimalId animal, double hours, double history_hours,
                     std::vector<AnimalTrailSegment> &segments) const;
+  void sample_trail_points(AnimalId animal, double hours, double history_hours,
+                           std::size_t budget,
+                           std::vector<AnimalTrailPoint> &points) const;
   void seek(double hours);
   bool replace_tracks(std::vector<TrackedAnimal> tracks, bool predicted,
                       std::vector<Species> catalog = {});

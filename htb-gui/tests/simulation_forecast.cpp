@@ -93,6 +93,15 @@ int main() {
         "Trail clips to exact time window");
   s.sample_trail({0, 0}, 0, 0, segments);
   check(segments.empty(), "Disabled trails produce no geometry");
+  std::vector<AnimalTrailPoint> points;
+  s.sample_trail_points({0, 0}, 6, 1000, 24, points);
+  check(!points.empty() && points.size() <= 24,
+        "Long histories respect their point budget");
+  for (const auto &p : points)
+    check(p.hour >= -1 && p.hour <= 6,
+          "Long trails preserve observed gaps and exclude future states");
+  s.sample_trail_points({0, 0}, 6, 1000, 0, points);
+  check(points.empty(), "Zero trail budget emits no samples");
   std::cout << "Observed identity, full-cohort counts, route interpolation and "
                "no-synthetic checks passed\n";
 }

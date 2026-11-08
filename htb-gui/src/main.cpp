@@ -100,6 +100,8 @@ int render_loop(GLFWwindow *window, RunMode mode, const char *executable,
     std::puts("Regional camera round-trip and zoom-anchor checks passed.");
   }
   wildlife::App app(executable);
+  if (const char *history = std::getenv("ATLAS_TEST_TRAIL_HOURS"))
+    app.test_trail_history(std::atof(history));
   if (const char *forecast = std::getenv("ATLAS_FORECAST")) {
     if (!app.load_forecast(forecast))
       return 1;

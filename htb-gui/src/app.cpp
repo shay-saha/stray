@@ -17,9 +17,31 @@ constexpr std::array speed_factors{0.01, 0.1,  0.25, 1.0,   2.0,
                                    4.0,  16.0, 64.0, 256.0, 1024.0};
 constexpr const char *speed_labels[] = {
     "0.01x", "0.1x", "0.25x", "1x", "2x", "4x", "16x", "64x", "256x", "1024x"};
-constexpr std::array trail_hours{0.0, 12.0, 48.0, 96.0};
-constexpr const char *trail_labels[] = {"Off", "12 hours", "48 hours",
-                                        "96 hours"};
+constexpr std::array trail_hours{0.0,
+                                 1.0,
+                                 3.0,
+                                 6.0,
+                                 12.0,
+                                 24.0,
+                                 48.0,
+                                 96.0,
+                                 7.0 * 24,
+                                 14.0 * 24,
+                                 30.0 * 24,
+                                 90.0 * 24,
+                                 182.625 * 24,
+                                 365.25 * 24,
+                                 2 * 365.25 * 24,
+                                 5 * 365.25 * 24,
+                                 10 * 365.25 * 24,
+                                 25 * 365.25 * 24,
+                                 50 * 365.25 * 24};
+constexpr const char *trail_labels[] = {
+    "Off",     "1 hour",   "3 hours",  "6 hours", "12 hours",
+    "1 day",   "2 days",   "4 days",   "1 week",  "2 weeks",
+    "1 month", "3 months", "6 months", "1 year",  "2 years",
+    "5 years", "10 years", "25 years", "50 years"};
+static_assert(trail_hours.size() == std::size(trail_labels));
 constexpr double simulated_hours_per_second = 6.0;
 constexpr float wheel_zoom_factor = 1.24f;
 constexpr float click_zoom_factor = 1.65f;
@@ -637,6 +659,12 @@ void App::focus(Vec3 position, float zoom) {
   rotation_resume_time_ = ImGui::GetTime() + 4.0;
 }
 
+void App::test_trail_history(double hours) {
+  const auto found =
+      std::lower_bound(trail_hours.begin(), trail_hours.end(), hours);
+  trail_index_ = int(std::min<std::size_t>(found - trail_hours.begin(),
+                                           trail_hours.size() - 1));
+}
 void App::test_zoom(float zoom) {
   globe_zoom_ = std::clamp(zoom, min_zoom, max_zoom);
   target_zoom_ = globe_zoom_;

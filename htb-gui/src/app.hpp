@@ -19,6 +19,7 @@ public:
   void focus_population();
   bool focus_dots(std::string_view name, float zoom = max_zoom);
   void test_zoom(float zoom);
+  void test_trail_history(double hours);
   bool load_forecast(const std::string &path);
   bool model_ready() const {
     return forecast_.predicted() && simulation_.animal_count() > 0;
@@ -68,7 +69,7 @@ private:
   float target_zoom_ = 1.0f;
   float terrain_angle_ = 28.0f;
   int speed_index_ = 3;
-  int trail_index_ = 1;
+  int trail_index_ = 4;
   bool paused_ = true;
   bool auto_rotate_ = false;
   bool night_view_ = false;

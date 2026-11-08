@@ -4,11 +4,11 @@
 
 A native C++ atlas powered by animal movement models and real GPS histories. Explore animal cohorts, follow their trails, and move from the globe to satellite terrain.
 
-![Stray's 3D Earth with species-colored animals and one week of migration trails](docs/screenshots/stray-hero.png)
+![Stray's 3D Earth with species-colored animals and one week of migration trails](docs/submission/01-stray-earth-cover.png)
 
 - **Forecast on your GPU.** Continuous local CUDA inference, with precomputed scenarios available for uninterrupted playback.
 
-![Animal cohorts and continuous glowing trails over satellite terrain in Utah](docs/screenshots/stray-regional.png)
+![Animal cohorts and continuous glowing trails over satellite terrain in Utah](docs/submission/03-stray-utah-cohorts.png)
 
 ## Run locally
 
@@ -40,7 +40,7 @@ Press **Play** and choose a speed. Omit `ATLAS_FORECAST` to start continuous loc
 | [Atlas](htb-gui/README.md)    | C++20/OpenGL desktop viewer, playback controls and inference integration |
 | [Stray models](htb/README.md) | Model architecture, data preparation, training and evaluation            |
 
-[Controls and setup](htb-gui/README.md) · [Model and data provenance](htb-gui/docs/model-deployment.md) · [Rendering details](htb-gui/docs/rendering.md) · [Screenshot captures](docs/screenshots/README.md)
+[Controls and setup](htb-gui/README.md) · [Model and data provenance](htb-gui/docs/model-deployment.md) · [Rendering details](htb-gui/docs/rendering.md) · [Screenshots and figures](docs/submission/README.md)
 
 The demo is a recursive model scenario, not a validated 50-year ecological forecast. Markers represent recorded animal identities; cohorts group studies and taxa rather than verified biological colonies. Taxon labels include some classifications above or below species level.
 

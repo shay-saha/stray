@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-stray-earth-cover.png",
+    "bytes": 948974,
+    "sha256": "071f91a1f37d62270609007bf8c78898dd5f68258fa5f3d3fb145ff0f3ab9810"
+  },
+  {
+    "file": "02-stray-europe-africa.png",
+    "bytes": 1652104,
+    "sha256": "e8f9beafe78e3f3b87abc4704fb7eac7ee77ce55babdb74121e4c93f9f37d2b3"
+  },
+  {
+    "file": "03-stray-utah-cohorts.png",
+    "bytes": 2196383,
+    "sha256": "f2a09d9412345812a6c5384521f7684fb3244a24774aa0a0646049b5d29fda8b"
+  },
+  {
+    "file": "04-stray-north-america.png",
+    "bytes": 1549804,
+    "sha256": "3add5ddfb130d1e7060860f9bb0964c922d6d5b5252deb3717d28e1dccc5ccff"
+  },
+  {
+    "file": "05-stray-bird-migration.png",
+    "bytes": 1701999,
+    "sha256": "5dc69b52be9510f935ce994cb3205f140a1f450522f2a48d537f7c98df110df1"
+  },
+  {
+    "file": "06-stray-model-architecture.png",
+    "bytes": 224751,
+    "sha256": "0cf41d5098a947dc31771996d7aca339230b7bcd4c15d7d7be3d644cd3d2c664"
+  },
+  {
+    "file": "07-stray-location-error.png",
+    "bytes": 174749,
+    "sha256": "46735a2febc16f672e34bc878fcaaeb0a2ed9ee4f00f6a3fcc4c805af5bd1843"
+  },
+  {
+    "file": "08-stray-validation-splits.png",
+    "bytes": 185621,
+    "sha256": "b097a6d6ba87aa82127feb4fcd5980788d3c6786b3c36d61ede9fcd6097373bb"
+  }
+]

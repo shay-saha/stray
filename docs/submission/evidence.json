@@ -1,0 +1,106 @@
+{
+  "source_report": "htb/reports/migration-delivery-v1-public/metrics.json",
+  "source_sha256": "903ac2ee0956892cd96f8d0d824ae9b529629aa29a5e1d2ca0a9416186d87dbd",
+  "scope": "Matched local endpoint-only development; no official benchmark claim",
+  "horizons_days": [
+    0.041666666666666664,
+    0.5,
+    1.0
+  ],
+  "forecast_origins": 4096,
+  "observed_targets": 8831,
+  "samples_per_origin": 64,
+  "seed": 2026,
+  "aggregation": "Equal physical/exclusion identity weight within species, then species and horizon; equal split weight for the combined chart.",
+  "rows": [
+    {
+      "model": "MoveFormer-short",
+      "split": "val_individual",
+      "endpoint_energy_km": 9.923100145921326,
+      "point_error_km": 15.629861559862485,
+      "radial_coverage50": 0.4493851462019391,
+      "radial_coverage90": 0.8509619361338968,
+      "within_1km": 0.4864672570303176,
+      "within_10km": 0.8200077335536177,
+      "within_100km": 0.9596527211910644
+    },
+    {
+      "model": "MoveFormer-short",
+      "split": "val_year",
+      "endpoint_energy_km": 16.348632606445424,
+      "point_error_km": 23.759108660096995,
+      "radial_coverage50": 0.47308953270547277,
+      "radial_coverage90": 0.8385910498159038,
+      "within_1km": 0.47280664222811764,
+      "within_10km": 0.7659723849688769,
+      "within_100km": 0.924180284728239
+    },
+    {
+      "model": "current-ensemble",
+      "split": "val_individual",
+      "endpoint_energy_km": 7.845592779448469,
+      "point_error_km": 11.005431676316698,
+      "radial_coverage50": 0.6599323178479484,
+      "radial_coverage90": 0.9016272092030512,
+      "within_1km": 0.42675484080487425,
+      "within_10km": 0.8415936884315239,
+      "within_100km": 0.9758638794542446
+    },
+    {
+      "model": "current-ensemble",
+      "split": "val_year",
+      "endpoint_energy_km": 12.178675487763813,
+      "point_error_km": 16.32430922798698,
+      "radial_coverage50": 0.6553553083535508,
+      "radial_coverage90": 0.8930614070750735,
+      "within_1km": 0.40657416072648606,
+      "within_10km": 0.7666600952838373,
+      "within_100km": 0.9576211263023647
+    }
+  ],
+  "mean_point_error_km": {
+    "current-ensemble": 13.664870452151838,
+    "MoveFormer-short": 19.69448510997974
+  },
+  "relative_reduction_percent": 30.615751689657177,
+  "checkpoints": [
+    {
+      "path": "runs/migration-delivery-v1-snapshots/current-ensemble/best.pt",
+      "sha256": "2076b59bd714d0745b4781d1e97657dca28591bfd2951f5058aaee5c0775f819",
+      "model_kind": "wildcast_migration_ensemble",
+      "selection_version": "migration-ensemble-physical-crossfit-v1",
+      "supported_horizons_days": null,
+      "independent_horizon_draws": null,
+      "code_sha256": "bc0287e1b097232fdf79d81f190d19683c65f28d7b3c74b41c0ce30461cf6869",
+      "adapter_sha256": null,
+      "prediction_code_sha256": null,
+      "author": null
+    },
+    {
+      "path": "runs/migration-delivery-v1-snapshots/MoveFormer-short/best.pt",
+      "sha256": "4a972043dee4b457900a8b346e03912490c6a06dccbc7793b2661c0699e373ac",
+      "model_kind": "wildcast_migration_moveformer_endpoint",
+      "selection_version": "migration-moveformer-endpoint-physical-v1",
+      "supported_horizons_days": null,
+      "independent_horizon_draws": null,
+      "code_sha256": "ec97b2f6790d73e269ac8ee0f46b4eeb726f915e51809272770be33e3cc721d0",
+      "adapter_sha256": null,
+      "prediction_code_sha256": null,
+      "author": null
+    }
+  ],
+  "notes": [
+    "Every reference uses the identical frozen origins, actual-target masks and selected horizons.",
+    "No evaluation outcome is filtered by predicted displacement, raster support or missing context.",
+    "Point error is the great-circle miss of the spherical sample mean; energy and radial coverage are separate metrics.",
+    "Aggregation gives equal physical/exclusion identity weight within species, then species and horizon.",
+    "Bootstrap resamples recorded identities within species; it does not establish independent geographic or species transfer.",
+    "Predictors receive training experience and current query histories; all held-out target arrays and other held-out histories are zero.",
+    "This report contains no joint migration-route metric. Short independent endpoint references do not claim seasonal route skill."
+  ],
+  "architecture_source": [
+    "htb/wildcast/migration_model.py",
+    "htb/wildcast/migration_ensemble.py",
+    "htb/presentations/wildcast-brief/evidence.json"
+  ]
+}

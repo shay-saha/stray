@@ -1,0 +1,75 @@
+[
+  {
+    "file": "01-stray-earth-cover.png",
+    "day": 180,
+    "location": "24,-24",
+    "zoom": 1.06,
+    "trail_hours": 168,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "bytes": 948974,
+    "sha256": "071f91a1f37d62270609007bf8c78898dd5f68258fa5f3d3fb145ff0f3ab9810",
+    "render_log": "OpenGL renderer: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2\nRendered 240 model forecast frames at 1920x1080 in 1.954 s (122.8 FPS, peak 59858 ImGui vertices/frame).\nCPU frame build: 7.29 ms | GL submission: 0.54 ms\nObserved animals: 6834 | Cohorts: 165 | Catalog taxa: 118 | Zoom: 1.1 / 160.0\nScenario generation: -1"
+  },
+  {
+    "file": "02-stray-europe-africa.png",
+    "day": 180,
+    "location": "29,12",
+    "zoom": 2.0,
+    "trail_hours": 168,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "bytes": 1652104,
+    "sha256": "e8f9beafe78e3f3b87abc4704fb7eac7ee77ce55babdb74121e4c93f9f37d2b3",
+    "render_log": "OpenGL renderer: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2\nRendered 240 model forecast frames at 1920x1080 in 0.903 s (265.6 FPS, peak 31498 ImGui vertices/frame).\nCPU frame build: 3.22 ms | GL submission: 0.28 ms\nObserved animals: 6834 | Cohorts: 165 | Catalog taxa: 118 | Zoom: 2.0 / 160.0\nScenario generation: -1"
+  },
+  {
+    "file": "03-stray-utah-cohorts.png",
+    "day": 7,
+    "location": "40.25,-111.5",
+    "zoom": 32,
+    "stream": true,
+    "trail_hours": 168,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "bytes": 2196383,
+    "sha256": "f2a09d9412345812a6c5384521f7684fb3244a24774aa0a0646049b5d29fda8b",
+    "render_log": "OpenGL renderer: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2\nRendered 240 model forecast frames at 1920x1080 in 4.236 s (56.7 FPS, peak 27282 ImGui vertices/frame).\nCPU frame build: 16.72 ms | GL submission: 0.55 ms\nObserved animals: 6834 | Cohorts: 165 | Catalog taxa: 118 | Zoom: 32.0 / 160.0\nScenario generation: -1"
+  },
+  {
+    "file": "04-stray-north-america.png",
+    "day": 90,
+    "location": "40,-101",
+    "zoom": 2.8,
+    "trail_hours": 168,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "bytes": 1549804,
+    "sha256": "3add5ddfb130d1e7060860f9bb0964c922d6d5b5252deb3717d28e1dccc5ccff",
+    "render_log": "OpenGL renderer: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2\nRendered 240 model forecast frames at 1920x1080 in 1.201 s (199.9 FPS, peak 42838 ImGui vertices/frame).\nCPU frame build: 4.35 ms | GL submission: 0.35 ms\nObserved animals: 6834 | Cohorts: 165 | Catalog taxa: 118 | Zoom: 2.8 / 160.0\nScenario generation: -1"
+  },
+  {
+    "file": "05-stray-bird-migration.png",
+    "day": 180,
+    "location": "43,10",
+    "zoom": 6,
+    "stream": true,
+    "species": "Ciconia ciconia",
+    "trail_hours": 168,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "bytes": 1701999,
+    "sha256": "5dc69b52be9510f935ce994cb3205f140a1f450522f2a48d537f7c98df110df1",
+    "render_log": "OpenGL renderer: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2\nRendered 240 model forecast frames at 1920x1080 in 0.798 s (300.6 FPS, peak 16290 ImGui vertices/frame).\nCPU frame build: 2.74 ms | GL submission: 0.19 ms\nObserved animals: 6834 | Cohorts: 165 | Catalog taxa: 118 | Zoom: 6.0 / 160.0\nScenario generation: -1"
+  }
+]

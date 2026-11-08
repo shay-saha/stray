@@ -1,0 +1,8 @@
+{
+  "title": "Local observed wildlife GPS",
+  "sources": [
+    "../models/server-repaired-v2/data/observations.parquet"
+  ],
+  "identity_rule": "Use reported source animal IDs exactly; do not infer aliases from proximity",
+  "cohort_rule": "Study and scientific species; not confirmed biological colonies"
+}

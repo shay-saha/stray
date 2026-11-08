@@ -1,0 +1,9 @@
+/build/
+/cmake-build-*/
+.DS_Store
+imgui.ini
+/runs/
+__pycache__/
+*.pyc
+/third_party/cesium-native/
+/models/

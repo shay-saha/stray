@@ -12,6 +12,48 @@ Vec3 unit(Vec3 p) {
   const double length = std::hypot(double(p.x), double(p.y), double(p.z));
   return {float(p.x / length), float(p.y / length), float(p.z / length)};
 }
+
+// Shape-preserving cubic Hermite interpolation on Earth-centered coordinates.
+// Nonuniform horizon times matter: a one-hour knot must not use the same
+// velocity as its neighboring thirty-day interval. Component-wise slope
+// limits prevent cubic overshoot; normalization keeps the result on Earth.
+std::vector<Vec3> bird_tangents(const TrackedAnimal &track) {
+  if (track.group != AnimalGroup::Bird || track.hours.size() < 3)
+    return {};
+  const auto count = track.hours.size();
+  std::vector<Vec3> result(count);
+  const auto valid = [&](std::size_t end) {
+    return track.hours[end] > track.forecast_start_hour ||
+           track.hours[end] - track.hours[end - 1] <= 6;
+  };
+  const auto slope = [](double a, double b, double ha, double hb) {
+    if (a * b <= 0)
+      return 0.;
+    const double wa = 2 * hb + ha, wb = hb + 2 * ha;
+    return (wa + wb) / (wa / a + wb / b);
+  };
+  const auto endpoint = [](double a, double b, double ha, double hb) {
+    const double m = ((2 * ha + hb) * a - ha * b) / (ha + hb);
+    if (m * a <= 0)
+      return 0.;
+    return a * b <= 0 && std::abs(m) > 3 * std::abs(a) ? 3 * a : m;
+  };
+  for (std::size_t k = 0; k < count; ++k) {
+    const auto component = [&](float Vec3::*channel) {
+      const std::size_t i = k == 0 ? 1 : k == count - 1 ? count - 2 : k;
+      const double ha = track.hours[i] - track.hours[i - 1];
+      const double hb = track.hours[i + 1] - track.hours[i];
+      const double a = valid(i) ?
+          (track.positions[i].*channel - track.positions[i - 1].*channel) / ha : 0;
+      const double b = valid(i + 1) ?
+          (track.positions[i + 1].*channel - track.positions[i].*channel) / hb : 0;
+      return float(k == 0 ? endpoint(a, b, ha, hb) :
+                   k == count - 1 ? endpoint(b, a, hb, ha) : slope(a, b, ha, hb));
+    };
+    result[k] = {component(&Vec3::x), component(&Vec3::y), component(&Vec3::z)};
+  }
+  return result;
+}
 } // namespace
 Vec3 earth_position(float lat, float lon) {
   const double a = lat * rad, b = lon * rad;
@@ -77,7 +119,12 @@ bool Simulation::replace_tracks(std::vector<TrackedAnimal> tracks,
     members[cohort->second].push_back(i);
     ++colonies[cohort->second].population;
   }
+  std::vector<std::vector<Vec3>> tangents;
+  tangents.reserve(tracks.size());
+  for (const auto &track : tracks)
+    tangents.push_back(bird_tangents(track));
   tracks_ = std::move(tracks);
+  movement_tangents_ = std::move(tangents);
   species_ = std::move(species);
   colonies_ = std::move(colonies);
   members_ = std::move(members);
@@ -90,8 +137,8 @@ bool Simulation::replace_tracks(std::vector<TrackedAnimal> tracks,
 }
 
 AnimalSample Simulation::sample_animal(AnimalId animal, double hours) const {
-  const auto &track =
-      tracks_.at(members_.at(animal.colony).at(animal.individual));
+  const auto index = members_.at(animal.colony).at(animal.individual);
+  const auto &track = tracks_.at(index);
   const auto next =
       std::upper_bound(track.hours.begin(), track.hours.end(), hours);
   Vec3 p;
@@ -107,6 +154,20 @@ AnimalSample Simulation::sample_animal(AnimalId animal, double hours) const {
     p = {float(std::lerp(double(a.x), double(b.x), t)),
          float(std::lerp(double(a.y), double(b.y), t)),
          float(std::lerp(double(a.z), double(b.z), t))};
+    const auto &tangents = movement_tangents_[index];
+    const double duration = track.hours[i] - track.hours[i - 1];
+    const bool observation_gap = track.hours[i] <= track.forecast_start_hour &&
+                                 duration > 6;
+    if (!tangents.empty() && !observation_gap) {
+      const auto ma = tangents[i - 1], mb = tangents[i];
+      const double aa = (2 * t - 3) * t * t + 1;
+      const double ab = (-2 * t + 3) * t * t;
+      const double ba = ((t - 2) * t + 1) * t * duration;
+      const double bb = (t - 1) * t * t * duration;
+      p = {float(aa * a.x + ab * b.x + ba * ma.x + bb * mb.x),
+           float(aa * a.y + ab * b.y + ba * ma.y + bb * mb.y),
+           float(aa * a.z + ab * b.z + ba * ma.z + bb * mb.z)};
+    }
     if (std::hypot(p.x, p.y, p.z) < 1e-6)
       p = t < .5 ? a : b;
     else

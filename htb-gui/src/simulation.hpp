@@ -116,6 +116,7 @@ private:
   std::vector<Species> species_;
   std::vector<Colony> colonies_;
   std::vector<TrackedAnimal> tracks_;
+  std::vector<std::vector<Vec3>> movement_tangents_;
   std::vector<std::vector<std::size_t>> members_;
   std::vector<Vec3> homes_;
 };

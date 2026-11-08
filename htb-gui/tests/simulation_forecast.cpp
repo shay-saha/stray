@@ -121,6 +121,46 @@ int main() {
   for (const auto &p : points)
     check(p.connected_to_newer,
           "Model horizons remain connected even when more than six hours apart");
+  TrackedAnimal bird{
+      "bird-tag", "Ciconia ciconia", "White stork", "study", "study",
+      AnimalGroup::Bird, {0, 1, 12, 72},
+      {earth_position(10, 179), earth_position(11, -179),
+       earth_position(15, -178), earth_position(12, -175)}};
+  bird.forecast_start_hour = 0;
+  check(s.replace_tracks({bird}, true), "Bird forecast should load");
+  s.sample_trail_points({0, 0}, 72, 72, 32, points);
+  check(points.size() == 3 && points[0].hour == 12 &&
+            points[1].hour == 1 && points[2].hour == 0,
+        "Short model windows must retain every real horizon without redundant samples");
+  const auto delta = [](Vec3 a, Vec3 b) {
+    return Vec3{a.x - b.x, a.y - b.y, a.z - b.z};
+  };
+  const auto length = [](Vec3 p) { return std::hypot(p.x, p.y, p.z); };
+  for (std::size_t k = 0; k < bird.hours.size(); ++k)
+    check(length(delta(s.sample_animal({0, 0}, bird.hours[k]).position,
+                       bird.positions[k])) < 1e-6,
+          "Smoothing must retain every model position at its exact horizon");
+  for (const double knot : {1., 12.}) {
+    const auto at = s.sample_animal({0, 0}, knot).position;
+    const auto before = delta(at, s.sample_animal({0, 0}, knot - .001).position);
+    const auto after = delta(s.sample_animal({0, 0}, knot + .001).position, at);
+    const double cosine = (double(before.x) * after.x +
+        double(before.y) * after.y + double(before.z) * after.z) /
+        (double(length(before)) * length(after));
+    check(cosine > .99, "Bird heading must be continuous through irregular horizons");
+    check(std::abs(length(before) / length(after) - 1) < .05,
+          "Bird speed must be continuous through irregular horizons");
+  }
+  for (double at = 0; at <= 72; at += .1) {
+    const auto p = s.sample_animal({0, 0}, at).position;
+    check(std::abs(length(p) - 1) < 1e-6,
+          "Smoothed movement must stay on Earth's surface");
+    check(latitude_degrees(p) >= 9.999 && latitude_degrees(p) <= 15.01,
+          "Smoothing must not overshoot the forecast's latitude envelope");
+  }
+  check(std::abs(std::abs(longitude_degrees(
+            s.sample_animal({0, 0}, .5).position)) - 180) < .5,
+        "Smooth bird flight must take the short arc across the antimeridian");
   std::cout << "Observed identity, full-cohort counts, route interpolation and "
                "no-synthetic checks passed\n";
 }

@@ -2,7 +2,7 @@
 
 **Follow animal migration across Earth.**
 
-A native C++ atlas powered by WildCast movement models and real GPS histories. Explore glowing animal cohorts, follow their trails, and move from the globe to satellite terrain.
+A native C++ atlas powered by animal movement models and real GPS histories. Explore glowing animal cohorts, follow their trails, and move from the globe to satellite terrain.
 
 ![Stray's 3D Earth with species-colored animals and one week of migration trails](docs/screenshots/stray-hero.png)
 
@@ -46,7 +46,7 @@ Press **Play** and choose a speed. Omit `ATLAS_FORECAST` to start continuous loc
 | Project | Contents |
 | --- | --- |
 | [Atlas](htb-gui/README.md) | C++20/OpenGL desktop viewer, playback controls and inference integration |
-| [WildCast](htb/README.md) | Model architecture, data preparation, training and evaluation |
+| [Stray models](htb/README.md) | Model architecture, data preparation, training and evaluation |
 
 [Controls and setup](htb-gui/README.md) · [Model and data provenance](htb-gui/docs/model-deployment.md) · [Rendering details](htb-gui/docs/rendering.md) · [Screenshot captures](docs/screenshots/README.md)
 

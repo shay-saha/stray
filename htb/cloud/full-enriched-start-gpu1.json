@@ -1,0 +1,32 @@
+{
+  "jobs": [
+    {
+      "name": "full-existing-moe",
+      "task": "full-moe-assemble",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/full-existing-moe",
+      "arguments": [
+        "--global-checkpoint",
+        "runs/cloud/full-existing-global/best-trained.pt",
+        "--specialists",
+        "cloud/full-existing-specialists.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    },
+    {
+      "name": "full-existing-gated",
+      "task": "full-moe-calibrate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/full-existing-gated",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/full-existing-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--steps",
+        "300"
+      ]
+    }
+  ]
+}

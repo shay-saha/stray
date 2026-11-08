@@ -1,0 +1,14 @@
+{
+  "ecology-strong-gated": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-strong-gated/best.pt"
+    ]
+  },
+  "ecology-strong-table-gated": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-strong-table-gated/best.pt"
+    ]
+  }
+}

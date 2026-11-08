@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "name": "migration-transfer-wyoming-goal_route-seed17",
+      "data": "data/migration-population-wyoming-v3",
+      "task": "migration-train",
+      "output": "runs/migration-transfer-wyoming-goal_route-seed17",
+      "arguments": [
+        "--variant",
+        "goal_route",
+        "--epochs",
+        "40",
+        "--patience",
+        "8",
+        "--batch-size",
+        "256",
+        "--width",
+        "128",
+        "--layers",
+        "2",
+        "--components",
+        "8",
+        "--validation-samples",
+        "32",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    },
+    {
+      "name": "migration-transfer-wyoming-history_direct-seed17",
+      "data": "data/migration-population-wyoming-v3",
+      "task": "migration-train",
+      "output": "runs/migration-transfer-wyoming-history_direct-seed17",
+      "arguments": [
+        "--variant",
+        "history_direct",
+        "--epochs",
+        "40",
+        "--patience",
+        "8",
+        "--batch-size",
+        "256",
+        "--width",
+        "128",
+        "--layers",
+        "2",
+        "--components",
+        "8",
+        "--validation-samples",
+        "32",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

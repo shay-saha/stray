@@ -1,0 +1,110 @@
+{
+  "jobs": [
+    {
+      "name": "vegetation-seed42",
+      "data": "data/combined-vegetation",
+      "output": "runs/cloud/vegetation-seed42",
+      "arguments": [
+        "--epochs",
+        "40",
+        "--patience",
+        "8",
+        "--batch-size",
+        "1024",
+        "--width",
+        "256",
+        "--layers",
+        "4",
+        "--components",
+        "12",
+        "--anchors",
+        "--preload",
+        "--init-checkpoint",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "--lr",
+        "0.00005",
+        "--stratified-energy",
+        "--energy-weight",
+        "1",
+        "--nll-weight",
+        "0.1",
+        "--precision",
+        "bf16",
+        "--driver-base-features",
+        "180",
+        "--seed",
+        "42"
+      ]
+    },
+    {
+      "name": "vegetation-seed42-validation",
+      "task": "evaluate",
+      "data": "data/combined-vegetation",
+      "output": "runs/cloud/vegetation-seed42-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/vegetation-seed42/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "vegetation-seed17",
+      "data": "data/combined-vegetation",
+      "output": "runs/cloud/vegetation-seed17",
+      "arguments": [
+        "--epochs",
+        "40",
+        "--patience",
+        "8",
+        "--batch-size",
+        "1024",
+        "--width",
+        "256",
+        "--layers",
+        "4",
+        "--components",
+        "12",
+        "--anchors",
+        "--preload",
+        "--init-checkpoint",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "--lr",
+        "0.00005",
+        "--stratified-energy",
+        "--energy-weight",
+        "1",
+        "--nll-weight",
+        "0.1",
+        "--precision",
+        "bf16",
+        "--driver-base-features",
+        "180",
+        "--seed",
+        "17"
+      ]
+    },
+    {
+      "name": "vegetation-seed17-validation",
+      "task": "evaluate",
+      "data": "data/combined-vegetation",
+      "output": "runs/cloud/vegetation-seed17-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/vegetation-seed17/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

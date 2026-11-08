@@ -1,0 +1,7 @@
+{
+  "jobs": [
+    {"name":"eval-medium","task":"evaluate","data":"data/v2","output":"runs/cloud/eval-medium","arguments":["--checkpoints","runs/cloud/v2-medium/best.pt","--splits","val_temporal","val_individual","--batch-size","512"]},
+    {"name":"eval-proper","task":"evaluate","data":"data/v2","output":"runs/cloud/eval-proper","arguments":["--checkpoints","runs/cloud/v2-proper-energy-all/best.pt","--splits","val_temporal","val_individual","--batch-size","512"]},
+    {"name":"eval-no-drivers","task":"evaluate","data":"data/v2","output":"runs/cloud/eval-no-drivers","arguments":["--checkpoints","runs/cloud/v2-no-drivers-control/best.pt","--splits","val_temporal","val_individual","--batch-size","512"]}
+  ]
+}

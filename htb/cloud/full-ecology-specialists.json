@@ -1,0 +1,13 @@
+{
+  "Accipitridae": "runs/cloud/full-ecology-Accipitridae/best-trained.pt",
+  "Antilocapridae": "runs/cloud/full-ecology-Antilocapridae/best-trained.pt",
+  "Cathartidae": "runs/cloud/full-ecology-Cathartidae/best-trained.pt",
+  "Cercopithecidae": "runs/cloud/full-ecology-Cercopithecidae/best-trained.pt",
+  "Ciconiidae": "runs/cloud/full-ecology-Ciconiidae/best-trained.pt",
+  "Diomedeidae": "runs/cloud/full-ecology-Diomedeidae/best-trained.pt",
+  "Elephantidae": "runs/cloud/full-ecology-Elephantidae/best-trained.pt",
+  "Equidae": "runs/cloud/full-ecology-Equidae/best-trained.pt",
+  "Felidae": "runs/cloud/full-ecology-Felidae/best-trained.pt",
+  "Gruidae": "runs/cloud/full-ecology-Gruidae/best-trained.pt",
+  "Phocidae": "runs/cloud/full-ecology-Phocidae/best-trained.pt"
+}

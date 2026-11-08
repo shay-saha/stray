@@ -1,0 +1,130 @@
+WILDCAST  |  3–5 MINUTE PRESENTATION
+
+Six main slides; target delivery about four minutes.
+
+Evidence is the frozen local development snapshot in evidence.json.
+
+
+
+SLIDE 1  |  0:00–0:20  |  Forecasting where animals move next
+
+WildCast predicts an individual animal's possible future locations, from one hour to ninety days. The goal is a frontier migration model. What we have today is a probabilistic movement model with an encouraging local benchmark result, broad training coverage, and a clear path to stronger evidence.
+
+
+
+SLIDE 2  |  0:20–1:00  |  The dataset and the inputs
+
+We reviewed 34.8 million position observations from public tracking studies. The corrected training set contains about 800,000 forecast origins across 108 taxon labels: 107 species names and one tortoise family label. Training data represents 131 study labels, including terrestrial animals, birds and some marine species. Our current leader takes observed GPS history, species and time. Season, recent velocity and daylight are derived from that history. Weather, currents, habitat, age and sex are not yet inputs to the leading model. Missing observations remain explicitly missing, and future positions are never interpolated into training labels.
+
+
+
+SLIDE 3  |  1:00–1:45  |  How the architecture works
+
+We encode the animal's observed history at 29 lag slots, covering minutes through a year, together with masks, species and 22 derived features. Four predictors use causal Transformer history encoders: two forecast locations directly, and two parameterize a route through a possible destination. Each predicts an eight-component joint distribution across nine horizons. A learned ensemble selects a predictor for each complete sampled route. This lets us retain different plausible destinations and dependence between future times, rather than forcing one average path. The complete ensemble contains about 35 million parameters.
+
+
+
+SLIDE 4  |  1:45–2:30  |  What the comparison shows
+
+For a controlled local comparison, every method forecast the same 4,096 origins at one hour, twelve hours and one day, with 64 samples. The ensemble's endpoint energy score is 10.18 kilometres, versus 11.08 for a correlated random walk and 12.26 for the deepSSF adaptation. Lower scores mean better predicted distributions. That is about eight percent and seventeen percent lower, respectively. These are development results from local method adaptations. Ensemble weights used development data, and this is not an official MoveBench ranking or an independent final test.
+
+
+
+SLIDE 5  |  2:30–3:10  |  Why the design may help
+
+The design combines recent movement and seasonal context, represents several possible futures, and mixes direct and destination-based predictors. The evidence for combining predictors is specific: on this same panel, the ensemble improves the score by 2.9 percent over our strongest single model. Most of that improvement is in the unseen-animal split; the held-out-year gain is small and uncertain. The architectural mechanisms are plausible explanations, but we still need controlled ablations to establish which features cause the gain. We cannot claim that every component independently outperforms every alternative.
+
+
+
+SLIDE 6  |  3:10–4:00  |  Constraints and the next improvements
+
+The main constraints are incomplete environmental and demographic inputs, uneven species and regional coverage, and limited independent evaluation. Movement observations also do not always identify active migration. Human built-up maps are being tested with controls; completed adaptation attempts have not improved the leader. Next, we need a frozen independent test and stronger public comparisons, then issue-available weather, ocean conditions, habitat and infrastructure, with reliable age and sex metadata. We should expand independent marine populations and check uncertainty under geographic and temporal shift. The claim today is a useful, fast model with promising local gains, while frontier superiority remains to be demonstrated.
+
+
+
+PRESENTATION GUARDRAILS
+
+Say '108 training taxon labels':107 species names plus one family label.
+
+Say 'lower endpoint energy on our matched local development panel', rather than 'best in the world'.
+
+The8.1% and17.0% figures are relative reductions in energy, not accuracy percentages.
+
+Do not compare the short-panel10.18km score with an all-horizon score as though they were the same benchmark.
+
+Environment/demographics are not inputs to the current delivered leader. Human built-up trials are separate.
+
+Ensemble weights used development data; final test targets remain sealed.
+
+
+
+QUICK QUESTIONS AND ANSWERS
+
+Why could the model help?
+
+Its design combines observed movement memory, season, multiple future modes and complementary predictors. Their individual causal contribution still needs controlled ablations.
+
+
+
+What does10.18km mean?
+
+It is an endpoint energy distribution score averaged over species/identity/horizon strata and two validation splits. Mean point error for the same ensemble panel is about13.84km. Neither number is distance travelled or metabolic energy.
+
+
+
+How good is one-hour prediction?
+
+On the full corrected development evaluation, the strongest single model's one-hour mean location errors are about3.22km for unseen animals and3.26km for the held-out year. The stationary baseline is about3.23/3.21km, so short-horizon advantage is limited and varies by cohort. The ensemble's final all-horizon comparison is still pending.
+
+
+
+Is this a whole-earth simulator?
+
+It forecasts conditional individual trajectories. It still needs initial populations, interactions, habitat constraints and validated recursive rollouts for a global population simulation.
+
+
+
+Which marine animals are trained?
+
+Examples include Chelonia mydas, Eretmochelys imbricata, Halichoerus grypus, Physeter macrocephalus and seabirds. The taxon inventory provides all108 labels. This does not establish broad coverage of sharks, fish or other missing marine groups.
+
+
+
+Can human infrastructure affect migration?
+
+Yes as a scientific mechanism, but a causal effect is not established by this model. Our current experiment uses retrospective GHSL built-up surface with dated metadata and matched controls; it is not a complete road/fence/barrier layer. Completed adaptation trials have not improved the leader.
+
+
+
+Can it run locally?
+
+The warm four-model ensemble took about41ms for108 prepared tracks on an RTX4060 Laptop GPU with8GB VRAM, generating64 futures at9 horizons. This excludes raw-track preparation and checkpoint loading.
+
+
+
+What are the next priorities?
+
+Independent assessment and comparable public runs; then issue-available weather/ocean/habitat/infrastructure and verified deployment traits; then broader independent populations and calibration/transfer checks.
+
+
+
+SOURCES
+
+evidence.json contains report and checkpoint fingerprints.
+
+study-inventory.csv lists actual study contributions by split.
+
+taxon-inventory.csv lists training labels and training-origin counts.
+
+Matched comparison: reports/migration-public-panel-v1/metrics.json
+
+Full development: reports/migration-repaired-dev-combined-v1/metrics.json
+
+Model: wildcast/migration_model.py; wildcast/migration_ensemble.py
+
+Inputs: wildcast/migration_repaired_features.py
+
+MoveFormer primary source: https://github.com/cifkao/moveformer
+
+deepSSF primary source: https://github.com/swforrest/deepSSF_package
+

@@ -1,0 +1,70 @@
+{
+  "wildcast-brief": {
+    "pdf_pages": 6,
+    "pdf_bytes": 350499,
+    "tag_root": "null",
+    "pptx_slides": 6,
+    "notes_on_every_slide": true
+  },
+  "wildcast-with-technical-backup": {
+    "pdf_pages": 10,
+    "pdf_bytes": 391617,
+    "tag_root": "null",
+    "pptx_slides": 10,
+    "notes_on_every_slide": true
+  },
+  "files": {
+    "wildcast-brief.pptx": {
+      "bytes": 128073,
+      "sha256": "2790487442c31edf57dc58dd9c16a9b299e812555edc65bb690499713af4c158"
+    },
+    "wildcast-brief.pdf": {
+      "bytes": 350499,
+      "sha256": "6e4b61444826de8136e4362ab2ef7116c023586eb31a5a570e4f79ac7518c8eb"
+    },
+    "wildcast-with-technical-backup.pptx": {
+      "bytes": 141224,
+      "sha256": "3009bbc1a9713c595d4f96f6fd60cc27852c2fd8ecf38b11be572f5ce29dc713"
+    },
+    "wildcast-with-technical-backup.pdf": {
+      "bytes": 391617,
+      "sha256": "404341c276032f003884ed03b0bd9934586cad08f5b91c59f8468aa3050b3614"
+    },
+    "technical-backup.pdf": {
+      "bytes": 369023,
+      "sha256": "55b4265cd2c8d20e4e1815ab031196a8844779d429d787d014e8478ef291f0f4"
+    },
+    "speaker-notes.txt": {
+      "bytes": 7435,
+      "sha256": "80847b73be6d9380659f1b63e6fc5a30f83d42a2e6b79e38205c636c2ee139d0"
+    },
+    "evidence.json": {
+      "bytes": 2781,
+      "sha256": "5bd0f7c6e0db718d961e500803a2eaedda8689789829408376fa68770c267cd6"
+    },
+    "study-inventory.csv": {
+      "bytes": 22681,
+      "sha256": "7e21d8d47f7b9103be2bdbb328b7563a1c278be7766a71261253a2c76642436b"
+    },
+    "taxon-inventory.csv": {
+      "bytes": 4114,
+      "sha256": "11c59f6effe08a223e6308d8c581456a153e442d06524f9779c40e2859883f3d"
+    },
+    "benchmark-chart.png": {
+      "bytes": 86437,
+      "sha256": "434f544802d07910b8aef01ea32c217f274a1c92288dc8263fe3db6f19391814"
+    },
+    "benchmark-chart.pdf": {
+      "bytes": 16826,
+      "sha256": "155c3e6af3dc063fc0b6fc4767702f5fa26c7b539d76f1745ff18665fa49a5df"
+    },
+    "benchmark-chart.svg": {
+      "bytes": 32580,
+      "sha256": "bc03f875476139d584f46eb5eb89d94d75d70781441fb00bba28c4792ef4d672"
+    },
+    "build_deck.py": {
+      "bytes": 31025,
+      "sha256": "1659e4637add334d3a725f9df6031e3b73578a2910a81ca0d8407dc20a1ebfef"
+    }
+  }
+}

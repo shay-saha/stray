@@ -1,0 +1,38 @@
+{
+  "jobs": [
+    {
+      "name": "trajectory-joint-ensemble",
+      "task": "trajectory-prior-ensemble",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-joint-ensemble",
+      "arguments": [
+        "--cache",
+        "runs/cloud/trajectory-memory-cache",
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt"
+      ]
+    },
+    {
+      "name": "trajectory-joint-ensemble-validation",
+      "task": "trajectory-evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-joint-ensemble-validation",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/trajectory-joint-ensemble/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--samples",
+        "64",
+        "--batch-size",
+        "32",
+        "--baseline-checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt"
+      ]
+    }
+  ]
+}

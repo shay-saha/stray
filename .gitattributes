@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ttf binary
+*.pdf binary
+*.pptx binary
+*.tar.gz binary
+htb/third_party/** -whitespace
+htb/presentations/** -whitespace
+htb-gui/assets/Urbanist-OFL.txt -whitespace

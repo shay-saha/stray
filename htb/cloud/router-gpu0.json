@@ -1,0 +1,75 @@
+{
+  "jobs": [
+    {
+      "name": "router-bank",
+      "task": "router-bank",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-bank",
+      "arguments": [
+        "--base-data",
+        "data/combined-memory",
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt",
+        "--samples",
+        "32"
+      ]
+    },
+    {
+      "name": "router-global",
+      "task": "router-fit",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-global",
+      "arguments": [
+        "--bank",
+        "runs/cloud/router-bank"
+      ]
+    },
+    {
+      "name": "router-global-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-global-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/router-global/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "router-conditional",
+      "task": "router-fit",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-conditional",
+      "arguments": [
+        "--bank",
+        "runs/cloud/router-bank",
+        "--conditional"
+      ]
+    },
+    {
+      "name": "router-conditional-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-conditional-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/router-conditional/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "name": "migration-dev-seasonal_static-seed17",
+      "data": "data/migration-dev-v1",
+      "task": "migration-train",
+      "output": "runs/migration-dev-seasonal_static-seed17",
+      "arguments": [
+        "--variant",
+        "seasonal_static",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "256",
+        "--width",
+        "96",
+        "--layers",
+        "2",
+        "--components",
+        "6",
+        "--validation-repeats",
+        "4",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    },
+    {
+      "name": "migration-dev-goal_route-seed17",
+      "data": "data/migration-dev-v1",
+      "task": "migration-train",
+      "output": "runs/migration-dev-goal_route-seed17",
+      "arguments": [
+        "--variant",
+        "goal_route",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "256",
+        "--width",
+        "96",
+        "--layers",
+        "2",
+        "--components",
+        "6",
+        "--validation-repeats",
+        "4",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

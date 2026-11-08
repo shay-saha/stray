@@ -1,0 +1,59 @@
+{
+  "jobs": [
+    {
+      "name": "full-ecology-strong-moe",
+      "task": "full-moe-assemble",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-strong-moe",
+      "arguments": [
+        "--global-checkpoint",
+        "runs/cloud/full-ecology-global/best-trained.pt",
+        "--specialists",
+        "cloud/full-ecology-specialists.json",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--shared-checkpoint",
+        "runs/cloud/router-global-audited/best.pt",
+        "--shared-data",
+        "data/combined-landscape"
+      ]
+    },
+    {
+      "name": "full-ecology-strong-gated",
+      "task": "full-moe-calibrate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-strong-gated",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/full-ecology-strong-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    },
+    {
+      "name": "full-ecology-strong-table-gated",
+      "task": "full-moe-calibrate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-strong-table-gated",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/full-ecology-strong-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--table-only"
+      ]
+    },
+    {
+      "name": "full-strong-comparison",
+      "task": "full-moe-evaluate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-model-strong-validation",
+      "arguments": [
+        "--experiments",
+        "cloud/full-strong-comparison-experiments.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    }
+  ]
+}

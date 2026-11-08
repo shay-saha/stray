@@ -1,0 +1,41 @@
+{
+  "deadline_plan": "cloud/migration-3hour-deadline-v1.json",
+  "status_file": "reports/migration-delivery-v1-status.json",
+  "data": "data/migration-multiscale-repaired-v2/result",
+  "snapshot_root": "runs/migration-delivery-v1-snapshots",
+  "job_root": "cloud/migration-delivery-v1-jobs",
+  "joint_report": "reports/migration-delivery-v1-joint",
+  "endpoint_report": "reports/migration-delivery-v1-public",
+  "fallback_endpoint_report": "reports/migration-public-panel-v1",
+  "existing_bundle": "artifacts/migration-current-ensemble-v1",
+  "new_bundle": "artifacts/migration-delivery-v1",
+  "new_archive": "artifacts/migration-delivery-v1.tar.gz",
+  "core": {
+    "current-ensemble": "runs/migration-repaired-ensemble-v1/best.pt",
+    "single-direct": "runs/migration-speed-v2-gpu0/scaled-history_direct/best.pt"
+  },
+  "context_recipes": [
+    {
+      "recipe": "migration-context-joint-v1",
+      "actual": "runs/migration-context-joint-v1-actual/best.pt",
+      "availability": "runs/migration-context-joint-v1-availability/best.pt"
+    },
+    {
+      "recipe": "migration-context-joint-frozen-v1",
+      "actual": "runs/migration-context-joint-frozen-v1-actual/best.pt",
+      "availability": "runs/migration-context-joint-frozen-v1-availability/best.pt"
+    },
+    {
+      "recipe": "migration-context-joint-scratch-v1",
+      "actual": "runs/migration-context-joint-scratch-v1-actual/best.pt",
+      "availability": "runs/migration-context-joint-scratch-v1-availability/best.pt"
+    }
+  ],
+  "public": {
+    "Gamma-vonMises-CRW": "runs/migration-public-crw-v1/best.pt",
+    "deepSSF": "runs/migration-public-deepssf-v1/best.pt",
+    "MoveFormer-short": "runs/migration-public-moveformer-v3/best.pt",
+    "iSSF-Linear": "runs/migration-public-issf-v2-linear/best.pt",
+    "iSSF-MLP": "runs/migration-public-issf-v2-mlp/best.pt"
+  }
+}

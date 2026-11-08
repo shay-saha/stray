@@ -1,0 +1,41 @@
+{
+  "scope": "Pinned public MoveFormer author-core retrained on corrected frozen training data; local adaptation, not official published-score reproduction",
+  "jobs": [
+    {
+      "name": "public-author-core-MoveFormer",
+      "output": "cloud/migration-public-moveformer-v1-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_moveformer_endpoint",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--output",
+        "runs/migration-public-moveformer-v1",
+        "--epochs",
+        "20",
+        "--patience",
+        "5",
+        "--width",
+        "128",
+        "--layers",
+        "6",
+        "--heads",
+        "8",
+        "--batch-size",
+        "256",
+        "--candidates",
+        "100",
+        "--inference-candidates",
+        "1024",
+        "--validation-candidates",
+        "256",
+        "--validation-samples",
+        "16",
+        "--max-validation-origins",
+        "4096",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

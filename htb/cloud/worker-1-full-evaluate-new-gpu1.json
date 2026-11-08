@@ -1,0 +1,30 @@
+{
+  "gpu": "1",
+  "started_unix": 1794095878.327248,
+  "jobs": [
+    {
+      "name": "full-new-comparison",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-ecology",
+        "full-moe-evaluate",
+        "--output",
+        "runs/cloud/full-model-ecology-validation",
+        "--experiments",
+        "cloud/full-new-comparison-experiments.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ],
+      "started_unix": 1794095878.3273802,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794095926.9067836
+    }
+  ],
+  "status": "complete",
+  "ended_unix": 1794095926.9075856
+}

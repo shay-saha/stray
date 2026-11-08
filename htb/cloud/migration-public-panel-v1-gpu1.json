@@ -1,0 +1,41 @@
+{
+  "scope": "First matched 4096-origin corrected development panel; 64 draws at 1h/12h/1d; locally retrained method adaptations, not official MoveBench scores",
+  "jobs": [
+    {
+      "name": "matched-public-panel-v1",
+      "output": "cloud/migration-public-panel-v1-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_endpoint_evaluate",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--output",
+        "reports/migration-public-panel-v1",
+        "--checkpoints",
+        "runs/migration-speed-v2-gpu0/scaled-history_direct/best.pt",
+        "runs/migration-repaired-ensemble-v1/best.pt",
+        "runs/migration-public-crw-v1/best.pt",
+        "runs/migration-public-panel-snapshots-v1/deepSSF/best.pt",
+        "--baselines",
+        "stationary",
+        "movement",
+        "--horizons-hours",
+        "1",
+        "12",
+        "24",
+        "--samples",
+        "64",
+        "--batch-size",
+        "64",
+        "--bootstrap-replicates",
+        "300",
+        "--max-origins",
+        "4096",
+        "--reference",
+        "scaled-history_direct",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

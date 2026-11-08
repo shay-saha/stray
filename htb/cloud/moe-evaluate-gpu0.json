@@ -1,0 +1,23 @@
+{
+  "jobs": [
+    {
+      "name": "moe-validation",
+      "task": "moe-evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-validation",
+      "arguments": [
+        "--cache",
+        "runs/cloud/moe-cache",
+        "--samples",
+        "64",
+        "--checkpoints",
+        "runs/cloud/moe-shared-control/best.pt",
+        "runs/cloud/moe-family/best.pt",
+        "runs/cloud/moe-shared-wide-control/best.pt",
+        "runs/cloud/moe-learned/best.pt",
+        "runs/cloud/moe-shared-calibration/best.pt",
+        "runs/cloud/moe-family-calibration/best.pt"
+      ]
+    }
+  ]
+}

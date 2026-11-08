@@ -1,0 +1,34 @@
+{
+  "jobs": [
+    {
+      "name": "migration-v3-residence-species_sqrt-seed73",
+      "data": "data/migration-expanded-dev-v3",
+      "task": "migration-train",
+      "output": "runs/migration-v3-residence-species_sqrt-seed73",
+      "arguments": [
+        "--variant",
+        "residence_route",
+        "--sampling",
+        "species_sqrt",
+        "--width",
+        "128",
+        "--layers",
+        "2",
+        "--components",
+        "8",
+        "--epochs",
+        "50",
+        "--patience",
+        "8",
+        "--batch-size",
+        "256",
+        "--validation-samples",
+        "32",
+        "--seed",
+        "73",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

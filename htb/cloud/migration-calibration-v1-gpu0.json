@@ -1,0 +1,54 @@
+{
+  "jobs": [
+    {
+      "name": "migration-v3-goal_route-seed73",
+      "output": "runs/migration-calibration-v1-migration-v3-goal_route-seed73",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_regimes",
+        "calibrate",
+        "--data",
+        "data/migration-expanded-dev-v3",
+        "--checkpoint",
+        "runs/migration-v3-goal_route-seed73/best.pt",
+        "--rules",
+        "data/migration-active-regimes-v1",
+        "--output",
+        "runs/migration-calibration-v1-migration-v3-goal_route-seed73/result",
+        "--samples",
+        "64",
+        "--batch-size",
+        "64",
+        "--seed",
+        "1701",
+        "--device",
+        "cuda"
+      ]
+    },
+    {
+      "name": "migration-v3-active-animal-seed17",
+      "output": "runs/migration-calibration-v1-migration-v3-active-animal-seed17",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_regimes",
+        "calibrate",
+        "--data",
+        "data/migration-expanded-dev-v3",
+        "--checkpoint",
+        "runs/migration-v3-active-animal-seed17/best.pt",
+        "--rules",
+        "data/migration-active-regimes-v1",
+        "--output",
+        "runs/migration-calibration-v1-migration-v3-active-animal-seed17/result",
+        "--samples",
+        "64",
+        "--batch-size",
+        "64",
+        "--seed",
+        "1701",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

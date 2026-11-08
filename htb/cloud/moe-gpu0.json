@@ -1,0 +1,62 @@
+{
+  "jobs": [
+    {
+      "name": "moe-cache",
+      "task": "moe-prepare",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-cache",
+      "arguments": [
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt"
+      ]
+    },
+    {
+      "name": "moe-shared-control",
+      "task": "moe-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-shared-control",
+      "arguments": [
+        "--cache",
+        "runs/cloud/moe-cache",
+        "--mode",
+        "shared",
+        "--hidden",
+        "96",
+        "--epochs",
+        "25",
+        "--patience",
+        "5",
+        "--batch-size",
+        "512",
+        "--nll-weight",
+        "0.1"
+      ]
+    },
+    {
+      "name": "moe-family",
+      "task": "moe-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-family",
+      "arguments": [
+        "--cache",
+        "runs/cloud/moe-cache",
+        "--mode",
+        "family",
+        "--hidden",
+        "96",
+        "--epochs",
+        "25",
+        "--patience",
+        "5",
+        "--batch-size",
+        "512",
+        "--nll-weight",
+        "0.1"
+      ]
+    }
+  ]
+}

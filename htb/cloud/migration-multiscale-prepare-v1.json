@@ -1,0 +1,13 @@
+{
+  "jobs": [
+    {
+      "name": "migration-multiscale-prepare-v1",
+      "output": "data/migration-multiscale-dev-v1",
+      "python_arguments": [
+        "scripts/migration_multiscale_run.py",
+        "--launch",
+        "cloud/migration-multiscale-prepare-v1-launch.json"
+      ]
+    }
+  ]
+}

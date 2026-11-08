@@ -1,0 +1,38 @@
+{
+  "jobs": [
+    {
+      "name": "moveformer-empirical-varctx256-seed42-choice-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed42-choice-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed42/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "moveformer-empirical-varctx256-seed17-choice-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed17-choice-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed17/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

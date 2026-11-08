@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "full-new-comparison",
+      "task": "full-moe-evaluate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-model-ecology-validation",
+      "arguments": [
+        "--experiments",
+        "cloud/full-new-comparison-experiments.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    }
+  ]
+}

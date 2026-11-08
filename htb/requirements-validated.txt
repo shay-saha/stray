@@ -1,0 +1,10 @@
+# Versions exercised in this workspace. Select an appropriate PyTorch CUDA wheel
+# for the target machine before installing these requirements.
+torch==2.8.0
+numpy==2.2.6
+pandas==2.2.3
+pyarrow==19.0.1
+scipy==1.15.3
+requests==2.32.3
+pytest==8.3.5
+rasterio==1.4.3

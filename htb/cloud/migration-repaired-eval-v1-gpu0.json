@@ -1,0 +1,32 @@
+{
+  "scope": "Matched corrected-cache development comparison,64 path draws,all eligible development origins; no reserved test release",
+  "jobs": [
+    {
+      "name": "corrected-history_direct-64draw-comparison",
+      "output": "reports/migration-repaired-dev-history_direct-v1",
+      "python_arguments": [
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "migration-evaluate",
+        "--output",
+        "reports/migration-repaired-dev-history_direct-v1",
+        "--checkpoints",
+        "runs/migration-speed-v2-gpu0/compact-history_direct/best.pt",
+        "runs/migration-speed-v2-gpu0/scaled-history_direct/best.pt",
+        "--baselines",
+        "movement",
+        "stationary",
+        "--samples",
+        "64",
+        "--batch-size",
+        "128",
+        "--bootstrap-replicates",
+        "300",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

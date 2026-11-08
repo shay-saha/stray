@@ -1,0 +1,2062 @@
+{
+  "existing_manifest": "data/combined-landscape/processed/windows.json",
+  "frozen_files": [
+    {
+      "bytes": 24587,
+      "path": "/workspace/wildcast/data/combined/raw/09b3694c-5ea1-485f-a1d8-f4e11699ef74/README.txt",
+      "sha256": "b7f06b48e2ffe4d543835089733f3793afc560ae337aa6037633c166be347bfe"
+    },
+    {
+      "bytes": 14159,
+      "path": "/workspace/wildcast/data/combined/raw/0b812dab-840b-4940-af5d-98cf2c5f9f63/README.txt",
+      "sha256": "86406f46d7f0d1377f58403987ab780dcf2d6a503862f32978ca70296bef75bf"
+    },
+    {
+      "bytes": 11178,
+      "path": "/workspace/wildcast/data/combined/raw/1a65b7b8-0773-4165-9d3a-93f35f98230e/README.txt",
+      "sha256": "e96ae89db3b8ced109dd3cbf8d11910f18084a946cee6052310af3b173204024"
+    },
+    {
+      "bytes": 12903,
+      "path": "/workspace/wildcast/data/combined/raw/2facc53d-e454-4bd4-82d1-f17040ec42a3/README.txt",
+      "sha256": "317a34c7e26cacd3d809571ce2af2a523d602e18a2ed0f576c396061eb52ec43"
+    },
+    {
+      "bytes": 20228,
+      "path": "/workspace/wildcast/data/combined/raw/319926e6-3b42-4864-a761-192ed681dbe1/README.txt",
+      "sha256": "9ff52a7e4a6a5f17d7afe9d7f1e639061f29eda0dc87852b5cc6d16f104f5dcd"
+    },
+    {
+      "bytes": 18173,
+      "path": "/workspace/wildcast/data/combined/raw/386d7ca8-7a05-49ca-a081-740688506e98/README.txt",
+      "sha256": "ee3d43f02739bad93852631f722e97e4a6bbbad568deadd0c57f6d77937d0d37"
+    },
+    {
+      "bytes": 9403,
+      "path": "/workspace/wildcast/data/combined/raw/38e05433-0a6f-49c4-ab77-0511e716786c/README.txt",
+      "sha256": "8458e8924a24bc58c42a503bf4625b74a19f2c31175ee4865d4d4cbd8575cbc6"
+    },
+    {
+      "bytes": 23196,
+      "path": "/workspace/wildcast/data/combined/raw/48289b21-92d7-4d54-85b2-bce60b331953/README.txt",
+      "sha256": "4dd899697e5556809ad97e8f1c32ef0fb480812a9b647f0bff0ec256647d14de"
+    },
+    {
+      "bytes": 8905,
+      "path": "/workspace/wildcast/data/combined/raw/48f3a4ac-7aef-46aa-bda1-3e5900b5559b/README.txt",
+      "sha256": "ab240d518b2b8cc25522cec355c76b0e892a6719a8f27c6215350bdb8f777d5e"
+    },
+    {
+      "bytes": 26660,
+      "path": "/workspace/wildcast/data/combined/raw/5075cbbc-08d7-4d6f-b74f-8f0c2fa07044/README.txt",
+      "sha256": "08ba49c36698e65d89d469baab637d1880ac013823cd8f8577086684829b3e8a"
+    },
+    {
+      "bytes": 9503,
+      "path": "/workspace/wildcast/data/combined/raw/5ac2654d-9843-4c99-a80d-6ff8e28cc94f/README.txt",
+      "sha256": "a4fd8ed047948d4037af3fa74c24ab07ee00890b5909facf0e4eea3f4b26e703"
+    },
+    {
+      "bytes": 29001,
+      "path": "/workspace/wildcast/data/combined/raw/5f9fad19-3079-47c7-9b2d-151fd3d79d3b/README.txt",
+      "sha256": "59e1485e4eee654b048feb47f2bcabd6050152c867eebaae48246f02600fede6"
+    },
+    {
+      "bytes": 12356,
+      "path": "/workspace/wildcast/data/combined/raw/6360747f-37f5-40f1-9731-f4926387a21e/README.txt",
+      "sha256": "32a1ea9c532221c80c712958f9ff45e3a4c3316e8bd4ab253eaf4f1cad991ea2"
+    },
+    {
+      "bytes": 10361,
+      "path": "/workspace/wildcast/data/combined/raw/77b4dd70-97b0-439b-bb96-0e109c9972e0/README.txt",
+      "sha256": "a6225523e1ec5e221143601ff4da3ad0fbe710cfcc4135673fef50d874ece2bf"
+    },
+    {
+      "bytes": 16573,
+      "path": "/workspace/wildcast/data/combined/raw/8fed4a87-14d3-4f9d-b630-e1d406b15c68/README.txt",
+      "sha256": "0066ff9ece10e2079eb220894366faec6231946bc69dbd7d9ce1039588973476"
+    },
+    {
+      "bytes": 18396,
+      "path": "/workspace/wildcast/data/combined/raw/94676483-537e-4bc0-bf64-f1a0825cad6e/README.txt",
+      "sha256": "7eb5c53084a24cde29f8fc0011809c4e51073c2a160ce42f8ab9411b75a8588e"
+    },
+    {
+      "bytes": 29598,
+      "path": "/workspace/wildcast/data/combined/raw/967b7813-220e-4f60-8415-166d118ac8fa/README.txt",
+      "sha256": "c29f9e2a4c3a3b53cda28080815737136742a558d8af670af80a2f4a652396c8"
+    },
+    {
+      "bytes": 28464,
+      "path": "/workspace/wildcast/data/combined/raw/aae5d565-fd19-4fd4-8e2c-b6b5ca88ac5a/README.txt",
+      "sha256": "c79e6790f04a9422d72d35251ba16a927de2112f4ff3d7381398b50f99350db4"
+    },
+    {
+      "bytes": 14171,
+      "path": "/workspace/wildcast/data/combined/raw/b118f49f-6450-430d-b5f8-c455ff0292ae/README.txt",
+      "sha256": "d47d474376e988e390fd2905acfa593595acc3f2e3d81a8e21d093cde2fb23d8"
+    },
+    {
+      "bytes": 12143,
+      "path": "/workspace/wildcast/data/combined/raw/b777279a-581d-43ce-b790-8e60304fb8b4/README.txt",
+      "sha256": "17a926e3085df4b112a3ec03e799aac7ffd5edca0f2bbf9183cc5911050c588a"
+    },
+    {
+      "bytes": 9421,
+      "path": "/workspace/wildcast/data/combined/raw/c9b4f9b5-875a-4b61-a5d6-c2e59ffe0aca/README.txt",
+      "sha256": "9c96d81f15e799f94d90fa4d091a8ea6a2fbcd5a1d0d5dd5455cd397924342d1"
+    },
+    {
+      "bytes": 25018,
+      "path": "/workspace/wildcast/data/combined/raw/cd4e676d-424f-4b40-8e4e-3681a0f26530/README.txt",
+      "sha256": "a5dd5c781e70c0e01dafaba2a39bd3d6a0f96b828b483b2f7cee8cc400ae1baa"
+    },
+    {
+      "bytes": 18781,
+      "path": "/workspace/wildcast/data/combined/raw/d52006ff-9c80-4c9e-8170-6569f8018f39/README.txt",
+      "sha256": "2fba822bf6021c4a7dceb9f400fb04076a4b0060edcc059ef482004cd2d7dbb6"
+    },
+    {
+      "bytes": 10481,
+      "path": "/workspace/wildcast/data/migration-bird-gps-clean-v1/processed/animal-audit.parquet",
+      "sha256": "9003ab161c2f3999c41ce854f444ed14294c4e2e34309cdd482fed15d4057475"
+    },
+    {
+      "bytes": 29191,
+      "path": "/workspace/wildcast/data/migration-bird-gps-clean-v1/processed/manifest.json",
+      "sha256": "193b1bfe5c51fcf356629053aa6ef567b9ca2f873a39ba92668d986c418fb1d3"
+    },
+    {
+      "bytes": 182884144,
+      "path": "/workspace/wildcast/data/migration-bird-gps-clean-v1/processed/observations.parquet",
+      "sha256": "bdd5d611172cf8c5578c32018aa81a126964d16c92e4d5985aba694425808d6a"
+    },
+    {
+      "bytes": 6574,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/0a2f2a67-20fe-42c6-b864-68a1a7147c18.json",
+      "sha256": "2aa8b2b377e7f851dd542ebff51d61bd202542fefadcfcea4098e3308d7b9eba"
+    },
+    {
+      "bytes": 10179,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/0bd4ff73-23b8-4cd9-8676-e70e215d6a2b.json",
+      "sha256": "563a4b9e623f199a01d3b01f3628763a46399e9c05a8ffc546b792874d69ea40"
+    },
+    {
+      "bytes": 35087,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/0f73e753-3e3e-439e-ad96-df7e2944e04a.json",
+      "sha256": "efebf71d837872420dcc24025e701554382c1c43e42a90c6702566ba4387e1a0"
+    },
+    {
+      "bytes": 9083,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/0f7d9e2f-6269-4c7c-ad28-8af219e85ca9.json",
+      "sha256": "8cb2eb17b356b3cc79c20ce49a847c2f59757ef7aaa5990e6edacc09c1db1060"
+    },
+    {
+      "bytes": 5077,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/10ea2b4f-84e0-46c2-b731-28ec0598d98f.json",
+      "sha256": "be81be2fbb6df7c840342cfd91a3751f123ced6807dee9a3b4435382d4fceb75"
+    },
+    {
+      "bytes": 17384,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/1111b046-b2fa-44a1-a79c-847a6c0ba235.json",
+      "sha256": "a52e89eccece88738829d2b1923de85616282b0f8136b13fadbbf17e45a92a34"
+    },
+    {
+      "bytes": 135442,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/12d8637e-80b8-4850-994f-71f6d6734007.json",
+      "sha256": "899b54fa4243959a3a7aa9ac244c89be846137271794d0854c2ea10b1493ecc9"
+    },
+    {
+      "bytes": 5860,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/1646aea0-f9e0-4326-a58a-1bc8c57769a3.json",
+      "sha256": "5dd2968a7d30523bdb126ff3f703dff6b1c30c3c6ef9e07bbb86cee79276e863"
+    },
+    {
+      "bytes": 8317,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/1859a24c-d65a-4e45-a321-4fb108650777.json",
+      "sha256": "d14a1eb882a41c5e10785e2dc996c81edae5edf9647623ea9af1a4372bf4e7dd"
+    },
+    {
+      "bytes": 52056,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/1ea09120-155c-4fc4-8a39-81df22784fac.json",
+      "sha256": "69e57fecada82af7ea1f859c8e5e14643608142c00e056d1a13cb74ec5072201"
+    },
+    {
+      "bytes": 22322,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/21114ef4-73b2-4aaa-a38a-3db8b0f2c3d4.json",
+      "sha256": "8edb4a560cb9cce1b80316f2d79fa36ced86c71de244e88872ed7de452253b00"
+    },
+    {
+      "bytes": 14573,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/225f9132-72f9-4727-bf0f-cb27fbdc6240.json",
+      "sha256": "1d76cecc224c4a571cca167517e416a3dad942bb17dbd29ea55fd7aafddf7500"
+    },
+    {
+      "bytes": 4967,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/26a9d940-906d-490b-a87d-02be51e5e21f.json",
+      "sha256": "478b95ff5db26606509a57e74a0a94d31a304701c14eeffba1f6a9e2f2fa8e47"
+    },
+    {
+      "bytes": 22441,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/29312801-d75d-418a-b4ce-8c5d0ad5b045.json",
+      "sha256": "a69fc41238890d6cc9688ea9a57a64cabb9bcabbe9297974f5f16e4ea9edf406"
+    },
+    {
+      "bytes": 6350,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/29a049b2-bb18-4d7a-b497-9934c4ac50a5.json",
+      "sha256": "6b7af6ea366b2a942de500ca72dfe1e3041bd27557fff65b65e4203d175fa0df"
+    },
+    {
+      "bytes": 11369,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/2f7d3d21-040f-42c0-ab89-2d7c74c24136.json",
+      "sha256": "28c14c4e6a73678e80be9a5bd0916794237e99ae732d7ac3d0b4acb4c92f3cee"
+    },
+    {
+      "bytes": 3918,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/318c1664-2bad-4269-9abd-8225f43fbecf.json",
+      "sha256": "4f4bd81497ed0622b7d19f6cbe167c7e19e686712521a76ed5e28d9c848c5a55"
+    },
+    {
+      "bytes": 6400,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/335a3479-eb48-4708-9af0-b31a48311533.json",
+      "sha256": "c31960c9d29015cc27b82cb7008ca298cc8e7eac039e36aff39b14c4e69bf1b8"
+    },
+    {
+      "bytes": 16617,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/338388ea-6483-472c-9cdc-c2997e645df0.json",
+      "sha256": "2694b02c773f55a45102cbb53e8141bd53ead589c4615ce92b6444fdf0ed3ff1"
+    },
+    {
+      "bytes": 5211,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/35a868e5-72ba-4082-bbf3-7426c490e829.json",
+      "sha256": "6cac2f51e55969b82a9ab8a98b013a1aecfabe5d3648f695417b89170cc07e66"
+    },
+    {
+      "bytes": 3476,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/35c83272-210b-44c3-a7fc-7d0658137540.json",
+      "sha256": "9eb0266be4c7aaf01dc2f4a771d2362f50fc34891f72c6388667ed9ec16f93d1"
+    },
+    {
+      "bytes": 29053,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/39364640-e673-428e-8d6f-aa728f4f9cba.json",
+      "sha256": "186651f0d50e6b16c3a2404d9bbd760242308e391254936c452371684d4b7a16"
+    },
+    {
+      "bytes": 13345,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/3cef8e9d-c82a-43d2-8bea-fd9d3527c66b.json",
+      "sha256": "e0e4e01d355c8dcc551bf0bdf313b66a5dcbf5c65b0ddf2f50c5ac2f4c5aee8a"
+    },
+    {
+      "bytes": 32125,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/3e431f5b-7248-460a-a800-c5788d3c9fa3.json",
+      "sha256": "9da321a33d612e77df4072f57c4badd4670630fb426038038ee2cec0aa38add5"
+    },
+    {
+      "bytes": 11047,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/48c93576-7b84-48f8-bdf5-4e5d4ee139b3.json",
+      "sha256": "4986a663cf7a3450944a18bea5f6dd774ec49e6032d15a3f62a62c7b373828c0"
+    },
+    {
+      "bytes": 5386,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/4917e970-6d73-4aca-b0fe-a3793533746a.json",
+      "sha256": "c60d65a23a4be1c627e27e10330c3b29549f370a2f1d5a773708fe25e9dee92e"
+    },
+    {
+      "bytes": 13132,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/4c7988df-b55e-48f9-b227-46fbc0004fc8.json",
+      "sha256": "97edd6dd3af69c9605214d7bed1bfd5646fac072b8b1a2b45d69f1ab958e9906"
+    },
+    {
+      "bytes": 5238,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/4cf33db8-277d-4402-b6ff-06e99de6d0e0.json",
+      "sha256": "74d9f95bac02f2e1c602ba4d0abb644e8b0402af8691ca3dcbf2424872bd08e7"
+    },
+    {
+      "bytes": 12034,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/5259147d-04a1-471d-a65c-240cd3d7071d.json",
+      "sha256": "52cd3544efa0d7c3d5c98be2f119564b68a80779f4586e99db56f32b9688a9f2"
+    },
+    {
+      "bytes": 7908,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/5672a811-db2a-472f-bc42-35dd41ee5ea9.json",
+      "sha256": "9385c69ebcce6c27b1aaf2fabd607e9c09a1dc1fb12a7ae2d999629ab3c65735"
+    },
+    {
+      "bytes": 9204,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/5a280544-06db-4c85-9713-842547972edd.json",
+      "sha256": "a6ca4bba93c019558588bf617a1cc0a4ad793ef8266ce31771b25825dd9ec7dc"
+    },
+    {
+      "bytes": 10807,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/633e4c99-dc03-4b22-8429-eff20914c323.json",
+      "sha256": "d15d801693597877a858a7433692f116854875619e7ef09c80e0ef5b7e1f5e2d"
+    },
+    {
+      "bytes": 5657,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/6f734b0f-7a0a-4f9d-af97-1d33fce053db.json",
+      "sha256": "6f261d455ae44f43eee9fd64a1314195b711d830f0ae6bfd89e1c4fcb159b4a8"
+    },
+    {
+      "bytes": 7312,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/70744563-f820-42d3-8bf2-5e35403c3417.json",
+      "sha256": "332edb663bad77192cd48642326b52bfce5d0725eff610e37f1fde4a68c6e0aa"
+    },
+    {
+      "bytes": 6344,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/7528b6f8-5a4d-44e8-9aa2-df1f2ae91424.json",
+      "sha256": "ac7a4dc9809c38dcf8276a50730755f02986feef3895fa98cc4e62b221a45830"
+    },
+    {
+      "bytes": 11572,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/7758fed2-dde3-47ae-a817-4d28032df60a.json",
+      "sha256": "a70c83e19069a77ee9e0c235d795ba368fbe7126c4a42535ef96de3038896a96"
+    },
+    {
+      "bytes": 3512,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/7cb8af0f-115a-42ce-ac53-ed89753ed608.json",
+      "sha256": "a60b077bc90f075955f016dcd65802149beab7121d83b42770f362fa96d33c53"
+    },
+    {
+      "bytes": 17502,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/80b3da4f-5e2d-4fb0-998f-121231d2ed71.json",
+      "sha256": "eaca415453bc518831ecc53a7cb70c3c3337208d62b3b4ad24f0397d61723e6b"
+    },
+    {
+      "bytes": 13173,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/831030a3-c255-46a8-8de8-e8a786d32dc6.json",
+      "sha256": "62a9825751ec12a3e4f8474deb1c5462eab39080ff932965f3375f2d2ede63a4"
+    },
+    {
+      "bytes": 85976,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/8318572a-a9d8-4d9e-b685-7db8a73bdf86.json",
+      "sha256": "1566c9df23754d37105c924dbb1f8bf7cd3342f8230b3eb214108f0955bf0c7e"
+    },
+    {
+      "bytes": 3556,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/8371ef00-944d-41db-8059-b59f95974fd3.json",
+      "sha256": "e461fb78365fbb8b0360932d227ff416d6d571823e17e47b71ef03f94a823cd0"
+    },
+    {
+      "bytes": 10780,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/89b8132d-fc88-498f-9040-39643b387dd4.json",
+      "sha256": "7d5e59d4dbc4c2ea2cf26eb3fc6e7f0a8d57eb2bcfa178eff8ed159bec09c8eb"
+    },
+    {
+      "bytes": 9177,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/91804022-7b95-4192-a1bb-5288e1141225.json",
+      "sha256": "bbe2dc2171176b9653f21eddd987d4a431a58c12fc4b70eb6822aafef5412e63"
+    },
+    {
+      "bytes": 7115,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/9877ed68-c91b-46db-acad-0689546a31ec.json",
+      "sha256": "9c3f8456ddf66b63da7f3621e7068c41ab4394a6e72a0f3567643c3a4d92c872"
+    },
+    {
+      "bytes": 4683,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/99928459-120b-4e4a-a3a0-abea6a1b4f35.json",
+      "sha256": "6a298f436016f71201bbd66a1f91d5c573296ec6c323c7cdc620c8ecd6a34834"
+    },
+    {
+      "bytes": 5072,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/99afc6bb-f447-4757-a0ba-37e6dd25facf.json",
+      "sha256": "c7fd0da2b717575e3b175c32141caae4e8d1fe8ebf4fe2fb7a27702f88d29e2a"
+    },
+    {
+      "bytes": 4277,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/9b80e6b3-6b83-41e2-a94b-2a33c7920554.json",
+      "sha256": "afc76725583fc143156ba55a2ec24f026c35fcc8f1e527c550dc62a357568ab3"
+    },
+    {
+      "bytes": 47715,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/9c8e9ffc-66ab-4874-b1ab-d7144761c652.json",
+      "sha256": "5911c1d498c7db33ee5d790192713dc7c6e9dc829b43f47ca31253cb4b9910a1"
+    },
+    {
+      "bytes": 12154,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/9d8e2a5a-3c17-4898-8231-511beb8c044c.json",
+      "sha256": "40e227291b8f90d2508f2a41ef4679bb4f066471b7a3067cb1fc6e1db5ec8f76"
+    },
+    {
+      "bytes": 8268,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a1d2d3ab-adcd-4101-8775-e0559445b612.json",
+      "sha256": "514612a3110b0051264ff3ec1439f60f5d58c2c249d323f5e726214917bd59db"
+    },
+    {
+      "bytes": 15292,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a398b445-fb68-47a5-9dd9-9ca259ea2c20.json",
+      "sha256": "a418182e301c60a51cd06899cc507c98a737eeeb71f16adc665952612d884662"
+    },
+    {
+      "bytes": 9028,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a41015db-4632-46dc-abed-277b16daf97b.json",
+      "sha256": "fcb2a7ea53e1c6f325248901780eb094d531b3c5a6b03bcc02eafa9bbe0c4ab8"
+    },
+    {
+      "bytes": 16692,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a51b51e0-fbf2-43e2-86ae-bc41c9f53a98.json",
+      "sha256": "298f506a772c9e1589d3edfbbbc5c8817530abef66928614ecc2a87030ab16ef"
+    },
+    {
+      "bytes": 129956,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a61cb8c5-7a04-4a4a-8e85-8c7a9a51ce0c.json",
+      "sha256": "dd750cc93661984d7a623a5b6b3bd9418f0e5c6446d3e35be690d435cd0faf43"
+    },
+    {
+      "bytes": 11933,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/a83f10a7-1068-480c-a317-b40cb5268a54.json",
+      "sha256": "f3c162a4bde4be88ad4725ca8958b8e059c73e776c2af20755f2a44c905e5238"
+    },
+    {
+      "bytes": 12119,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/aa260e37-8ff6-4366-9918-91346785b8f9.json",
+      "sha256": "8e30bf5bb5b5ff7841b35d50a5fd3ac22b2f0ac4e740c83ac5f7180cb51ad538"
+    },
+    {
+      "bytes": 10966,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/ae7b0b8c-d025-40fc-9c19-8c42c14228a0.json",
+      "sha256": "ec1f48a8e14a4ff217d2675c8c7902aed97804d5484911e8c9a410cda40ebe09"
+    },
+    {
+      "bytes": 3618,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/b06f7d4d-2e0d-4d8f-8c48-99488c4eaf78.json",
+      "sha256": "064ed84988e4c1bc39bc7a03620aebeaa8054a1308c859453b4e8bbfa32dd56b"
+    },
+    {
+      "bytes": 20508,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/b624221e-33ef-4844-bd66-f007fab78e6f.json",
+      "sha256": "3f16b400d93464e11862e65985c29e051760c1561fd2da6e9e0bd68d6e4585c4"
+    },
+    {
+      "bytes": 8816,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/bc7febf2-d956-409b-944a-0764ae558a51.json",
+      "sha256": "1ae26e81a3ab85fe44780156757f463aa2db7d6d24b164f2078302370c87f91b"
+    },
+    {
+      "bytes": 33751,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/bc8dc065-69df-4002-aa34-7c3eca71109b.json",
+      "sha256": "36a2c3f7b95dbb0fcb53d216f0a2fd8e2017c49939a28183f2b7ff568b90e15e"
+    },
+    {
+      "bytes": 12879,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/bd9f2614-11b3-48c3-8251-1aee62c8e650.json",
+      "sha256": "0c003a4839d2bbbee4c636e4859a29ff3766432bb2d05c9ad1a949330b717500"
+    },
+    {
+      "bytes": 26031,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/bea69b8a-f800-4e74-adc9-04a3ffa12823.json",
+      "sha256": "76706391d53be8ca19ae93e05681881d8f074992be9be26c2c7e45b4777e27b0"
+    },
+    {
+      "bytes": 83101,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/c5d8e38f-ab54-498e-8372-efdc8af6c0f9.json",
+      "sha256": "ebd23faab6eea70ff03e9315a9a12932f4bc2565210ab2e23a8c8d284b8077b9"
+    },
+    {
+      "bytes": 3328,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/c73c7698-2c6b-44d4-8879-fe10d7536935.json",
+      "sha256": "9b8774558b08bd7a6f441999e28603aa628b1ca0981eff35ce8040a0faac5a3d"
+    },
+    {
+      "bytes": 23113,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/c73caa79-a3a4-4104-a871-6c0ab8383414.json",
+      "sha256": "f02184c3430ae213b41694c97d9d7ef16baa202d2c9d88b37f4871580ee63af8"
+    },
+    {
+      "bytes": 11930,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/c92d9814-0950-4b78-885c-ae76b6383c75.json",
+      "sha256": "6615ea3ea7c0fdf93632e5911596073facffc394fd2adcc85d1bb70c7063b132"
+    },
+    {
+      "bytes": 7390,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/cd4e676d-424f-4b40-8e4e-3681a0f26530.json",
+      "sha256": "ff6e196d46f61c8fae131854b4b6b77be3e19a9842a751d64797d5dea7ab783d"
+    },
+    {
+      "bytes": 7975,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/cf532875-a2f2-44f1-ada7-7543c6dbfcdd.json",
+      "sha256": "f045b7657780bedda5312a3eedc2d1b913dc61fa7f5f5a71c2d145e508df8a2e"
+    },
+    {
+      "bytes": 5866,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/d4074e60-62e1-419c-8dc6-ab37ff9ba999.json",
+      "sha256": "cbd4aff618a27b8662b8d8b727af0dfe6012df0d182d397ee0a97b54d86aea48"
+    },
+    {
+      "bytes": 3678,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/d7a990d0-f35f-4087-ab1d-1ae0bedc326b.json",
+      "sha256": "62383884dcfdbb339d82171408ef560ce9e45abd2921d153787b7670a8109131"
+    },
+    {
+      "bytes": 6277,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/dbf2f016-6a3c-4951-a738-0096df24493c.json",
+      "sha256": "ccb06f211bb768366feee4f9942ff86cd5551cd2a163267b7bf3f7aede62f38f"
+    },
+    {
+      "bytes": 131604,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/dd064947-25b7-46a2-8976-adfc488750bc.json",
+      "sha256": "254aabce036743812e6e94bbf26ef15ac4a3e016cad205557e91d0ba7f20b9bb"
+    },
+    {
+      "bytes": 26000,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e2fe5582-a707-4954-8329-ba107736fed8.json",
+      "sha256": "b1e8b9c309b5ee2c558e9f0d40ff0ee23ba0e05ce5adb27722451466a8182f17"
+    },
+    {
+      "bytes": 8800,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e3343be6-d586-4c65-8b0a-cd2a063f24c9.json",
+      "sha256": "9be88662729bb65be54e589e5b1b1fb24a51fa1c892275c2fe8a34c428551d79"
+    },
+    {
+      "bytes": 16496,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e3df6f82-0508-4b4b-a168-6a579176441e.json",
+      "sha256": "98030ed45fd9adac0bbfa86fc88d3ef0fcfb13c1e47a9e2ae3249b5bb9cca5a5"
+    },
+    {
+      "bytes": 31467,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e4070707-8471-45f2-8e15-7ca0cd8a9ada.json",
+      "sha256": "0a08420ede7d6c543270dabd53d4f00bed681093f2f0a8ed52142295209f60c7"
+    },
+    {
+      "bytes": 10354,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e4fee65d-98d4-470e-b823-8f7c9d220c3c.json",
+      "sha256": "2a3f234f0990a3bdd44cc35091152c500dd23c52b5e123afbc076089fe2e1281"
+    },
+    {
+      "bytes": 16556,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e6102c38-8e96-4e36-9ff8-f40a0c03fe5f.json",
+      "sha256": "f796915aec608be0870a3de03e0b3b970d23937486da903482c2196af33c32fa"
+    },
+    {
+      "bytes": 3528,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e6732313-55a4-49e5-aa30-40d4c6ffac4d.json",
+      "sha256": "cd22476bd4a0c8cfd4e4381f4a611ce5d2c688205ee575cf23ab028af7e69ad4"
+    },
+    {
+      "bytes": 28295,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/e7808391-1019-45cb-8701-e3ded043e0d8.json",
+      "sha256": "d5a7d859ea8ba1bc4e0f6912b9a2acb2b3e710323381dd710912c72fc5f8f852"
+    },
+    {
+      "bytes": 15691,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/ec6fcf58-5291-4d52-8024-87f07f15bbf7.json",
+      "sha256": "bc6bebe0816316087e8da8a23683db69edc76a9b8a65cd2e7cdbca297ac52747"
+    },
+    {
+      "bytes": 8976,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/eff2b7e2-6626-4e36-9bfb-23a8f4bfb367.json",
+      "sha256": "193b3967625aa3612f20aaf55b0aa0be35b9a1ee45cfe48293a5e9a9a574718e"
+    },
+    {
+      "bytes": 6182,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f3024833-eae6-44e7-8e27-f496fc2ffbb3.json",
+      "sha256": "9117e6fa71263eb3a3cb7081701a5b25ad9859248a2edef7d0e9949e33a591ac"
+    },
+    {
+      "bytes": 6808,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f302d54a-b1e6-4c41-9bc3-456f73686820.json",
+      "sha256": "c9e64f90a420074b5c308d01b70f3653616bd4e4733017514e60e4489998923c"
+    },
+    {
+      "bytes": 11938,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f577908f-52ae-46a1-986a-1862336cee91.json",
+      "sha256": "488ad751c854a3ee80547f91676229855fdb5539c0e3f864616891b9e8f57465"
+    },
+    {
+      "bytes": 5968,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f71b3103-2126-4406-9003-4baff15377d4.json",
+      "sha256": "33dfd6e30472c32311d107279d1d3dabef4f04ba986ec74585795f8a697c3038"
+    },
+    {
+      "bytes": 4756,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f7b38cdd-b028-4889-8163-694c86df7dec.json",
+      "sha256": "624cc6b86154e02372b72f5759eaa2f913131a13584f4b37c04ffb3705471c7d"
+    },
+    {
+      "bytes": 3312,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f8c74489-c4ff-46fb-8771-5eebc5b4e8b6.json",
+      "sha256": "a4100e1acfaa9763f570ac50fdaac83d3a08aee9ed1bb790bae4f18e1af74e30"
+    },
+    {
+      "bytes": 20926,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/f9b4b052-8169-4ba8-9f96-9ae0ab883dd0.json",
+      "sha256": "be06eb61ef143171f6eb3be270a7ebafc58a2dd3aaff960a1e5ab0bad53763b0"
+    },
+    {
+      "bytes": 4114,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/fa3e16ed-75d9-4b75-90a3-57d843df4821.json",
+      "sha256": "dd6cab232319c040c146fb0959e80e418ad61f6505804ec134012ddec5d64872"
+    },
+    {
+      "bytes": 25171,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/fb867768-11eb-4b55-9460-6ada78cc34c4.json",
+      "sha256": "30f4a62e78cf8d494ab38ca455d37aac478af68bf7cb9d5cf0daf9b99c93a917"
+    },
+    {
+      "bytes": 7320,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/fc898722-d930-4f48-8c4b-8505cbb2b627.json",
+      "sha256": "b66482a8703bc6742c23ecfdbaa2ef75ec2fd39f183ad9c7d6dcdd0b5c77a4dd"
+    },
+    {
+      "bytes": 13621,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/fd28aac2-b22f-4368-8638-59906e769ded.json",
+      "sha256": "ab2741bad0ea5ba239daa9af0cc2815302a6a4771a0d156145967ff465f4a41b"
+    },
+    {
+      "bytes": 8907,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/parts/fd78ade4-cedd-459c-b151-fac2ca2f65a1.json",
+      "sha256": "034554ae6dc6ef25d32df0966e31bd3baedfb43c02709a54678e4f157b463f3a"
+    },
+    {
+      "bytes": 186714,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/processed/animal-audit.parquet",
+      "sha256": "4d11b9375a1524833873c1466c915d892fd66017e06243fd2f886a2b67f0f75f"
+    },
+    {
+      "bytes": 65868,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/processed/manifest.json",
+      "sha256": "f5c73a6fe1e175741c5c5fadddd4f51239617f43fd7c1f1d15383d8524909686"
+    },
+    {
+      "bytes": 1874122180,
+      "path": "/workspace/wildcast/data/migration-breadth-clean-v1/processed/observations.parquet",
+      "sha256": "9034217f5bb11cd379a569b5f5ef1e9a8173deea4c24883c457d89ae7d0cfcc0"
+    },
+    {
+      "bytes": 28576,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/00bb3bdacc2fc4b03fbd2b862c16fee24eb3e143620f21ef0e4032b10e1b3473",
+      "sha256": "00bb3bdacc2fc4b03fbd2b862c16fee24eb3e143620f21ef0e4032b10e1b3473"
+    },
+    {
+      "bytes": 22117,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/04ebad1c0e7860946b80624ea9aeda5ded5e5137018494b71759abfa0e27b74c",
+      "sha256": "04ebad1c0e7860946b80624ea9aeda5ded5e5137018494b71759abfa0e27b74c"
+    },
+    {
+      "bytes": 18149,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/0691b267167236e5c72942cf1e11c0a1883a2d650152b8f103898190170e9b37",
+      "sha256": "0691b267167236e5c72942cf1e11c0a1883a2d650152b8f103898190170e9b37"
+    },
+    {
+      "bytes": 20977,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/0a06b5eb0c1725db4268215eb29845f84dd46cadbae8f572333827d9e4e92fda",
+      "sha256": "0a06b5eb0c1725db4268215eb29845f84dd46cadbae8f572333827d9e4e92fda"
+    },
+    {
+      "bytes": 12177,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/140e937ec8957e2703dce52a860a15e7e2467e3f969360ee27a8c185bf1692db",
+      "sha256": "140e937ec8957e2703dce52a860a15e7e2467e3f969360ee27a8c185bf1692db"
+    },
+    {
+      "bytes": 10153,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/1a1da179b48b5bee6bc074f2053b64bdda4d0577fe78ece19650bebb3702f760",
+      "sha256": "1a1da179b48b5bee6bc074f2053b64bdda4d0577fe78ece19650bebb3702f760"
+    },
+    {
+      "bytes": 11092,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/23b55141f534cdcdb629e7a685606d3c025a2e15e558d9263b96f6558040a4a4",
+      "sha256": "23b55141f534cdcdb629e7a685606d3c025a2e15e558d9263b96f6558040a4a4"
+    },
+    {
+      "bytes": 12006,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/2505a8d976e81f457a576d14724024b58ceb5713b0864b3cba0c5069f0c46c29",
+      "sha256": "2505a8d976e81f457a576d14724024b58ceb5713b0864b3cba0c5069f0c46c29"
+    },
+    {
+      "bytes": 19229,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/2c02c6999130270a66e54d40df62d11337e45367f8298b6f4478fe25f4aa23b8",
+      "sha256": "2c02c6999130270a66e54d40df62d11337e45367f8298b6f4478fe25f4aa23b8"
+    },
+    {
+      "bytes": 17576,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/2df4ba7055a4c8891d310f7b5e206acb82145f19cba2cf0761291107022a5999",
+      "sha256": "2df4ba7055a4c8891d310f7b5e206acb82145f19cba2cf0761291107022a5999"
+    },
+    {
+      "bytes": 15999,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/30213884a5748869cac022230b6dd5b8af71983f6066ef152502469737025558",
+      "sha256": "30213884a5748869cac022230b6dd5b8af71983f6066ef152502469737025558"
+    },
+    {
+      "bytes": 16414,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/35b1a1f3ade5c8754c5918b9e9d1ae138267a5864fb3819b6aa6630ad4b9345b",
+      "sha256": "35b1a1f3ade5c8754c5918b9e9d1ae138267a5864fb3819b6aa6630ad4b9345b"
+    },
+    {
+      "bytes": 18375,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/3833bb8fdc493f73195cc838fd7ea312336790251dd7277f2cd06d48c020d78d",
+      "sha256": "3833bb8fdc493f73195cc838fd7ea312336790251dd7277f2cd06d48c020d78d"
+    },
+    {
+      "bytes": 12313,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/3baf278e9ec63333e50a8f14570511477bf82f931c4a2a9042878161543a8a8f",
+      "sha256": "3baf278e9ec63333e50a8f14570511477bf82f931c4a2a9042878161543a8a8f"
+    },
+    {
+      "bytes": 14300,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/3c85ec27169bd46acda4ca04595a0ea1ec08b95a9b7fb5e342cd2734d4c0ab05",
+      "sha256": "3c85ec27169bd46acda4ca04595a0ea1ec08b95a9b7fb5e342cd2734d4c0ab05"
+    },
+    {
+      "bytes": 23737,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/43dc56aa39c428302c3e404101b681f0ea7e82bb0cef77b37cd558e5c1916968",
+      "sha256": "43dc56aa39c428302c3e404101b681f0ea7e82bb0cef77b37cd558e5c1916968"
+    },
+    {
+      "bytes": 27781,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/47d2089cd29ffe68a05031c4072f17faa4492857de72f1379eb92f62784739a3",
+      "sha256": "47d2089cd29ffe68a05031c4072f17faa4492857de72f1379eb92f62784739a3"
+    },
+    {
+      "bytes": 32236,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/47d8b913dd0c8bf1aaed9de8734475b14e7d286185ae71564bb8b1220ac89040",
+      "sha256": "47d8b913dd0c8bf1aaed9de8734475b14e7d286185ae71564bb8b1220ac89040"
+    },
+    {
+      "bytes": 14865,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/4868e19e64891863a4402fde4352f81763e4259a041fab9f96face53c5f534cd",
+      "sha256": "4868e19e64891863a4402fde4352f81763e4259a041fab9f96face53c5f534cd"
+    },
+    {
+      "bytes": 20875,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/4a58207a3e6821d7640f115fb80df257f9c13df0ed067d6b7fbcb377ed4c081a",
+      "sha256": "4a58207a3e6821d7640f115fb80df257f9c13df0ed067d6b7fbcb377ed4c081a"
+    },
+    {
+      "bytes": 9668,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/4d5495e0ccae7a0fa387fe86bf4acf0077aa6c07ed7ce212e953e56d80324fd9",
+      "sha256": "4d5495e0ccae7a0fa387fe86bf4acf0077aa6c07ed7ce212e953e56d80324fd9"
+    },
+    {
+      "bytes": 24291,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/4f4a19125369f7d70cc515cceec6823307c85be387b13f011bed918c1dd7cba9",
+      "sha256": "4f4a19125369f7d70cc515cceec6823307c85be387b13f011bed918c1dd7cba9"
+    },
+    {
+      "bytes": 10617,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/4f553eb8a6b6140d8cc1ff750c7b44fdbcea14d14774bc9016832035ed7146a1",
+      "sha256": "4f553eb8a6b6140d8cc1ff750c7b44fdbcea14d14774bc9016832035ed7146a1"
+    },
+    {
+      "bytes": 11038,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5125945901cee60da454ad931b11203dbe75c9102cdbb4cc8a26e270e07fa23d",
+      "sha256": "5125945901cee60da454ad931b11203dbe75c9102cdbb4cc8a26e270e07fa23d"
+    },
+    {
+      "bytes": 12310,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5b3e407d795470cb1db05a3aa47bbf2877dc5170bbbb164791adf12346b3a274",
+      "sha256": "5b3e407d795470cb1db05a3aa47bbf2877dc5170bbbb164791adf12346b3a274"
+    },
+    {
+      "bytes": 14138,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5d7de3f65aace15540aec836d4e4595f9e6cae3f1ba71d2d653bbed633de6765",
+      "sha256": "5d7de3f65aace15540aec836d4e4595f9e6cae3f1ba71d2d653bbed633de6765"
+    },
+    {
+      "bytes": 10395,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5d9ec13ebbf3a9f831d590d2eac524b61a34bd7e3e8acd11444dfbf8a2d2da1c",
+      "sha256": "5d9ec13ebbf3a9f831d590d2eac524b61a34bd7e3e8acd11444dfbf8a2d2da1c"
+    },
+    {
+      "bytes": 16109,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5e81efbc13e244751aecc503a11afebb956fbe1245f4d64d829dea93ee4f7e8d",
+      "sha256": "5e81efbc13e244751aecc503a11afebb956fbe1245f4d64d829dea93ee4f7e8d"
+    },
+    {
+      "bytes": 14644,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/5f251ccb0494b73ec1320a8cf657d8370f1f5cfd9e87fa5ce6b767be66b1b63a",
+      "sha256": "5f251ccb0494b73ec1320a8cf657d8370f1f5cfd9e87fa5ce6b767be66b1b63a"
+    },
+    {
+      "bytes": 12399,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/6734c3257838fac126f762d13a043b9e3fce08b06491862d69b71e3e4ec68dd9",
+      "sha256": "6734c3257838fac126f762d13a043b9e3fce08b06491862d69b71e3e4ec68dd9"
+    },
+    {
+      "bytes": 17107,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/67f13f261e34395e6e5df90d2027cd16a62b80c93c110d77744db27edcd8c85f",
+      "sha256": "67f13f261e34395e6e5df90d2027cd16a62b80c93c110d77744db27edcd8c85f"
+    },
+    {
+      "bytes": 15873,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/68ed2256561d5a2a1a4f28044a8bc428e56b869844daa5235e66d1e1f0784b05",
+      "sha256": "68ed2256561d5a2a1a4f28044a8bc428e56b869844daa5235e66d1e1f0784b05"
+    },
+    {
+      "bytes": 14556,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/6d3046fd237ee019841214a16de3b6aac53902216cb09fb26b1bbf6445507b5d",
+      "sha256": "6d3046fd237ee019841214a16de3b6aac53902216cb09fb26b1bbf6445507b5d"
+    },
+    {
+      "bytes": 16203,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/6d4c02e3f359c1650db71ce4491d780b6535afa5ab17c0ceee50bfb2ae43d6d4",
+      "sha256": "6d4c02e3f359c1650db71ce4491d780b6535afa5ab17c0ceee50bfb2ae43d6d4"
+    },
+    {
+      "bytes": 19151,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/6da8cf66b21080a3efea1768ef71ad3f4d9f4ea154e8a0e0a342e6f70fa36881",
+      "sha256": "6da8cf66b21080a3efea1768ef71ad3f4d9f4ea154e8a0e0a342e6f70fa36881"
+    },
+    {
+      "bytes": 9020,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/6e02f5c0def1b6b76839e0f3a354180f56913be7e0029ded1c3c4262fb818c40",
+      "sha256": "6e02f5c0def1b6b76839e0f3a354180f56913be7e0029ded1c3c4262fb818c40"
+    },
+    {
+      "bytes": 16995,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/708df27075f0bad7bebcce00a66f67762cb1e907199b6039087f7cec31420f23",
+      "sha256": "708df27075f0bad7bebcce00a66f67762cb1e907199b6039087f7cec31420f23"
+    },
+    {
+      "bytes": 23652,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/714acc370a6e891db74d7faa44e41f0bb42c7148bc4351d699bdeea0f7814eba",
+      "sha256": "714acc370a6e891db74d7faa44e41f0bb42c7148bc4351d699bdeea0f7814eba"
+    },
+    {
+      "bytes": 10522,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/7786087e36381a3fca9c9b3bc4976c517c8b50195b7d2794cc671635d07f054b",
+      "sha256": "7786087e36381a3fca9c9b3bc4976c517c8b50195b7d2794cc671635d07f054b"
+    },
+    {
+      "bytes": 11008,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/79b7f1a7765b122323a7adc6e1b5dd883110ce321853825e73cbd7d7c20c4760",
+      "sha256": "79b7f1a7765b122323a7adc6e1b5dd883110ce321853825e73cbd7d7c20c4760"
+    },
+    {
+      "bytes": 14000,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/79c7c58de0165df509193439f251561eadd9c6387a327b669ceb36a891255a10",
+      "sha256": "79c7c58de0165df509193439f251561eadd9c6387a327b669ceb36a891255a10"
+    },
+    {
+      "bytes": 12796,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/7ad49517971015b3836db1ae856fab8280bd66f92a8121c00f14686d7f9fb9bf",
+      "sha256": "7ad49517971015b3836db1ae856fab8280bd66f92a8121c00f14686d7f9fb9bf"
+    },
+    {
+      "bytes": 25946,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/7b441f0ed63d6697a5678836b2960e05dd655ba24b54ece93fef77b7a8e45477",
+      "sha256": "7b441f0ed63d6697a5678836b2960e05dd655ba24b54ece93fef77b7a8e45477"
+    },
+    {
+      "bytes": 18229,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/7d7de525bc9b995a119ea70c2b6d3f6001ba49aab2d0bf5a2453ef1c6abb9b6c",
+      "sha256": "7d7de525bc9b995a119ea70c2b6d3f6001ba49aab2d0bf5a2453ef1c6abb9b6c"
+    },
+    {
+      "bytes": 13876,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/821e92709e6d44b596643a7c815f6db75fa043ed2548fef9d583257b17d855b2",
+      "sha256": "821e92709e6d44b596643a7c815f6db75fa043ed2548fef9d583257b17d855b2"
+    },
+    {
+      "bytes": 9820,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/8bf24527629ce6bc76fb3b52a236e3c4eae144297b7634ea27c6f82bd76eb8aa",
+      "sha256": "8bf24527629ce6bc76fb3b52a236e3c4eae144297b7634ea27c6f82bd76eb8aa"
+    },
+    {
+      "bytes": 17082,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/8d477311bb37f750e8759dc09a6bbb14440939d10e8d155cd345ab7eaef68525",
+      "sha256": "8d477311bb37f750e8759dc09a6bbb14440939d10e8d155cd345ab7eaef68525"
+    },
+    {
+      "bytes": 14224,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/8db6e868e492fe686ee23a4161d0b094c871f5938b5842eda2449b8e830b011e",
+      "sha256": "8db6e868e492fe686ee23a4161d0b094c871f5938b5842eda2449b8e830b011e"
+    },
+    {
+      "bytes": 33963,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/8e4245bf097e30fd3e0dac5eb1e4dc58313f843b6e1cd09df8b8924aa86dabdc",
+      "sha256": "8e4245bf097e30fd3e0dac5eb1e4dc58313f843b6e1cd09df8b8924aa86dabdc"
+    },
+    {
+      "bytes": 10297,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/904631141aba175580460bf8bc8e8afde12545123126d607231071e5da78d891",
+      "sha256": "904631141aba175580460bf8bc8e8afde12545123126d607231071e5da78d891"
+    },
+    {
+      "bytes": 15882,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/914e12729611136b512ba1430ed216da17ec9e3ea694d9402f927b48b037008a",
+      "sha256": "914e12729611136b512ba1430ed216da17ec9e3ea694d9402f927b48b037008a"
+    },
+    {
+      "bytes": 9831,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/916236fdb79c47d024dd85811bf77e70157f0f0c7243762ee672fd3ea3a40ab2",
+      "sha256": "916236fdb79c47d024dd85811bf77e70157f0f0c7243762ee672fd3ea3a40ab2"
+    },
+    {
+      "bytes": 9642,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/920a0c27574fbdf3bca201e3f1936603bf0655c5d1f514f57472a266cf2fd2bd",
+      "sha256": "920a0c27574fbdf3bca201e3f1936603bf0655c5d1f514f57472a266cf2fd2bd"
+    },
+    {
+      "bytes": 19819,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/945ca0a131440ca3858b4a282d9dd18168ce16a45ac206504dd3630d6a115e46",
+      "sha256": "945ca0a131440ca3858b4a282d9dd18168ce16a45ac206504dd3630d6a115e46"
+    },
+    {
+      "bytes": 10512,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/95dd8c9d49f1e8ad73132a494fdd4beccfaf24cc7f528c6cbcfc71194222a2f7",
+      "sha256": "95dd8c9d49f1e8ad73132a494fdd4beccfaf24cc7f528c6cbcfc71194222a2f7"
+    },
+    {
+      "bytes": 28946,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/987111558058c03c767f4cbc2ccc65da929d4d7847df690753d563409b82d25a",
+      "sha256": "987111558058c03c767f4cbc2ccc65da929d4d7847df690753d563409b82d25a"
+    },
+    {
+      "bytes": 10676,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/98af96f6ab6ec0300696c927ee0640ce8dc9ddf0467a0693d0c04adc69798495",
+      "sha256": "98af96f6ab6ec0300696c927ee0640ce8dc9ddf0467a0693d0c04adc69798495"
+    },
+    {
+      "bytes": 17405,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/9a67161407977263b6f2dbf972383551c33469a58d7d021e4e09845b221b9266",
+      "sha256": "9a67161407977263b6f2dbf972383551c33469a58d7d021e4e09845b221b9266"
+    },
+    {
+      "bytes": 16717,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/9b668a9539c136eaec86a6a91b7e3afe0e60c3853f572a76cd1f8641e5d03b31",
+      "sha256": "9b668a9539c136eaec86a6a91b7e3afe0e60c3853f572a76cd1f8641e5d03b31"
+    },
+    {
+      "bytes": 22747,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/a088294aa32f4a744da198c6311b98ade4f92b6cdfac8aa9fc46026480478334",
+      "sha256": "a088294aa32f4a744da198c6311b98ade4f92b6cdfac8aa9fc46026480478334"
+    },
+    {
+      "bytes": 11279,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/a21680df406636117410eba4cc39155466b2386a7eb1b18ca6904384c5bbcbed",
+      "sha256": "a21680df406636117410eba4cc39155466b2386a7eb1b18ca6904384c5bbcbed"
+    },
+    {
+      "bytes": 16766,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/a2c9d2be5f252cda682f02f5fdc374eddb3d5b838d32594f39c098e9d12bbb48",
+      "sha256": "a2c9d2be5f252cda682f02f5fdc374eddb3d5b838d32594f39c098e9d12bbb48"
+    },
+    {
+      "bytes": 14806,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/a4b0a2f615206b16c9fbded102a58d1157f8e0e7a9036027dce1bd222473ccea",
+      "sha256": "a4b0a2f615206b16c9fbded102a58d1157f8e0e7a9036027dce1bd222473ccea"
+    },
+    {
+      "bytes": 11192,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/abd240c3cd7984bff7a02318faefc2e9be9387d576ba947e04e1665d8df6a643",
+      "sha256": "abd240c3cd7984bff7a02318faefc2e9be9387d576ba947e04e1665d8df6a643"
+    },
+    {
+      "bytes": 15274,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/aec80485fbe4c8bba48755a7b5effad5408d568c1f060a9da9210b479a3db414",
+      "sha256": "aec80485fbe4c8bba48755a7b5effad5408d568c1f060a9da9210b479a3db414"
+    },
+    {
+      "bytes": 19530,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/b005ba9980467ad8a979916c1a0585ea6b701d49cf176178fe23e9e7a2c08912",
+      "sha256": "b005ba9980467ad8a979916c1a0585ea6b701d49cf176178fe23e9e7a2c08912"
+    },
+    {
+      "bytes": 2481,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/b3771384f2e3cf3f089f0119e09a3dc20c277911e19446fd48b60e47f0c18760",
+      "sha256": "b3771384f2e3cf3f089f0119e09a3dc20c277911e19446fd48b60e47f0c18760"
+    },
+    {
+      "bytes": 21060,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/b41fc58d390e4e6c61d40f1fdda99deda0a513bf34e17291ecc4773ccf0893df",
+      "sha256": "b41fc58d390e4e6c61d40f1fdda99deda0a513bf34e17291ecc4773ccf0893df"
+    },
+    {
+      "bytes": 23800,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/bdbd7bcca7690d15c207576e4352ee6e51d66a5762eb12f37c33d704a2d6e3ee",
+      "sha256": "bdbd7bcca7690d15c207576e4352ee6e51d66a5762eb12f37c33d704a2d6e3ee"
+    },
+    {
+      "bytes": 17354,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/c02ea94e0947cff58e7f888ef4ae509c581a282750468ac466c3ebf77c560b41",
+      "sha256": "c02ea94e0947cff58e7f888ef4ae509c581a282750468ac466c3ebf77c560b41"
+    },
+    {
+      "bytes": 19758,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/c6d4dcd6b1476dd59e88dd80775a824eccd577ef0c03b7e04dbda951a1bd01c2",
+      "sha256": "c6d4dcd6b1476dd59e88dd80775a824eccd577ef0c03b7e04dbda951a1bd01c2"
+    },
+    {
+      "bytes": 19550,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/c926302fb2c292d82a77057f64898046d264493366b8db2f9d8b80a5ab273779",
+      "sha256": "c926302fb2c292d82a77057f64898046d264493366b8db2f9d8b80a5ab273779"
+    },
+    {
+      "bytes": 11719,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/c9e624608cda5e06a2549d7557f77138371f1ddf6540510885e02b44372246a4",
+      "sha256": "c9e624608cda5e06a2549d7557f77138371f1ddf6540510885e02b44372246a4"
+    },
+    {
+      "bytes": 20037,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/cc66603a3e0447ca85b2e0aa2bffc44e5caf4b0f8a83d0f8501111dc94439aa2",
+      "sha256": "cc66603a3e0447ca85b2e0aa2bffc44e5caf4b0f8a83d0f8501111dc94439aa2"
+    },
+    {
+      "bytes": 22793,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/ceeabce025e1c86285e792108adc0c4315b78d84a9370d6ba4c6b40cc1b4c144",
+      "sha256": "ceeabce025e1c86285e792108adc0c4315b78d84a9370d6ba4c6b40cc1b4c144"
+    },
+    {
+      "bytes": 16680,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/d99ee2e63f564c9008000282fe02fab1a52e91a2ed4075b23d29ca254615bf2e",
+      "sha256": "d99ee2e63f564c9008000282fe02fab1a52e91a2ed4075b23d29ca254615bf2e"
+    },
+    {
+      "bytes": 16529,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/e2208f6308021dcbd204728dc6726c0c6aa5f3b99c3c737bd2e65f655ea5c568",
+      "sha256": "e2208f6308021dcbd204728dc6726c0c6aa5f3b99c3c737bd2e65f655ea5c568"
+    },
+    {
+      "bytes": 17957,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/e2cd492afa90271f43e57a25d0d8ce521bf25cb8b6ea1d5cbac9099519d10e95",
+      "sha256": "e2cd492afa90271f43e57a25d0d8ce521bf25cb8b6ea1d5cbac9099519d10e95"
+    },
+    {
+      "bytes": 26201,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/e3219ed14bc9d8ab240403e3e52c224466c30619a524acf111872822de40b788",
+      "sha256": "e3219ed14bc9d8ab240403e3e52c224466c30619a524acf111872822de40b788"
+    },
+    {
+      "bytes": 15734,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/e7a253b9713e4dcb1306f8f325d188ee6655b4a51ecb06ff8251bdb271f4304e",
+      "sha256": "e7a253b9713e4dcb1306f8f325d188ee6655b4a51ecb06ff8251bdb271f4304e"
+    },
+    {
+      "bytes": 8630,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/ed97344e027cf78685b747e88357cbe958c4eae7f6c206eaa061c51b970adc8c",
+      "sha256": "ed97344e027cf78685b747e88357cbe958c4eae7f6c206eaa061c51b970adc8c"
+    },
+    {
+      "bytes": 15575,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/f8e856f8adddad4ed3c3348d5f28b090123f38b5fd41dce6e1f34b58599e9d0d",
+      "sha256": "f8e856f8adddad4ed3c3348d5f28b090123f38b5fd41dce6e1f34b58599e9d0d"
+    },
+    {
+      "bytes": 16391,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/fb8aed0f9987a921907752ab6b0d51625497339d399a83555f3f88f7a2571820",
+      "sha256": "fb8aed0f9987a921907752ab6b0d51625497339d399a83555f3f88f7a2571820"
+    },
+    {
+      "bytes": 11234,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/cache/originals/fdb6580274e0b8aac14ef739f482b0bc39e6499e8a49c845cc4e258fc692ee5a",
+      "sha256": "fdb6580274e0b8aac14ef739f482b0bc39e6499e8a49c845cc4e258fc692ee5a"
+    },
+    {
+      "bytes": 8705,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/0a2f2a67-20fe-42c6-b864-68a1a7147c18/source.json",
+      "sha256": "2c62c2b4035f380eab68c91af49a78f56a7a49dd0a31c99ce2f0649476741bbb"
+    },
+    {
+      "bytes": 18551,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/0bd4ff73-23b8-4cd9-8676-e70e215d6a2b/source.json",
+      "sha256": "46c4861bdcfc8389a27a8adeb6b98623ef0999e95c4620338e247663869648f3"
+    },
+    {
+      "bytes": 16395,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/0f73e753-3e3e-439e-ad96-df7e2944e04a/source.json",
+      "sha256": "43883e83e3cda8dc8b9b5f34f52ecf975aae20923ca8883068caefd0c13da93d"
+    },
+    {
+      "bytes": 14421,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/0f7d9e2f-6269-4c7c-ad28-8af219e85ca9/source.json",
+      "sha256": "c3b28c1cf9f8ed4afd098e873f063ae918e320823498616ff83af0f8984326d1"
+    },
+    {
+      "bytes": 10339,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/10ea2b4f-84e0-46c2-b731-28ec0598d98f/source.json",
+      "sha256": "aa80802e27c145f3adef542d87ff84ff0e23288ff20ed4c87b40d7c9d7cde7d7"
+    },
+    {
+      "bytes": 11591,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/1111b046-b2fa-44a1-a79c-847a6c0ba235/source.json",
+      "sha256": "cd9351f63d1f8ca3849220328e5476258b240463584a35708d359d0ea17b513c"
+    },
+    {
+      "bytes": 15872,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/12d8637e-80b8-4850-994f-71f6d6734007/source.json",
+      "sha256": "9dd56f1b97ce32eb51b2fc24c1b925abc5be7a45e77673494cd8acec20ce165b"
+    },
+    {
+      "bytes": 8946,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/1646aea0-f9e0-4326-a58a-1bc8c57769a3/source.json",
+      "sha256": "5f3e2a39ca765cfe61ea2944932664b619950b46cb073dca25f042a505e3f0af"
+    },
+    {
+      "bytes": 11330,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/1859a24c-d65a-4e45-a321-4fb108650777/source.json",
+      "sha256": "63394bdcca0e0f49004df5f2f2e30580a49a633fb2044086fdece15f1c93e131"
+    },
+    {
+      "bytes": 12221,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/1ea09120-155c-4fc4-8a39-81df22784fac/source.json",
+      "sha256": "fc7a2998238c1f2fc3fdfca1e15f44b3de0a6c86a66a4354a09f425e155d9f2e"
+    },
+    {
+      "bytes": 14911,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/21114ef4-73b2-4aaa-a38a-3db8b0f2c3d4/source.json",
+      "sha256": "1e5d8be81b0a305c18a559b63d652ad918f157b216639a1a72b9acaecf8a1c7a"
+    },
+    {
+      "bytes": 10543,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/225f9132-72f9-4727-bf0f-cb27fbdc6240/source.json",
+      "sha256": "244ca41467cd7b101fe9c94b7f52c987dfed635c4b45d6de8c8b253f457981b0"
+    },
+    {
+      "bytes": 11851,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/29312801-d75d-418a-b4ce-8c5d0ad5b045/source.json",
+      "sha256": "a1dc782adbe269e2148694fd574547522778041077a97b25a5f1eec1a2da17bd"
+    },
+    {
+      "bytes": 9669,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/29a049b2-bb18-4d7a-b497-9934c4ac50a5/source.json",
+      "sha256": "433bc453f4d16b8a71f2a08fa5cbfecd026cb6cb2df95d15fd90e41faa3baad8"
+    },
+    {
+      "bytes": 15963,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/2f7d3d21-040f-42c0-ab89-2d7c74c24136/source.json",
+      "sha256": "78f3a4d8341c899969ebe9579cd0fab5f6c6a75c2070941ff534e338e18f3d87"
+    },
+    {
+      "bytes": 15365,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/335a3479-eb48-4708-9af0-b31a48311533/source.json",
+      "sha256": "c4b653437748fdab881dca82d9efa9adecb8a3eb64478a21cfb2b06cff840d8e"
+    },
+    {
+      "bytes": 10285,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/338388ea-6483-472c-9cdc-c2997e645df0/source.json",
+      "sha256": "55526c8c7c5e9c00317b2ec7e538e66d29862fd923971154dd3e3e4ca461c453"
+    },
+    {
+      "bytes": 10473,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/35a868e5-72ba-4082-bbf3-7426c490e829/source.json",
+      "sha256": "f653298ef9cbb8d491f8c443b2c0d73e55a2cd9f3f7153b56c44a819ead83811"
+    },
+    {
+      "bytes": 9779,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/39364640-e673-428e-8d6f-aa728f4f9cba/source.json",
+      "sha256": "37f27259b2006e7d03617bfee9a81a514405adfdd322d38431523d2a4b2c5071"
+    },
+    {
+      "bytes": 11899,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/3cef8e9d-c82a-43d2-8bea-fd9d3527c66b/source.json",
+      "sha256": "e32bac3cfc7f17e16fc08ca5b9c556864824b8d4318d4fe8948aa1c06f25d26d"
+    },
+    {
+      "bytes": 13176,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/3e431f5b-7248-460a-a800-c5788d3c9fa3/source.json",
+      "sha256": "a06300a615e519bb7de0392ac1f56a28dcef9df2302c1f7e784430d59efbcc45"
+    },
+    {
+      "bytes": 12520,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/48c93576-7b84-48f8-bdf5-4e5d4ee139b3/source.json",
+      "sha256": "3e248e0a41d7a45c6b3dcbdb5677c9ed8b3573f010d96ad2fc8f54de0fa70e5d"
+    },
+    {
+      "bytes": 11503,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/4917e970-6d73-4aca-b0fe-a3793533746a/source.json",
+      "sha256": "956c203fc5c0d8345e46e3f11d8cc94ea6a9cc1b229ba9d10152a8f3f7bd5965"
+    },
+    {
+      "bytes": 14491,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/4c7988df-b55e-48f9-b227-46fbc0004fc8/source.json",
+      "sha256": "49eea1c640b347438f998ef730e1b9d02557d0858f9d29d9fca1e34012f7eddc"
+    },
+    {
+      "bytes": 11203,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/4cf33db8-277d-4402-b6ff-06e99de6d0e0/source.json",
+      "sha256": "d85588b31022e5428f4e137d13f350982174491d60067867be1572409a61ad5d"
+    },
+    {
+      "bytes": 10216,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/5259147d-04a1-471d-a65c-240cd3d7071d/source.json",
+      "sha256": "e6616a5942702431a989d5992032dc009f92a5838a21bb4d578345313583a775"
+    },
+    {
+      "bytes": 10110,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/5672a811-db2a-472f-bc42-35dd41ee5ea9/source.json",
+      "sha256": "41246caa30ffde4d8a14ae31bd225244b54d8eacf5369e2c36c8dfed23dc40e7"
+    },
+    {
+      "bytes": 11507,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/5a280544-06db-4c85-9713-842547972edd/source.json",
+      "sha256": "c23e05bb36e021bfe82a0d029f09fe7b0489d2209f2cd099cd2b89630d861b08"
+    },
+    {
+      "bytes": 10599,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/633e4c99-dc03-4b22-8429-eff20914c323/source.json",
+      "sha256": "f49b8372026581a5235ad075a04134fbfb763a2518b3be4dbcc667fc6e27738e"
+    },
+    {
+      "bytes": 9726,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/6f734b0f-7a0a-4f9d-af97-1d33fce053db/source.json",
+      "sha256": "b0ceae7323ca58f962973f2e3d27acc423ab6daf15b16e42623f3905d3fb650f"
+    },
+    {
+      "bytes": 14248,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/70744563-f820-42d3-8bf2-5e35403c3417/source.json",
+      "sha256": "44ae3479b690e2d6a081a3a82fbacd4cf0c3d5f9f1b9d77d480eb54d2d4043ab"
+    },
+    {
+      "bytes": 15201,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/7528b6f8-5a4d-44e8-9aa2-df1f2ae91424/source.json",
+      "sha256": "a6cfbe60cc3c0f4819730c4194a242c013f6ec9b0aeb8785c23de4d4fa4aaff7"
+    },
+    {
+      "bytes": 10397,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/7758fed2-dde3-47ae-a817-4d28032df60a/source.json",
+      "sha256": "ef1b3c7ed6215dee572d2087f8189729a082d682d058a891866abbe9d271a157"
+    },
+    {
+      "bytes": 9757,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/7cb8af0f-115a-42ce-ac53-ed89753ed608/source.json",
+      "sha256": "a895f72c29a7c13eec488caa77f0146a693da0e6f06885ac3e3b2d494e4d2cbb"
+    },
+    {
+      "bytes": 8869,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/80b3da4f-5e2d-4fb0-998f-121231d2ed71/source.json",
+      "sha256": "32f385c29710f38803040c34f1f4add8c97792662bdc59537615a85ecd41c1bd"
+    },
+    {
+      "bytes": 15064,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/831030a3-c255-46a8-8de8-e8a786d32dc6/source.json",
+      "sha256": "0d074fe8d283946529e51d7e4b28502aa63be6967623e86ecdcecc3d89f4470f"
+    },
+    {
+      "bytes": 12149,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/8318572a-a9d8-4d9e-b685-7db8a73bdf86/source.json",
+      "sha256": "e9b461b12329fede2a041a8fb83f12999145a2cdcb131546944861802c8beb5f"
+    },
+    {
+      "bytes": 10886,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/8371ef00-944d-41db-8059-b59f95974fd3/source.json",
+      "sha256": "d09fe37db5c56f80ccea956efd09eb8dc0394e26829a06f46582a3bf8287462a"
+    },
+    {
+      "bytes": 8706,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/89b8132d-fc88-498f-9040-39643b387dd4/source.json",
+      "sha256": "0574c00323dcb2b7cb3d38c3f57e1d19adcd77c26408317d73b8f082a3a812df"
+    },
+    {
+      "bytes": 15208,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/91804022-7b95-4192-a1bb-5288e1141225/source.json",
+      "sha256": "2a19626111ad30dcd030ae2cf348ce3894a5bf174189a1551fbb7a0a461ae179"
+    },
+    {
+      "bytes": 10700,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/9877ed68-c91b-46db-acad-0689546a31ec/source.json",
+      "sha256": "ec65ff6d79bec0f0311f76c5e76fffd9bec8bc855eafdd5b55c5f71597c2ad65"
+    },
+    {
+      "bytes": 11229,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/99928459-120b-4e4a-a3a0-abea6a1b4f35/source.json",
+      "sha256": "66f07bf1b3856b8740940353358e07ecae980b8ce975532ca503f2cd0e9e7507"
+    },
+    {
+      "bytes": 11056,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/9b80e6b3-6b83-41e2-a94b-2a33c7920554/source.json",
+      "sha256": "cafd04dc35f1672a2ac5bf862d2f9e6c396ca0ca8cfd89c175818979f6a95f98"
+    },
+    {
+      "bytes": 13106,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/9c8e9ffc-66ab-4874-b1ab-d7144761c652/source.json",
+      "sha256": "fe20ec3c2812adcc35f343865311c9447f80fa8399c5a8ab9b7687fb36da05c0"
+    },
+    {
+      "bytes": 10799,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/9d8e2a5a-3c17-4898-8231-511beb8c044c/source.json",
+      "sha256": "b8c7e8ce026d5b9b6d7de795cd7fdcf90a8e64db189afd5a3582ed91a2041ffd"
+    },
+    {
+      "bytes": 11251,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a1d2d3ab-adcd-4101-8775-e0559445b612/source.json",
+      "sha256": "04a35375fab72f6f87605cf482bb976f4eb709728ed0532c60f5dfe274bf8463"
+    },
+    {
+      "bytes": 14898,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a398b445-fb68-47a5-9dd9-9ca259ea2c20/source.json",
+      "sha256": "9aef7ddbbfdaeda49349cfbb83c4fa213789d36a998768a758020bc92ca7e93a"
+    },
+    {
+      "bytes": 11558,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a41015db-4632-46dc-abed-277b16daf97b/source.json",
+      "sha256": "1d129e2ab9bc8b1eb81723b809d715e3a4ca5afaa6332c7f13acd2c035fe8a6f"
+    },
+    {
+      "bytes": 11118,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a51b51e0-fbf2-43e2-86ae-bc41c9f53a98/source.json",
+      "sha256": "b6428b3c1497516310bb66bc34f91c1482b88af45994d445531d0339d7bc2336"
+    },
+    {
+      "bytes": 12063,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a61cb8c5-7a04-4a4a-8e85-8c7a9a51ce0c/source.json",
+      "sha256": "238af5f8aa2f87fb047b10daf862b06e9b3d1e0b1c811ca620bd7c7cc2c504ef"
+    },
+    {
+      "bytes": 11349,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/a83f10a7-1068-480c-a317-b40cb5268a54/source.json",
+      "sha256": "84922505f61c4e3898a190c7bfbea6ef19967898d1c8c174a67d510d97910a24"
+    },
+    {
+      "bytes": 11827,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/aa260e37-8ff6-4366-9918-91346785b8f9/source.json",
+      "sha256": "5b955c6492d892d664fd8415dbd2093aa85a691bb4aeb75b94926ad22e35c10a"
+    },
+    {
+      "bytes": 13975,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/ae7b0b8c-d025-40fc-9c19-8c42c14228a0/source.json",
+      "sha256": "3ed4aff437ade3bf4d98d34965ccc21b065cbbd99a19aece986f06162bb31577"
+    },
+    {
+      "bytes": 11084,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/b624221e-33ef-4844-bd66-f007fab78e6f/source.json",
+      "sha256": "17e1df035be06da59851508ddff0a1d961f7ab166e95ea96f2d2b46cc76c5ead"
+    },
+    {
+      "bytes": 10743,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/bc7febf2-d956-409b-944a-0764ae558a51/source.json",
+      "sha256": "7a8a891035df3eedaf3e83f37318899d3b664f3943f3d3b6463a262b9df8a870"
+    },
+    {
+      "bytes": 10826,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/bc8dc065-69df-4002-aa34-7c3eca71109b/source.json",
+      "sha256": "3db90d4b83134e858ea44080c362d9bace8fab0c031667abc2fdc7e6fc8c19e5"
+    },
+    {
+      "bytes": 15114,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/bd9f2614-11b3-48c3-8251-1aee62c8e650/source.json",
+      "sha256": "b2b1d37538b7d7014fc7aef7b5424a74c3df43f597d06fd69741d2068b97a7cc"
+    },
+    {
+      "bytes": 10334,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/bea69b8a-f800-4e74-adc9-04a3ffa12823/source.json",
+      "sha256": "e65467831fd95f58aeb7f0a89779ad86dd6d2f9eebf477dc99e1f8f04e699237"
+    },
+    {
+      "bytes": 10614,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/c5d8e38f-ab54-498e-8372-efdc8af6c0f9/source.json",
+      "sha256": "026ab86a58d7c698d98b17f86bd209746ab7807fa470323d13536a5a79352e6a"
+    },
+    {
+      "bytes": 10352,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/c73caa79-a3a4-4104-a871-6c0ab8383414/source.json",
+      "sha256": "fd6d00d27ca0548f90b0a4506772e6c5a1fd91f9932d1bea074bdd825620fa7c"
+    },
+    {
+      "bytes": 11160,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/c92d9814-0950-4b78-885c-ae76b6383c75/source.json",
+      "sha256": "b58396cee439e758877f6240258bf5cc9a8ae971715d160b66848a9ef8a8b813"
+    },
+    {
+      "bytes": 10158,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/cf532875-a2f2-44f1-ada7-7543c6dbfcdd/source.json",
+      "sha256": "85021823d5544b7baaf1215e13ec000a7fdd969717e5e755ebd949385c0bb4ce"
+    },
+    {
+      "bytes": 12930,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/d4074e60-62e1-419c-8dc6-ab37ff9ba999/source.json",
+      "sha256": "314a2dc4040fcf6e53ee838ae7b670792c941a5fb790e9113c59404a91217e70"
+    },
+    {
+      "bytes": 10079,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/dbf2f016-6a3c-4951-a738-0096df24493c/source.json",
+      "sha256": "ef38bb29242dd0915082e4ec123c038a8f21a8dae3606b47ea86ab99a0a495c4"
+    },
+    {
+      "bytes": 8959,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/dd064947-25b7-46a2-8976-adfc488750bc/source.json",
+      "sha256": "9e4dcede38d43a2bacaa0f8b34de71ad70d1ac0f527f28ba29e1a33f82fd5916"
+    },
+    {
+      "bytes": 12728,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e2fe5582-a707-4954-8329-ba107736fed8/source.json",
+      "sha256": "8c70eef14a455215d15547022d9bf65a8b51014209e0ce3fa2ce0354caba816b"
+    },
+    {
+      "bytes": 12111,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e3343be6-d586-4c65-8b0a-cd2a063f24c9/source.json",
+      "sha256": "560490aec9ea538b01a6cf6d920170434b5f0b93cd30acccf54d58372fdf98b9"
+    },
+    {
+      "bytes": 10500,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e3df6f82-0508-4b4b-a168-6a579176441e/source.json",
+      "sha256": "41136af6d4daf9ed0c25c4c863951eab76385b4c6a814079359ef873e47d8e50"
+    },
+    {
+      "bytes": 10823,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e4070707-8471-45f2-8e15-7ca0cd8a9ada/source.json",
+      "sha256": "84e7fd72376d2981027f8eabbfaf3f3147004d0f9affd8727301c1f478971257"
+    },
+    {
+      "bytes": 10179,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e4fee65d-98d4-470e-b823-8f7c9d220c3c/source.json",
+      "sha256": "c4ecad4ec7559c80134f8075de7d543ece3be78cde371f78bab88038bfd1edda"
+    },
+    {
+      "bytes": 8940,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e6102c38-8e96-4e36-9ff8-f40a0c03fe5f/source.json",
+      "sha256": "36e081982ba71a1777d7cae4528da67994c30df67f9a95f09b8b021741edee01"
+    },
+    {
+      "bytes": 10685,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e6732313-55a4-49e5-aa30-40d4c6ffac4d/source.json",
+      "sha256": "d6c972e0d2366e3c0fb226a9beb19b907b0ee4b2409f93f705ac1bb5ad090b78"
+    },
+    {
+      "bytes": 9626,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/e7808391-1019-45cb-8701-e3ded043e0d8/source.json",
+      "sha256": "df13afe9a2426fa1ee16990a04eb41fdd05f8be55bb8f8c1a10dd934865ccaf6"
+    },
+    {
+      "bytes": 11523,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/eff2b7e2-6626-4e36-9bfb-23a8f4bfb367/source.json",
+      "sha256": "660e77ca00edac26e80a81c5175dd56880c813e0b87dc3e73d04011fcf9c5552"
+    },
+    {
+      "bytes": 12467,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/f3024833-eae6-44e7-8e27-f496fc2ffbb3/source.json",
+      "sha256": "91d130a20c628ec8d7e9dee38b73d7ed7944e3887d9142f9043e0e0264b4fed5"
+    },
+    {
+      "bytes": 10436,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/f577908f-52ae-46a1-986a-1862336cee91/source.json",
+      "sha256": "8914ddbe34649d1d0622bbf54398e518207f0466c5a4379bbb0d490022990b94"
+    },
+    {
+      "bytes": 10703,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/f7b38cdd-b028-4889-8163-694c86df7dec/source.json",
+      "sha256": "00f46b54c280f76cbfd96c4eaf26942e77dce1ef225236f4d2cbbc8e70282c24"
+    },
+    {
+      "bytes": 11376,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/f8c74489-c4ff-46fb-8771-5eebc5b4e8b6/source.json",
+      "sha256": "69feafcacf17ff4eee3c87869af6a3a354da6c088b24e469179088f8f75ddaf2"
+    },
+    {
+      "bytes": 13948,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/f9b4b052-8169-4ba8-9f96-9ae0ab883dd0/source.json",
+      "sha256": "9e9d2e85220af3f05d955005ffd259d92a841b27192612464cada172b1150686"
+    },
+    {
+      "bytes": 13530,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/fa3e16ed-75d9-4b75-90a3-57d843df4821/source.json",
+      "sha256": "ae19f31d178707852889e2e4df2e900b3b309f5c6eaafb97738cbb813b1772fe"
+    },
+    {
+      "bytes": 9792,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/fb867768-11eb-4b55-9460-6ada78cc34c4/source.json",
+      "sha256": "5b4c4202d88252847f2499f1aa8329adf5626a63312519267733446634dfbde0"
+    },
+    {
+      "bytes": 14497,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/fc898722-d930-4f48-8c4b-8505cbb2b627/source.json",
+      "sha256": "a464008de80ec718491a56423086961f7b4d2f6a2844ebe2a217163e364109ce"
+    },
+    {
+      "bytes": 9524,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/fd28aac2-b22f-4368-8638-59906e769ded/source.json",
+      "sha256": "447820480a747ad595862c96421c465640fe1865b3c4832700e38c3a57e56212"
+    },
+    {
+      "bytes": 10768,
+      "path": "/workspace/wildcast/data/migration-breadth-stage1/raw/fd78ade4-cedd-459c-b151-fac2ca2f65a1/source.json",
+      "sha256": "2ab00483c5fa9c5a14cdb73d79156fbbede9c511a282e358aee2cbaa41336b69"
+    },
+    {
+      "bytes": 9228,
+      "path": "/workspace/wildcast/data/migration-clock-primary-v1/MVB000200.html",
+      "sha256": "882556d8942f0251db3fac1ce1a16f403bb115dc73ef1eff39eb4c503f24e816"
+    },
+    {
+      "bytes": 15520,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/0043246e-e68c-4b76-84cc-31e7558d08e0/originals/README.txt",
+      "sha256": "3067c846d83bc0d7f3871bc4269cf714bb47fee249143e94d89d044c3b855658"
+    },
+    {
+      "bytes": 32405,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/0a3ec70a-967c-432a-99b6-794c4f6b63f0/originals/README.txt",
+      "sha256": "ebbff08bfbf9cfd7ff625449a7b4991c97eb05f4d030cda0be9dcdf699a115ca"
+    },
+    {
+      "bytes": 15536,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/0e3a4577-b063-47d9-9d6b-edec949aa5fa/originals/README.txt",
+      "sha256": "6700e5d9ed86b2fcbeb1a229f633baa5870698fdc85f511d0615966474d411e4"
+    },
+    {
+      "bytes": 18645,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/346009bb-5f5f-4363-890b-2e5119f78ed0/originals/README.txt",
+      "sha256": "ab9ec8b6f128f155e4a43c4306b24a0bdf5a856c1d014c75a71141fd4db82977"
+    },
+    {
+      "bytes": 41206,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/520a64ae-2047-445d-af5f-7b961caeef79/originals/README.txt",
+      "sha256": "569d0aec520d9188fd527eb344dbc1ee6e10b31feb0b175762380a1bb3092614"
+    },
+    {
+      "bytes": 33248,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/5f8c5199-c2b0-4e48-9521-8c5d5f6b115c/originals/README.txt",
+      "sha256": "11bd7ca414977686b810ff592279e2b2936f91cfcf91e627da397814fd3639cf"
+    },
+    {
+      "bytes": 26571,
+      "path": "/workspace/wildcast/data/migration-expanded/raw/76af61c7-aa26-4917-adc8-66f017f79d47/originals/README.txt",
+      "sha256": "3885aaa1797076cb6aea31f85a176a95563776cc85afd3154addfc7deb509bfc"
+    },
+    {
+      "bytes": 45285,
+      "path": "/workspace/wildcast/data/migration-marine-gps-clean-v1/processed/animal-audit.parquet",
+      "sha256": "407891bcb8ba4d389e4fca1961961cc57828ff846b8d7469270b1a7c1875d665"
+    },
+    {
+      "bytes": 58337,
+      "path": "/workspace/wildcast/data/migration-marine-gps-clean-v1/processed/manifest.json",
+      "sha256": "4a4cd7e6271dc9f7f8df8f524cc9f4b52511f1f0ba51463782b585a8114df28e"
+    },
+    {
+      "bytes": 146371636,
+      "path": "/workspace/wildcast/data/migration-marine-gps-clean-v1/processed/observations.parquet",
+      "sha256": "75121f55774c36dd790b79196576ae282df534723e56742c3fa101515f4bf893"
+    },
+    {
+      "bytes": 12310,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/0f73e753-3e3e-439e-ad96-df7e2944e04a/README.txt",
+      "sha256": "5b3e407d795470cb1db05a3aa47bbf2877dc5170bbbb164791adf12346b3a274"
+    },
+    {
+      "bytes": 9642,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/0f7d9e2f-6269-4c7c-ad28-8af219e85ca9/README.txt",
+      "sha256": "920a0c27574fbdf3bca201e3f1936603bf0655c5d1f514f57472a266cf2fd2bd"
+    },
+    {
+      "bytes": 11192,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/12d8637e-80b8-4850-994f-71f6d6734007/README.txt",
+      "sha256": "abd240c3cd7984bff7a02318faefc2e9be9387d576ba947e04e1665d8df6a643"
+    },
+    {
+      "bytes": 11178,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/1a65b7b8-0773-4165-9d3a-93f35f98230e/README.txt",
+      "sha256": "e96ae89db3b8ced109dd3cbf8d11910f18084a946cee6052310af3b173204024"
+    },
+    {
+      "bytes": 18375,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/21114ef4-73b2-4aaa-a38a-3db8b0f2c3d4/README.txt",
+      "sha256": "3833bb8fdc493f73195cc838fd7ea312336790251dd7277f2cd06d48c020d78d"
+    },
+    {
+      "bytes": 11234,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/335a3479-eb48-4708-9af0-b31a48311533/README.txt",
+      "sha256": "fdb6580274e0b8aac14ef739f482b0bc39e6499e8a49c845cc4e258fc692ee5a"
+    },
+    {
+      "bytes": 8905,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/48f3a4ac-7aef-46aa-bda1-3e5900b5559b/README.txt",
+      "sha256": "ab240d518b2b8cc25522cec355c76b0e892a6719a8f27c6215350bdb8f777d5e"
+    },
+    {
+      "bytes": 10153,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/4c7988df-b55e-48f9-b227-46fbc0004fc8/README.txt",
+      "sha256": "1a1da179b48b5bee6bc074f2053b64bdda4d0577fe78ece19650bebb3702f760"
+    },
+    {
+      "bytes": 9503,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/5ac2654d-9843-4c99-a80d-6ff8e28cc94f/README.txt",
+      "sha256": "a4fd8ed047948d4037af3fa74c24ab07ee00890b5909facf0e4eea3f4b26e703"
+    },
+    {
+      "bytes": 21880,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/74f0a7b8-e8cc-4a4b-9f8c-b3788290cce8/README.txt",
+      "sha256": "f7ee3798198b8ee67201894d113f792decedc87e0b928f44dd29709c9d59accf"
+    },
+    {
+      "bytes": 12006,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/7528b6f8-5a4d-44e8-9aa2-df1f2ae91424/README.txt",
+      "sha256": "2505a8d976e81f457a576d14724024b58ceb5713b0864b3cba0c5069f0c46c29"
+    },
+    {
+      "bytes": 14806,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/831030a3-c255-46a8-8de8-e8a786d32dc6/README.txt",
+      "sha256": "a4b0a2f615206b16c9fbded102a58d1157f8e0e7a9036027dce1bd222473ccea"
+    },
+    {
+      "bytes": 15734,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/91804022-7b95-4192-a1bb-5288e1141225/README.txt",
+      "sha256": "e7a253b9713e4dcb1306f8f325d188ee6655b4a51ecb06ff8251bdb271f4304e"
+    },
+    {
+      "bytes": 17576,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/9c8e9ffc-66ab-4874-b1ab-d7144761c652/README.txt",
+      "sha256": "2df4ba7055a4c8891d310f7b5e206acb82145f19cba2cf0761291107022a5999"
+    },
+    {
+      "bytes": 9831,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/a398b445-fb68-47a5-9dd9-9ca259ea2c20/README.txt",
+      "sha256": "916236fdb79c47d024dd85811bf77e70157f0f0c7243762ee672fd3ea3a40ab2"
+    },
+    {
+      "bytes": 11677,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/a6f0c2e4-4ed5-446b-9238-48ea138e4b27/README.txt",
+      "sha256": "b93f0a86257495dc7cc11ac1053379112cd5ad4962149c6fe37701c7422d58e4"
+    },
+    {
+      "bytes": 22747,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/ae7b0b8c-d025-40fc-9c19-8c42c14228a0/README.txt",
+      "sha256": "a088294aa32f4a744da198c6311b98ade4f92b6cdfac8aa9fc46026480478334"
+    },
+    {
+      "bytes": 17460,
+      "path": "/workspace/wildcast/data/migration-marine-stage1/raw/b2984609-efd3-4405-884c-ba040077468e/README.txt",
+      "sha256": "afd67418ec3d1f95dad2c6d54f57a5ed26642555b8fdffb6d5d0bcca64f0febc"
+    },
+    {
+      "bytes": 13876,
+      "path": "/workspace/wildcast/data/migration-marine-targeted/raw/bd9f2614-11b3-48c3-8251-1aee62c8e650/originals/README.txt",
+      "sha256": "821e92709e6d44b596643a7c815f6db75fa043ed2548fef9d583257b17d855b2"
+    },
+    {
+      "bytes": 18847,
+      "path": "/workspace/wildcast/data/migration-marine-targeted/raw/df53968d-4bcc-4dd7-9bb6-8358378836ec/originals/README.txt",
+      "sha256": "616e3f717a2b1e0559573294203a61fc5499261360442ac7f4ba7f88beaab142"
+    },
+    {
+      "bytes": 10224,
+      "path": "/workspace/wildcast/data/migration-next/raw/08b6b850-df1f-4740-b05e-acb1a654934b/originals/README.txt",
+      "sha256": "5918f8056fde1811d919a2f0935cb59c17b3c206d41b182d926aec0205215c8e"
+    },
+    {
+      "bytes": 10916,
+      "path": "/workspace/wildcast/data/migration-next/raw/08b6b850-df1f-4740-b05e-acb1a654934b/source.json",
+      "sha256": "af3a86ce7dd7525f08bc9c7c4fcaab321e30b08d85e5b89969c3f2c5af2700cb"
+    },
+    {
+      "bytes": 10856,
+      "path": "/workspace/wildcast/data/migration-next/raw/22d42221-334b-4eb5-88b7-628c6492bacb/originals/README.txt",
+      "sha256": "62b467f509a5eff5760012af5a6eb582681475afa2b64ba5529f921e83a78c0e"
+    },
+    {
+      "bytes": 13252,
+      "path": "/workspace/wildcast/data/migration-next/raw/22d42221-334b-4eb5-88b7-628c6492bacb/source.json",
+      "sha256": "1f0c926966656fe73e8e418499af0f91cc068d9ab722d3c0fea0343b6756fb2b"
+    },
+    {
+      "bytes": 3236,
+      "path": "/workspace/wildcast/data/migration-next/raw/dryad-84jk0/metadata/dryad-files.json",
+      "sha256": "b16d7e6b20c0dcc5de4fe5ab9683c95d0c23fccbcf5ab18849e1cf0e436607c7"
+    },
+    {
+      "bytes": 5687,
+      "path": "/workspace/wildcast/data/migration-next/raw/dryad-84jk0/source.json",
+      "sha256": "319c883119637d19035ee5c89d7f8e495b3c5e086ef8c030d77e47bd95589526"
+    },
+    {
+      "bytes": 9120,
+      "path": "/workspace/wildcast/reports/migration-bird-clock-policy-server-v1.json",
+      "sha256": "ffb93cf8c93f683f60bca90d2da4124925f8952027dd06dbbdd339efda00fbf1"
+    },
+    {
+      "bytes": 15475,
+      "path": "/workspace/wildcast/reports/migration-bird-gps-source-declarations-v1.json",
+      "sha256": "f8a53fe06a87f23771aca3c85f5c315177b7337c6854bab482a91d13bd6d19ab"
+    },
+    {
+      "bytes": 188178,
+      "path": "/workspace/wildcast/reports/migration-breadth-clock-policy-v2.json",
+      "sha256": "57092a0adc109d317c4534e148ba015992447a640f8ffa9aa80e21047b749ab4"
+    },
+    {
+      "bytes": 302006,
+      "path": "/workspace/wildcast/reports/migration-breadth-qc-policy-v2.json",
+      "sha256": "bdcfd61f1f5bb27fd35b2cad0ace600dba9a397e0e71faff4c9ea92f5ac6465e"
+    },
+    {
+      "bytes": 1797470,
+      "path": "/workspace/wildcast/reports/migration-legacy-gps-processing-audit.json",
+      "sha256": "4a04d10fef948d00c3b0387f938a8a34f3cd29470e472ec1711f2bea74fb5abc"
+    },
+    {
+      "bytes": 35558,
+      "path": "/workspace/wildcast/reports/migration-marine-clock-policy-server-v1.json",
+      "sha256": "3f7586b0124b40a5aa1bb38a2e025ad2e881444aebdd958cafe981c95424170b"
+    },
+    {
+      "bytes": 37646,
+      "path": "/workspace/wildcast/reports/migration-marine-gps-source-declarations.json",
+      "sha256": "91d25ee93fa95f76005f753ac0486af6fb82f105ad66d3fe06ae1b08f78f7888"
+    },
+    {
+      "bytes": 255404,
+      "path": "/workspace/wildcast/reports/migration-parent-source-clock-audit-server-v1.json",
+      "sha256": "762ce68448b503c5260952ad374b97f545503331007ebc96e834b9a1b48ef4d9"
+    },
+    {
+      "bytes": 315,
+      "path": "cloud/migration-multiscale-prepare-v2.json",
+      "sha256": "32da77f2d5216abcbf4d65236d533b92bddd8a694c3e08068255a7b13411c50e"
+    },
+    {
+      "bytes": 365,
+      "path": "cloud/supervisor-migration-multiscale-prepare-v2.conf",
+      "sha256": "aedb4beaec28d93e3c9cfc5da52289e3907ff088a4a682f4f60ad582d90c42d0"
+    },
+    {
+      "bytes": 20840734,
+      "path": "data/combined-landscape/processed/observations.parquet",
+      "sha256": "98afed55cfe5e1405d0effef36265d3b39398eae1a6faff67542095467781d66"
+    },
+    {
+      "bytes": 31994,
+      "path": "data/combined-landscape/processed/quality-report.json",
+      "sha256": "198b5deb38ddc344af9ecaddddbff77ec551d92aad4e4cd5c99eae339bb29dd0"
+    },
+    {
+      "bytes": 124756,
+      "path": "data/combined-landscape/processed/windows.json",
+      "sha256": "ae36fe3675369b399e26775ceff5c141dba90ce1f04c96cd8f11033658ab06fa"
+    },
+    {
+      "bytes": 9120,
+      "path": "data/migration-bird-clock-v1/clock-policy.json",
+      "sha256": "ffb93cf8c93f683f60bca90d2da4124925f8952027dd06dbbdd339efda00fbf1"
+    },
+    {
+      "bytes": 2649,
+      "path": "data/migration-bird-clock-v1/processed/manifest.json",
+      "sha256": "85fa1bbacbbfc8e372544e8014c2e3ffb9ac2ae94295330f3221723be67caa1b"
+    },
+    {
+      "bytes": 239898757,
+      "path": "data/migration-bird-clock-v1/processed/observations.parquet",
+      "sha256": "9042885a2ee7b4889425eac459d62e0f59021905f9733e4e06828a1424182f48"
+    },
+    {
+      "bytes": 188178,
+      "path": "data/migration-breadth-clock-v1/clock-policy.json",
+      "sha256": "57092a0adc109d317c4534e148ba015992447a640f8ffa9aa80e21047b749ab4"
+    },
+    {
+      "bytes": 28042,
+      "path": "data/migration-breadth-clock-v1/processed/manifest.json",
+      "sha256": "71ca626548a61b5d76779f0de00f805df0268be8e4790f667c2c79fa535ec6d0"
+    },
+    {
+      "bytes": 2378171348,
+      "path": "data/migration-breadth-clock-v1/processed/observations.parquet",
+      "sha256": "c2980d2c6c4c99736ab066ea3098527044a84fd2b09175fb4c171c99f1eeff7b"
+    },
+    {
+      "bytes": 105320383,
+      "path": "data/migration-expanded-clean-v2/processed/observations.parquet",
+      "sha256": "d89b16b5da1b349fb88e11188b8f6b1c3ebcf90bc969c22094a58b26dc083b4c"
+    },
+    {
+      "bytes": 103004,
+      "path": "data/migration-expanded-clean-v2/processed/quality-report.json",
+      "sha256": "1942593757cb23e9215c8f7d915e2bba82fcea637e4aac3bd97d7e8d34de6f3e"
+    },
+    {
+      "bytes": 59104754,
+      "path": "data/migration-expanded-dev-v3/cases.npz",
+      "sha256": "801221bb862579f44ad4f2281ae48ef4519da7d91838455834e0f0f8d7dd3e13"
+    },
+    {
+      "bytes": 2607151,
+      "path": "data/migration-expanded-dev-v3/manifest.json",
+      "sha256": "1cacf435b0844ce041fbc4f872929c229b30f535b8fcd19dd49ffdabad03cddd"
+    },
+    {
+      "bytes": 1090888,
+      "path": "data/migration-expanded-dev-v3/origins.parquet",
+      "sha256": "006141b5d9d2fcb0e9ad242672eef513f716cfea53a099d5e236f166e25fb9c2"
+    },
+    {
+      "bytes": 132931,
+      "path": "data/migration-legacy-recovery-v1/processed/manifest.json",
+      "sha256": "bee11f4def903727b0c9945ed299d6a040a14c3dff3197c481b5c1f9702843c3"
+    },
+    {
+      "bytes": 8599092,
+      "path": "data/migration-legacy-recovery-v1/processed/observations.parquet",
+      "sha256": "11d3a90a5ac6884814c18d45b6f293da2b3033ae50968afc61a5f97bf2d4fcb4"
+    },
+    {
+      "bytes": 35558,
+      "path": "data/migration-marine-clock-v1/clock-policy.json",
+      "sha256": "3f7586b0124b40a5aa1bb38a2e025ad2e881444aebdd958cafe981c95424170b"
+    },
+    {
+      "bytes": 3376,
+      "path": "data/migration-marine-clock-v1/processed/manifest.json",
+      "sha256": "ef1c90d6e8da4eea2122355c0ae257853dbc318c063ddf4c72ce197c593b43f8"
+    },
+    {
+      "bytes": 195573939,
+      "path": "data/migration-marine-clock-v1/processed/observations.parquet",
+      "sha256": "5a8f5e12119e6c586fe5bf32dbd37d83e64fa44873b2e5a9535c4159e7adc95b"
+    },
+    {
+      "bytes": 18292,
+      "path": "reports/migration-buzzard-native-record-review-v1.json",
+      "sha256": "07c678beea4af11819f0516b121c24d30962dcc790da7bac3157a7baa3b8db8c"
+    },
+    {
+      "bytes": 6300146,
+      "path": "reports/migration-combined-identity-v2-public-references.json",
+      "sha256": "e1e950a71e48b47fab205f4aa3dc789118d7a287064976fddfc2fa3b84dfdaba"
+    },
+    {
+      "bytes": 17305422,
+      "path": "reports/migration-combined-identity-v3.json",
+      "sha256": "878c05f8b298e2654cb515b2c36ed2dc10cfef8ef51a67c8284eaec5af80429a"
+    },
+    {
+      "bytes": 6347,
+      "path": "reports/migration-goose-ring-identity-review-v1.json",
+      "sha256": "d270962294553fbc5c6c1a044ccbbdc9b2e918fb01ae1b95c3a351272cb27d3d"
+    },
+    {
+      "bytes": 1797470,
+      "path": "reports/migration-legacy-gps-processing-audit.json",
+      "sha256": "4a04d10fef948d00c3b0387f938a8a34f3cd29470e472ec1711f2bea74fb5abc"
+    },
+    {
+      "bytes": 5997,
+      "path": "reports/migration-legacy-identity-review-v1/historical-row-ownership-proof.json",
+      "sha256": "8ce802d5a37709444e41bc0c9263900415a5c53c63ededc73219f51d5ba5b9ba"
+    },
+    {
+      "bytes": 5148,
+      "path": "reports/migration-legacy-identity-review-v1/historical-row-ownership-v2.json",
+      "sha256": "30aec91999318438ef340a25bd6bc3bbb9533ed85915ea9c7a4ce98d4a823f1e"
+    },
+    {
+      "bytes": 4469,
+      "path": "reports/migration-legacy-identity-review-v1/historical-row-ownership.json",
+      "sha256": "460a778c78a06c1ebd7a5d6f893aca4e6acf094edb7f8172eaf3f0ee5532d84f"
+    },
+    {
+      "bytes": 3996251,
+      "path": "reports/migration-legacy-identity-review-v1/historical-row-ownership.parquet",
+      "sha256": "dfc527c88b128ad6b2da216c778e764ff22295b12f69538cda849520f9db8e4b"
+    },
+    {
+      "bytes": 317880,
+      "path": "reports/migration-legacy-identity-review-v1/review.json",
+      "sha256": "a59049d5d125c02b84051042758da440b80f4fad121b51ff3175b8a809ba5f87"
+    },
+    {
+      "bytes": 65908,
+      "path": "reports/migration-manx-source-ownership-quarantine-v1.json",
+      "sha256": "4a2713f3b68c32a3a2459edeef11e09873dd5abbf0779f5ffbe2de52f8b8d203"
+    },
+    {
+      "bytes": 39852,
+      "path": "reports/migration-parent-clock-source-decisions-v1.json",
+      "sha256": "d27cd9d5d220cfa91c2c4dd993713222cb588642eab9106d1b83f6c5fc7272d4"
+    },
+    {
+      "bytes": 342495,
+      "path": "reports/migration-parent-coordinate-identity-review-v1.json",
+      "sha256": "7655064c93b986ec4743dff0c96a4f22a1362263ef35d063caa0de963851a661"
+    },
+    {
+      "bytes": 16485566,
+      "path": "reports/migration-parent-physical-retraction-v3.json",
+      "sha256": "2ac3dc89d77a28cbdb9b5195691c9b332a50c75deb552dc9bcb9b0a1bba4a2ab"
+    },
+    {
+      "bytes": 18443778,
+      "path": "reports/migration-parent-physical-retraction-v5.json",
+      "sha256": "2bc2bf884e8c5d0fc47234d90016df9ea92f678dcf92405ba15545fbe6d05a56"
+    },
+    {
+      "bytes": 54233,
+      "path": "reports/migration-parent-raw-coordinate-lineage-v1.json",
+      "sha256": "cc0d804128e4c6c3f5fc6df1de16508a802b87020c6a0e2cf94cfd0510b19c7d"
+    },
+    {
+      "bytes": 251200,
+      "path": "reports/migration-parent-source-clock-audit-v1.json",
+      "sha256": "eb0e1672a8202522d97f2768d3b39577256df0cc03f514d20a788b271fcdeaaa"
+    },
+    {
+      "bytes": 536270,
+      "path": "reports/migration-parent-subday-clock-evidence-server-v1.json",
+      "sha256": "146ee4cf8e9541f34dec372ef9a273258bc245204d253964f6ea99eb7fce828c"
+    },
+    {
+      "bytes": 537995,
+      "path": "reports/migration-parent-subday-clock-evidence-v1.json",
+      "sha256": "ef86831ccfd1e75d9b1beb9b8875cbb7d2095c632e26468b48270930fce18352"
+    },
+    {
+      "bytes": 26717,
+      "path": "reports/migration-repaired-source-preflight-v1.json",
+      "sha256": "40309ec7fe5df5864bb26324899395dc2400a60801d22937991afe4fb944726a"
+    },
+    {
+      "bytes": 2263,
+      "path": "reports/migration-tropicbird-native-time-policy-v1.json",
+      "sha256": "86e37abf678781c12e8d353749b550c9b2b51695d0456a3061be16e21fc7b08d"
+    },
+    {
+      "bytes": 3330,
+      "path": "reports/migration-tropicbird-simultaneous-source-review-v1.json",
+      "sha256": "abdcb3b082c4e7bbc887940affe78989709a4e33b037487752e1c35eb4fcf925"
+    },
+    {
+      "bytes": 5943625,
+      "path": "reports/migration-within-raw-source-qc-v1/conflicting-input-records.parquet",
+      "sha256": "cbb4ffc61e286700de5969ef4f8303d18ce8406687f18c488dc91368ad636e8f"
+    },
+    {
+      "bytes": 17058,
+      "path": "reports/migration-within-raw-source-qc-v1/extraction.json",
+      "sha256": "459d51eee1d3bb29aa0fcd3ede576ee919d54320dc58b1c2b454d2f6979d48ac"
+    },
+    {
+      "bytes": 1193806,
+      "path": "reports/migration-within-raw-source-qc-v1/native-review-summary.json",
+      "sha256": "031c679748a6262ad5a3117fc1976c00b8277657f561a58c2a4b917b58d9fdcb"
+    },
+    {
+      "bytes": 27058036,
+      "path": "reports/migration-within-raw-source-qc-v1/native-review.json",
+      "sha256": "38f89aa21be4f9d723f92d9371dd012a615e1255a8eafcffb6b9bdff7aac26ea"
+    },
+    {
+      "bytes": 2353,
+      "path": "scripts/cloud_worker.py",
+      "sha256": "7507062ffded620b2c528e25f8168797319d320e3b68fdc9b3c06fdfad4761c4"
+    },
+    {
+      "bytes": 8413,
+      "path": "scripts/migration_bind_native_source_policy.py",
+      "sha256": "6d6c71343fe24a5e376d4dab769a0c101ef04677a4b68c2fcc13ab6af4af713e"
+    },
+    {
+      "bytes": 13930,
+      "path": "scripts/migration_buzzard_numeric_review.py",
+      "sha256": "4efcf700b1b15754774d48a807bafe4a6778cb5682b1a15efe268aeebcc5d81c"
+    },
+    {
+      "bytes": 10175,
+      "path": "scripts/migration_goose_identity_review.py",
+      "sha256": "d6aae82102820ef34e3ac848f74cb90df1c6af4ff33393dd75f7f9543d978796"
+    },
+    {
+      "bytes": 4960,
+      "path": "scripts/migration_legacy_identity_ownership.py",
+      "sha256": "9c447c5928afbd828d03009c0162b958f3b4d4a8d9e2f68954f02997ce8df511"
+    },
+    {
+      "bytes": 3864,
+      "path": "scripts/migration_multiscale_run.py",
+      "sha256": "57d7b426cfe42c925df8a4f8cf8496040f3011d6c8d9a529d618c1373c136539"
+    },
+    {
+      "bytes": 4190,
+      "path": "scripts/migration_repaired_run.py",
+      "sha256": "9948725a478d30bd3fce96e55ad0974cf60b4ef5506245827e8d11e6c18eb406"
+    },
+    {
+      "bytes": 10735,
+      "path": "scripts/migration_review_native_time_conflicts.py",
+      "sha256": "d1879ef0060681fc5d2a705ff5091705cdfcc9da49ef262f8bc4bbf5081b6747"
+    },
+    {
+      "bytes": 9269,
+      "path": "scripts/migration_reviewed_source_derivative.py",
+      "sha256": "eaa4047d2b30ceb57878edd778642c52f139b9041461cb69251764d692c2103c"
+    },
+    {
+      "bytes": 4675,
+      "path": "scripts/migration_within_raw_source_qc.py",
+      "sha256": "ea2746766fba25288ad66634943e0cbba25a62df543de4654946f51b7f98455e"
+    },
+    {
+      "bytes": 13933,
+      "path": "tests/test_migration_physical_repair.py",
+      "sha256": "57e914617fcf1a1eadf9b9ecc36ffb78cf542f03e752d3497f6bce4c211c7aaf"
+    },
+    {
+      "bytes": 13760,
+      "path": "tests/test_multiscale_repaired.py",
+      "sha256": "31d60d3001045fa55cee658185e3bbc29cc3ab6c350229058c94b0eb1f971c40"
+    },
+    {
+      "bytes": 14905,
+      "path": "wildcast/data.py",
+      "sha256": "bcff1d042caef75f8207e02575f0fa2a98692cf2b590e59ea6cfb88f2c5d1945"
+    },
+    {
+      "bytes": 25833,
+      "path": "wildcast/migration_clock.py",
+      "sha256": "993c5c80ef619fb65f5f9888b6a38a53623017bf048fbda0dac66964f0d0d36d"
+    },
+    {
+      "bytes": 34719,
+      "path": "wildcast/migration_data.py",
+      "sha256": "482471cddb91f5d9c93a613f9e1dfc4884409198f1869c40af64eb15c0beeef1"
+    },
+    {
+      "bytes": 26318,
+      "path": "wildcast/migration_physical_repair.py",
+      "sha256": "4fecbf221bccfb67f46787af49366fec6926384543515345015d730761e3aca4"
+    },
+    {
+      "bytes": 4777,
+      "path": "wildcast/migration_repaired_features.py",
+      "sha256": "04c7f248f9fcbbaf727888634edbe35b23f6d5049e6ec4b55fc426ba5987b963"
+    },
+    {
+      "bytes": 38928,
+      "path": "wildcast/multiscale_data.py",
+      "sha256": "c49ecba80deb9420266bd9df57049d69c739fdcf8774a215c16e40c0e1ad54f0"
+    },
+    {
+      "bytes": 40266,
+      "path": "wildcast/multiscale_repaired.py",
+      "sha256": "cd348aa4b2004ea3ab183bba3dc9f9d0bc7b717ebc8f01792ac0b212cae811d1"
+    },
+    {
+      "bytes": 10177,
+      "path": "wildcast/parent_clock.py",
+      "sha256": "43a8cad52c82c9f7a453ed0bb9277a23a80be8a71dd733f515f25af20c36a9b1"
+    },
+    {
+      "bytes": 8391,
+      "path": "wildcast/sources.py",
+      "sha256": "cb730c7d67a5d2b809b6063d3657fd6700be4e0c4faa38c71792d7d7defc28db"
+    }
+  ],
+  "horizons_days": [
+    0.041666666666666664,
+    0.5,
+    1,
+    3,
+    7,
+    14,
+    30,
+    60,
+    90
+  ],
+  "job_root": "data/migration-repaired-prepare-v1-job",
+  "parent_cache": "data/migration-expanded-dev-v3",
+  "parent_clock_audit": "reports/migration-parent-subday-clock-evidence-server-v1.json",
+  "repair_contract": "reports/migration-parent-physical-retraction-v5.json",
+  "result": "data/migration-multiscale-repaired-v2/result",
+  "roots": [
+    "data/combined-landscape",
+    "data/migration-expanded-clean-v2",
+    "data/migration-marine-clock-v1",
+    "data/migration-bird-clock-v1",
+    "data/migration-breadth-clock-v1"
+  ],
+  "schema": "wildcast-frozen-repaired-preparation-launch-v1",
+  "scope": "Approved physical-history/source-QC repair plus observed29-lag22-static nine-horizon cases; all reserved truth sealed; no model training",
+  "seed": 1701,
+  "source_preflight": {
+    "path": "reports/migration-repaired-source-preflight-v1.json",
+    "sha256": "40309ec7fe5df5864bb26324899395dc2400a60801d22937991afe4fb944726a"
+  },
+  "train_end_year": 2020,
+  "validation_year": 2021
+}

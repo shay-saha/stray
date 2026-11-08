@@ -1,0 +1,40 @@
+{
+  "jobs": [
+    {
+      "name": "comparison-wildcast-matched296_single",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/comparison-wildcast-matched296_single",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/landscape-seed42/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "comparison-wildcast-best_existing180_ensemble",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/comparison-wildcast-best_existing180_ensemble",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

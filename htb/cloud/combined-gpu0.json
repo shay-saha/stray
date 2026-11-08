@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "name":"combined-memory-medium-seed42","data":"data/combined-memory","output":"runs/cloud/combined-memory-medium-seed42",
+      "arguments":["--epochs","60","--patience","10","--batch-size","1024","--width","256","--layers","4","--components","12","--anchors","--long-memory","--preload","--init-checkpoint","runs/cloud/v2-medium/best.pt","--lr","0.00015","--stratified-energy","--energy-weight","1","--nll-weight","0.1","--precision","bf16","--seed","42"]
+    },
+    {
+      "name":"combined-memory-medium-seed17","data":"data/combined-memory","output":"runs/cloud/combined-memory-medium-seed17",
+      "arguments":["--epochs","60","--patience","10","--batch-size","1024","--width","256","--layers","4","--components","12","--anchors","--long-memory","--preload","--init-checkpoint","runs/cloud/v2-medium/best.pt","--lr","0.00015","--stratified-energy","--energy-weight","1","--nll-weight","0.1","--precision","bf16","--seed","17"]
+    }
+  ]
+}

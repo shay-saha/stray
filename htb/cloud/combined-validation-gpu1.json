@@ -1,0 +1,74 @@
+{
+  "jobs": [
+    {
+      "name": "combined-val-control",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/combined-val-control",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "combined-val-memory",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/combined-val-memory",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "combined-val-large",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/combined-val-large",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-memory-large/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "combined-val-ensemble",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/combined-val-ensemble",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

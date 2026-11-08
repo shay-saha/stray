@@ -1,0 +1,34 @@
+{
+  "scope": "Time-limited corrected-data model improvement; all final targets sealed",
+  "jobs": [
+    {
+      "name": "crossfit-4member-ensemble",
+      "output": "runs/migration-repaired-ensemble-v1",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_ensemble",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--checkpoints",
+        "runs/migration-speed-v2-gpu0/compact-history_direct/best.pt",
+        "runs/migration-speed-v2-gpu0/scaled-history_direct/best.pt",
+        "runs/migration-speed-v2-gpu1/compact-goal_route/best.pt",
+        "runs/migration-speed-v2-gpu1/scaled-goal_route/best.pt",
+        "--output",
+        "runs/migration-repaired-ensemble-v1",
+        "--samples",
+        "16",
+        "--folds",
+        "3",
+        "--steps",
+        "300",
+        "--batch-size",
+        "128",
+        "--bootstrap-replicates",
+        "300",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

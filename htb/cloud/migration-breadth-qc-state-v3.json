@@ -1,0 +1,32 @@
+{
+  "ended_unix": 1794109608.5336607,
+  "launch_sha256": "1a55478d8524c4b98a8c09da7a3fcea3a86be6b1316508d3ff547b1ae3636647",
+  "stages": [
+    {
+      "ended_unix": 1794108413.2071624,
+      "output_sha256": "bdcfd61f1f5bb27fd35b2cad0ace600dba9a397e0e71faff4c9ea92f5ac6465e",
+      "returncode": 0,
+      "stage": "policy",
+      "started_unix": 1794108396.5923822,
+      "status": "complete"
+    },
+    {
+      "ended_unix": 1794108926.5937207,
+      "output_sha256": "f5c73a6fe1e175741c5c5fadddd4f51239617f43fd7c1f1d15383d8524909686",
+      "returncode": 0,
+      "stage": "clean",
+      "started_unix": 1794108413.2081351,
+      "status": "complete"
+    },
+    {
+      "ended_unix": 1794109608.5323718,
+      "output_sha256": "b7ed22d6a155c9c0857c0a148bd4f07660e1ed7b9bc24865aff55f8ab90e3af9",
+      "returncode": 0,
+      "stage": "availability",
+      "started_unix": 1794108926.5945342,
+      "status": "complete"
+    }
+  ],
+  "started_unix": 1794108396.5921485,
+  "status": "complete"
+}

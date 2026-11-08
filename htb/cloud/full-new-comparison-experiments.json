@@ -1,0 +1,26 @@
+{
+  "ecology-full-global": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-global/best-trained.pt"
+    ]
+  },
+  "ecology-full-moe": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-moe/best.pt"
+    ]
+  },
+  "ecology-full-gated": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-gated/best.pt"
+    ]
+  },
+  "ecology-full-table-gated": {
+    "data": "data/combined-ecology",
+    "checkpoints": [
+      "runs/cloud/full-ecology-table-gated/best.pt"
+    ]
+  }
+}

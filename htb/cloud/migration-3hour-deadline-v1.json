@@ -1,0 +1,17 @@
+{
+  "requested_at_utc": "2026-11-08T08:13:13Z",
+  "training_cutoff_utc": "2026-11-08T10:43:13Z",
+  "delivery_deadline_utc": "2026-11-08T11:13:13Z",
+  "training_service_prefixes": [
+    "wildcast-migration-public-",
+    "wildcast-migration-context-"
+  ],
+  "status_file": "reports/migration-deadline-v1-status.json",
+  "deliverables": [
+    "Best verified available model bundle",
+    "Matched named-public-method comparisons with input and training-budget disclosures",
+    "Available-context candidate if it improves matched validation",
+    "Reproducible model/data/source fingerprints"
+  ],
+  "interpretation": "Three-hour delivery window; frontier superiority depends on results and is not guaranteed by a runtime limit"
+}

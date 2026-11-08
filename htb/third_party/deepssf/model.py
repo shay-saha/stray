@@ -1,0 +1,592 @@
+"""Model architecture: the deepSSF network definition.
+
+The joint model (``ConvJointModel``) combines two sub-networks:
+
+* **Habitat sub-network** – a stack of 2-D convolutions that produces a
+  log-normalised probability surface over the local landscape patch.
+* **Movement sub-network** – convolutions (each followed by max-pooling)
+  followed by fully connected layers that output parameters for a
+  mixture-of-Gamma × mixture-of-von-Mises movement kernel, converted to the
+  same spatial grid.
+
+The depth of each sub-network is set independently by the ``n_conv_layers_hab``
+and ``n_conv_layers_move`` entries of ``ModelParams``.
+
+The final output is the element-wise sum of both log-probability grids, which
+is the joint log-likelihood of the next observed step.
+
+Usage::
+
+    from deepssf.model import ConvJointModel, ModelParams
+
+    params = ModelParams(params_dict)
+    model  = ConvJointModel(params)
+    output = model((spatial, scalars, bearing))   # (B, H, W, 2)
+"""
+
+from __future__ import annotations
+
+import numpy as np
+import torch
+from torch import nn
+
+from deepssf.utils import get_device
+
+# ---------------------------------------------------------------------------
+# Habitat sub-network
+# ---------------------------------------------------------------------------
+
+
+class Conv2d_block_spatial(nn.Module):
+    """CNN block that outputs a log-normalised habitat-selection surface.
+
+    ``params.n_conv_layers_hab`` successive conv layers (every one but the
+    last followed by ReLU) collapse the multi-band spatial input to a single
+    log-probability map of shape [B, H, W].  The final layer is the one that
+    projects to a single channel, and carries no activation because its output
+    *is* the (unnormalised) log-surface.
+
+    There is no pooling here, so the spatial dimensions are preserved and the
+    block stays translation-equivariant however many layers are used — which is
+    what lets :func:`deepssf.predict.predict_habitat_landscape` run the same
+    filters over a whole landscape.  Deeper stacks build more abstract features
+    and widen the receptive field (each layer adds ``kernel_size // 2`` pixels
+    per side), at the cost of training and prediction speed.
+    """
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        ic = params.input_channels
+        oc = params.output_channels
+        k = params.kernel_size
+        s = params.stride
+        p = params.padding
+        n = params.n_conv_layers_hab
+
+        if n < 1:
+            raise ValueError(f"n_conv_layers_hab must be >= 1, got {n}")
+
+        layers: list[nn.Module] = []
+        for i in range(n - 1):
+            # First layer reads the raster + scalar channels; the rest read the
+            # previous layer's feature maps.
+            layers += [nn.Conv2d(ic if i == 0 else oc, oc, k, s, p), nn.ReLU()]
+        # Output layer: n == 1 means it is also the input layer.
+        layers.append(nn.Conv2d(ic if n == 1 else oc, 1, k, s, p))
+
+        self.conv2d = nn.Sequential(*layers)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # conv stack collapses C channels → 1; squeeze removes singleton → [B, H, W]
+        out = self.conv2d(x).squeeze(dim=1)
+        # subtract log-sum-exp so the surface integrates to 1 in probability space
+        return out - torch.logsumexp(out, dim=(1, 2), keepdim=True)
+
+
+# ---------------------------------------------------------------------------
+# Movement CNN → FC bridge
+# ---------------------------------------------------------------------------
+
+
+class Conv2d_block_toFC(nn.Module):
+    """CNN block with max-pooling that flattens the spatial input for the FCN.
+
+    ``params.n_conv_layers_move`` conv → ReLU → max-pool blocks, then a flatten.
+    Every block pools, so each one roughly halves the spatial dimensions (with
+    the default ``kernel_size_mp=2, stride_mp=2``): the number of layers sets
+    how much the window is reduced before the fully-connected layers see it.
+    Use :func:`flattened_conv_dim` to get the resulting flattened size, which is
+    what ``params.dense_dim_in_all`` must be set to.
+    """
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        ic = params.input_channels
+        oc = params.output_channels
+        k = params.kernel_size
+        s = params.stride
+        p = params.padding
+        kmp = params.kernel_size_mp
+        smp = params.stride_mp
+        n = params.n_conv_layers_move
+
+        if n < 1:
+            raise ValueError(f"n_conv_layers_move must be >= 1, got {n}")
+
+        layers: list[nn.Module] = []
+        for i in range(n):
+            # First layer reads the raster + scalar channels; the rest read the
+            # previous layer's feature maps.
+            layers += [
+                nn.Conv2d(ic if i == 0 else oc, oc, k, s, p),
+                nn.ReLU(),
+                nn.MaxPool2d(kmp, smp),
+            ]
+        layers.append(nn.Flatten())
+
+        self.conv2d = nn.Sequential(*layers)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.conv2d(x)
+
+
+def flattened_conv_dim(
+    image_dim: int,
+    n_conv_layers_move: int,
+    output_channels: int,
+    kernel_size: int = 3,
+    stride: int = 1,
+    padding: int = 1,
+    kernel_size_mp: int = 2,
+    stride_mp: int = 2,
+) -> int:
+    """Flattened output size of :class:`Conv2d_block_toFC`.
+
+    This is the value ``ModelParams`` expects for ``dense_dim_in_all``: the
+    number of features the movement CNN hands to the fully-connected block.  It
+    depends on the number of movement conv layers, since each one pools, so it
+    has to be recomputed whenever ``n_conv_layers_move`` (or the window size,
+    or the conv/pool geometry) changes.
+
+    It is computed rather than measured with a dummy forward pass so it can be
+    called *before* ``ModelParams`` is built — the params need the answer.
+
+    Parameters
+    ----------
+    image_dim:
+        Spatial window size in pixels (``params.image_dim``).
+    n_conv_layers_move:
+        Number of conv → ReLU → max-pool blocks in the movement sub-network.
+    output_channels:
+        Feature maps per conv layer (``params.output_channels``).
+    kernel_size, stride, padding:
+        Convolution geometry; the defaults are the package defaults, where
+        padding preserves the spatial dimensions.
+    kernel_size_mp, stride_mp:
+        Max-pool geometry.
+
+    Returns
+    -------
+    int
+        ``output_channels * dim * dim`` after all conv + pool layers.
+
+    Raises
+    ------
+    ValueError
+        If the stack pools the window away to nothing, which means either too
+        many layers or too small a window.
+
+    Examples
+    --------
+    >>> flattened_conv_dim(image_dim=101, n_conv_layers_move=3, output_channels=4)
+    576
+    """
+    dim = image_dim
+    for _ in range(n_conv_layers_move):
+        dim = (dim + 2 * padding - kernel_size) // stride + 1  # conv
+        dim = (dim - kernel_size_mp) // stride_mp + 1  # max-pool
+        if dim < 1:
+            raise ValueError(
+                f"image_dim={image_dim} is too small for "
+                f"n_conv_layers_move={n_conv_layers_move}: the spatial "
+                "dimension pools away to nothing. Use fewer movement conv "
+                "layers or a larger window."
+            )
+    return output_channels * dim * dim
+
+
+# ---------------------------------------------------------------------------
+# Movement fully-connected block
+# ---------------------------------------------------------------------------
+
+
+class FCN_block_all_movement(nn.Module):
+    """Three-layer FCN that maps flattened spatial features to movement parameters."""
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        dim_in = params.dense_dim_in_all
+        dim_h = params.dense_dim_hidden
+        n_out = params.num_movement_params
+        dropout = params.dropout
+
+        self.ffn = nn.Sequential(
+            nn.Linear(dim_in, dim_h),
+            nn.Dropout(dropout),
+            nn.ReLU(),
+            nn.Linear(dim_h, dim_h),
+            nn.Dropout(dropout),
+            nn.ReLU(),
+            nn.Linear(dim_h, n_out),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.ffn(x)
+
+
+# ---------------------------------------------------------------------------
+# Movement parameters → 2-D probability grid
+# ---------------------------------------------------------------------------
+
+
+class Params_to_Grid_Block(nn.Module):
+    """Convert FCN movement parameters to a log-normalised 2-D movement grid.
+
+    Models step-length with a 2-component Gamma mixture and turning-angle with
+    a 2-component von Mises mixture.  All densities are computed on the
+    log-scale, in forms chosen so that no intermediate term can overflow in
+    float32 (see :meth:`_vonmises_log` and :attr:`raw_clamp`).
+
+    No change-of-variables Jacobian is applied (polar → Cartesian).
+    See :class:`Params_to_Grid_Block_ChV` for the Jacobian-corrected version.
+
+    Notes
+    -----
+    Mixture weights are obtained with ``log_softmax`` over the *raw* FCN
+    outputs (parameters 2, 5, 8 and 11).  Versions ≤ 0.2.3 applied a softmax to
+    ``exp(raw)``, a double exponential that saturated to exactly ``(1, 0)`` by
+    a raw value of ≈ 4.75 — zeroing the weight gradient and putting
+    ``log(0) = -inf`` into the surface.  Checkpoints written by those versions
+    therefore interpret these four parameters differently.
+    """
+
+    #: Raw FCN outputs are clamped to ±this before being exponentiated, so
+    #: shape/scale/concentration stay in ``[exp(-10), exp(10)]`` no matter what
+    #: the network emits.  Without it, ``exp`` overflows to ``inf`` at a raw
+    #: value of ≈ 88 and ``lgamma(inf) - inf`` produces NaN.
+    raw_clamp: float = 10.0
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        self.image_dim = params.image_dim
+        self.pixel_size = params.pixel_size
+        self.device = params.device
+
+        center = self.image_dim // 2
+        # Build pixel-index grids: y_idx increases downward, x_idx increases rightward
+        y_idx, x_idx = np.indices((self.image_dim, self.image_dim))
+        # Euclidean distance from the centre pixel, in CRS units (e.g. metres)
+        dist = np.sqrt(
+            (self.pixel_size * (x_idx - center)) ** 2
+            + (self.pixel_size * (y_idx - center)) ** 2
+        )
+        # Centre pixel has distance 0 → log(0) is undefined in the Gamma PDF.
+        # Replace with E[r] for a uniform distribution within one pixel cell.
+        dist[center, center] = 0.3826 * self.pixel_size  # E[r] within centre pixel
+
+        # Registered as buffers (not plain attributes) so `model.to(device)`
+        # moves them once, instead of copying them host→device every forward.
+        # persistent=False keeps them out of state_dict: they are constants
+        # derived from image_dim/pixel_size, so storing them would bloat every
+        # checkpoint and break strict loading of checkpoints from earlier versions.
+        self.register_buffer(
+            "distance_layer", torch.from_numpy(dist).float(), persistent=False
+        )
+        # arctan2 with (center - y, x - center) gives bearing measured from east,
+        # increasing counter-clockwise — consistent with the movement bearing convention
+        self.register_buffer(
+            "bearing_layer",
+            torch.from_numpy(np.arctan2(center - y_idx, x_idx - center)).float(),
+            persistent=False,
+        )
+
+    def _positive(self, raw: torch.Tensor) -> torch.Tensor:
+        """Map a raw FCN output to a strictly positive, finite parameter."""
+        return torch.exp(raw.clamp(-self.raw_clamp, self.raw_clamp))
+
+    def _gamma_log(self, r, shape, scale):
+        # Log-PDF of Gamma(shape, scale) evaluated at each pixel distance r
+        shape, scale = shape.to(r.device), scale.to(r.device)
+        return (
+            -torch.lgamma(shape)
+            - shape * torch.log(scale)
+            + (shape - 1) * torch.log(r)
+            - r / scale
+        )
+
+    def _vonmises_log(self, theta, kappa, mu):
+        """Log-PDF of the von Mises distribution, written to avoid overflow.
+
+        The direct form ``kappa*cos(θ-mu) - log(2π·I₀(kappa))`` breaks down in
+        float32: ``I₀`` grows like ``e^κ/√(2πκ)`` and overflows to ``inf`` at
+        κ ≈ 89, i.e. a raw FCN output of only ``log(89) ≈ 4.5``.  ``log_norm``
+        then becomes ``inf`` and the component log-density ``-inf``; if both
+        mixture components overflow the log-sum-exp evaluates ``-inf - (-inf)``
+        and the whole surface turns to NaN.  Even one overflowing component
+        leaves the forward pass finite but yields NaN gradients, which silently
+        poison the weights.
+
+        Using the exponentially-scaled Bessel function ``i0e(κ) = e^-κ·I₀(κ)``
+        gives ``log I₀(κ) = κ + log(i0e(κ))``, so the ``κ`` terms cancel::
+
+            κ·cos(θ-μ) - log(2π·I₀(κ)) = κ·(cos(θ-μ) - 1) - log(2π) - log(i0e(κ))
+
+        Since ``cos(θ-μ) - 1 ∈ [-2, 0]``, no term can overflow for any κ.
+        ``i0e`` has native CPU, CUDA and MPS kernels, so this also removes the
+        host round-trip the previous implementation needed for MPS.
+        """
+        kappa, mu = kappa.to(theta.device), mu.to(theta.device)
+        return (
+            kappa * (torch.cos(theta - mu) - 1.0)
+            - float(np.log(2 * np.pi))
+            - torch.log(torch.special.i0e(kappa))
+        )
+
+    def _expand(self, scalar, dim):
+        # Broadcast a per-sample scalar (shape [B]) into a [B, dim, dim] spatial grid
+        # so each pixel in the grid carries the same value for that batch item.
+        # expand() returns a view rather than materialising the full grid.
+        return scalar.reshape(-1, 1, 1).expand(-1, dim, dim)
+
+    def forward(self, x: torch.Tensor, bearing: torch.Tensor) -> torch.Tensor:
+        D = self.image_dim
+        E = self._expand
+
+        # Mixture weights: log_softmax over the RAW outputs, giving log-weights
+        # that can be added directly to the component log-densities below.
+        log_gw = torch.log_softmax(torch.stack([x[:, 2], x[:, 5]], dim=0), dim=0)
+        log_vw = torch.log_softmax(torch.stack([x[:, 8], x[:, 11]], dim=0), dim=0)
+
+        # --- Step-length kernel: 2-component Gamma mixture ---
+        # FCN outputs raw scalars; _positive() bounds and exponentiates them.
+        # gc2 scaled ×500 so the second component spans longer distances (heavy tail).
+        gs1 = E(self._positive(x[:, 0]), D)  # shape of Gamma component 1
+        gc1 = E(self._positive(x[:, 1]), D)  # scale of Gamma component 1
+        gs2 = E(self._positive(x[:, 3]), D)  # shape of Gamma component 2
+        gc2 = E(self._positive(x[:, 4]) * 500, D)  # scale of component 2 (long-range)
+
+        dist = self.distance_layer
+        gl1 = E(log_gw[0], D) + self._gamma_log(dist, gs1, gc1)
+        gl2 = E(log_gw[1], D) + self._gamma_log(dist, gs2, gc2)
+        # logsumexp over the weighted components: stable for any component value,
+        # including -inf, unlike the manual max/exp/log formulation it replaces.
+        gamma_grid = torch.logsumexp(torch.stack([gl1, gl2], dim=0), dim=0)
+
+        # --- Turning-angle kernel: 2-component von Mises mixture ---
+        brg = self.bearing_layer
+        # mu is learned as an offset from the previous bearing so the animal can
+        # encode forward persistence or a preferred turn relative to its last heading.
+        # mu is an offset from prev bearing; k is concentration
+        mu1 = E(x[:, 6] + bearing[:, 0], D)
+        k1 = E(self._positive(x[:, 7]), D)
+        mu2 = E(x[:, 9] + bearing[:, 0], D)
+        k2 = E(self._positive(x[:, 10]), D)
+
+        vl1 = E(log_vw[0], D) + self._vonmises_log(brg, k1, mu1)
+        vl2 = E(log_vw[1], D) + self._vonmises_log(brg, k2, mu2)
+        vm_grid = torch.logsumexp(torch.stack([vl1, vl2], dim=0), dim=0)
+
+        # Joint log-density: add step-length and turning-angle log-probs, then normalise
+        grid = gamma_grid + vm_grid
+        return grid - torch.logsumexp(grid, dim=(1, 2), keepdim=True)
+
+
+class Params_to_Grid_Block_ChV(Params_to_Grid_Block):
+    """Same as :class:`Params_to_Grid_Block` but with a change-of-variables
+    Jacobian correction (polar → Cartesian) applied to the Gamma density.
+
+    Subtracts ``log(r)`` from the log-density (i.e. divides the density by
+    ``r``) to account for the polar-to-Cartesian area element ``r dr dθ``.
+    """
+
+    def _gamma_log(self, r, shape, scale):
+        shape, scale = shape.to(r.device), scale.to(r.device)
+        return (
+            -torch.lgamma(shape)
+            - shape * torch.log(scale)
+            + (shape - 1) * torch.log(r)
+            - r / scale
+            - torch.log(r)
+        )
+
+
+# ---------------------------------------------------------------------------
+# Scalar → 2-D grid broadcast
+# ---------------------------------------------------------------------------
+
+
+class Scalar_to_Grid_Block(nn.Module):
+    """Broadcast scalar features into constant-valued spatial maps.
+
+    Converts a [B, S] tensor of scalar values into a [B, S, H, W] tensor
+    where every pixel in each map carries the same scalar value.  This lets
+    scalar predictors (e.g., time-of-day) enter the convolutional stream.
+    """
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        self.image_dim = params.image_dim
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        B, S = x.shape
+        return x.view(B, S, 1, 1).expand(B, S, self.image_dim, self.image_dim)
+
+
+# ---------------------------------------------------------------------------
+# Full joint model
+# ---------------------------------------------------------------------------
+
+
+class ConvJointModel(nn.Module):
+    """The deepSSF joint model combining habitat and movement sub-networks.
+
+    Forward input
+    -------------
+    x : tuple of three tensors
+        * ``x[0]`` – spatial covariates, shape [B, C_spatial, H, W]
+        * ``x[1]`` – scalar features to broadcast, shape [B, S]
+        * ``x[2]`` – previous bearing, shape [B, 1]
+
+    Forward output
+    --------------
+    torch.Tensor of shape [B, H, W, 2]
+        Stack of log-probability grids: index 0 = habitat, index 1 = movement.
+        Sum over the last dim gives the joint log-density.
+    """
+
+    def __init__(self, params: ModelParams) -> None:
+        super().__init__()
+        self.scalar_grid_output = Scalar_to_Grid_Block(params)
+        self.conv_habitat = Conv2d_block_spatial(params)
+        self.conv_movement = Conv2d_block_toFC(params)
+        self.fcn_movement_all = FCN_block_all_movement(params)
+        self.movement_grid_output = Params_to_Grid_Block_ChV(params)
+        self.device = params.device
+        # Kept so a checkpoint can record the architecture it was trained with
+        # (see EarlyStopping._save and params_from_checkpoint).  ModelParams is
+        # a plain object, so nn.Module stores it as an ordinary attribute — it
+        # holds no tensors and does not appear in state_dict().
+        self.params = params
+
+    def forward(self, x: tuple) -> torch.Tensor:
+        spatial, scalars, bearing = x[0], x[1], x[2]
+        # Broadcast each scalar to a constant spatial map and concatenate with
+        # the raster channels so the CNN sees both spatial and temporal context.
+        scalar_maps = self.scalar_grid_output(scalars)
+        all_spatial = torch.cat([spatial, scalar_maps], dim=1)
+
+        # Habitat branch: CNN → log-normalised [B, H, W] surface
+        habitat_out = self.conv_habitat(all_spatial)
+        # Movement branch: CNN → flatten → FCN → 12 parameters → [B, H, W] surface
+        move_conv = self.conv_movement(all_spatial)
+        move_params = self.fcn_movement_all(move_conv)
+        move_out = self.movement_grid_output(move_params, bearing)
+
+        # Stack as last dim: [..., 0] = habitat log-prob, [..., 1] = movement log-prob.
+        # Summing over this dim gives the joint log-density used by the loss function.
+        return torch.stack((habitat_out, move_out), dim=-1)
+
+
+# ---------------------------------------------------------------------------
+# Parameter container
+# ---------------------------------------------------------------------------
+
+
+class ModelParams:
+    """Lightweight container for all model hyper-parameters.
+
+    Construct from a dictionary::
+
+        params = ModelParams({
+            "batch_size": 32,
+            "image_dim": 101,
+            "pixel_size": 25,
+            "dim_in_nonspatial_to_grid": 4,
+            "dense_dim_in_nonspatial": 4,
+            "dense_dim_hidden": 128,
+            "dense_dim_in_all": 2500,
+            "input_channels": 8,      # spatial layers + scalar layers
+            "output_channels": 4,
+            "kernel_size": 3,
+            "stride": 1,
+            "kernel_size_mp": 2,
+            "stride_mp": 2,
+            "padding": 1,
+            "num_movement_params": 12,
+            "dropout": 0.1,
+            "n_conv_layers_hab": 4,   # optional, defaults to 4
+            "n_conv_layers_move": 3,  # optional, defaults to 3
+            "device": "cpu",
+        })
+
+    ``n_conv_layers_hab`` and ``n_conv_layers_move`` set the depth of the two
+    sub-networks independently, and both are optional — omitting them gives the
+    architecture used in the deepSSF paper.  ``n_conv_layers_hab`` counts *all*
+    convolutions in the habitat block, including the final one that projects to
+    a single output channel, so the minimum is 1.  ``n_conv_layers_move`` counts
+    conv → ReLU → max-pool blocks; changing it changes the flattened size the
+    fully-connected block receives, so ``dense_dim_in_all`` must be recomputed
+    with :func:`flattened_conv_dim`.
+    """
+
+    def __init__(self, d: dict) -> None:
+        self.batch_size = d["batch_size"]
+        self.image_dim = d["image_dim"]
+        self.pixel_size = d["pixel_size"]
+        self.dim_in_nonspatial_to_grid = d["dim_in_nonspatial_to_grid"]
+        self.dense_dim_in_nonspatial = d["dense_dim_in_nonspatial"]
+        self.dense_dim_hidden = d["dense_dim_hidden"]
+        self.dense_dim_in_all = d["dense_dim_in_all"]
+        self.input_channels = d["input_channels"]
+        self.output_channels = d["output_channels"]
+        self.kernel_size = d["kernel_size"]
+        self.stride = d["stride"]
+        self.kernel_size_mp = d["kernel_size_mp"]
+        self.stride_mp = d["stride_mp"]
+        self.padding = d["padding"]
+        self.num_movement_params = d["num_movement_params"]
+        self.dropout = d["dropout"]
+        # Optional with defaults matching the original fixed architecture, so
+        # params dicts written before these were configurable still work.
+        self.n_conv_layers_hab = d.get("n_conv_layers_hab", 4)
+        self.n_conv_layers_move = d.get("n_conv_layers_move", 3)
+        self.device = d.get("device", get_device())
+
+    #: Every field the constructor reads, in the order it reads them.  Used by
+    #: :meth:`to_dict` so a new hyper-parameter is written to checkpoints as
+    #: soon as it is added here.
+    FIELDS = (
+        "batch_size",
+        "image_dim",
+        "pixel_size",
+        "dim_in_nonspatial_to_grid",
+        "dense_dim_in_nonspatial",
+        "dense_dim_hidden",
+        "dense_dim_in_all",
+        "input_channels",
+        "output_channels",
+        "kernel_size",
+        "stride",
+        "kernel_size_mp",
+        "stride_mp",
+        "padding",
+        "num_movement_params",
+        "dropout",
+        "n_conv_layers_hab",
+        "n_conv_layers_move",
+        "device",
+    )
+
+    def to_dict(self) -> dict:
+        """Plain-Python copy of the hyper-parameters, ready to be serialised.
+
+        Round-trips through ``ModelParams(params.to_dict())``.  Values are
+        coerced to built-in types (a ``torch.device`` or a NumPy scalar becomes
+        a ``str`` or a ``float``) because this dict is written into checkpoints,
+        which are read back with ``torch.load(..., weights_only=True)`` — that
+        loader accepts tensors and built-in containers only.
+        """
+        return {name: _plain(getattr(self, name)) for name in self.FIELDS}
+
+    def __repr__(self) -> str:
+        fields = ", ".join(f"{k}={v!r}" for k, v in self.to_dict().items())
+        return f"ModelParams({{{fields}}})"
+
+
+def _plain(value):
+    """Coerce *value* to a built-in type that ``weights_only=True`` can read."""
+    if isinstance(value, (bool, int, float, str)) or value is None:
+        return value
+    if hasattr(value, "item"):  # NumPy scalar, 0-d tensor
+        return value.item()
+    return str(value)  # torch.device, Path, ...

@@ -1,0 +1,68 @@
+{
+  "gpu": "0",
+  "started_unix": 1794078082.1277986,
+  "jobs": [
+    {
+      "name": "moveformer-author128-lr5e5",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-landscape",
+        "moveformer-train",
+        "--output",
+        "runs/cloud/moveformer-author128-lr5e5",
+        "--epochs",
+        "100",
+        "--patience",
+        "12",
+        "--batch-size",
+        "512",
+        "--width",
+        "128",
+        "--layers",
+        "6",
+        "--lr",
+        "5e-05",
+        "--seed",
+        "42"
+      ],
+      "started_unix": 1794078082.1279144,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794078419.2129807,
+      "checkpoint_sha256": "795b68d745a05b44311cacd5d1f1451f7cc3d764af4d6289c4248c916e6efac7"
+    },
+    {
+      "name": "moveformer-author128-lr5e5-validation",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-landscape",
+        "evaluate",
+        "--output",
+        "runs/cloud/moveformer-author128-lr5e5-validation",
+        "--checkpoints",
+        "runs/cloud/moveformer-author128-lr5e5/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ],
+      "started_unix": 1794078419.2301123,
+      "status": "interrupted",
+      "ended_unix": 1794078525.8888223
+    }
+  ],
+  "status": "interrupted_for_author_aligned_protocol",
+  "ended_unix": 1794078525.8888206,
+  "reason": "Replace CRW point-mass proposal pilots with authors empirical-quantile proposal, variable context and warmup. Preserve diagnostic checkpoints and logs."
+}

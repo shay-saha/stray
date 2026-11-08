@@ -1,0 +1,50 @@
+{
+  "jobs": [
+    {
+      "name": "trajectory-species-memory-copula-seed17",
+      "task": "trajectory-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-species-memory-copula-seed17",
+      "arguments": [
+        "--cache",
+        "runs/cloud/trajectory-memory-cache",
+        "--epochs",
+        "25",
+        "--patience",
+        "6",
+        "--validation-origins",
+        "2048",
+        "--validation-samples",
+        "8",
+        "--ode-steps",
+        "6",
+        "--seed",
+        "17",
+        "--lr",
+        "0.0001",
+        "--prior-kind",
+        "copula"
+      ]
+    },
+    {
+      "name": "trajectory-species-memory-copula-seed17-validation",
+      "task": "trajectory-evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-species-memory-copula-seed17-validation",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/trajectory-species-memory-copula-seed17/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--samples",
+        "64",
+        "--batch-size",
+        "32",
+        "--baseline-checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt"
+      ]
+    }
+  ]
+}

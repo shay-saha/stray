@@ -1,0 +1,49 @@
+{
+  "scope": "Repair unstable local MoveFormer adaptation with native short endpoint task and float32; original author core retained; declared lower learning rate; not an official published reproduction",
+  "jobs": [
+    {
+      "name": "MoveFormer-short-float32",
+      "output": "cloud/migration-public-moveformer-v3-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_moveformer_endpoint",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--output",
+        "runs/migration-public-moveformer-v3",
+        "--epochs",
+        "20",
+        "--patience",
+        "5",
+        "--width",
+        "128",
+        "--layers",
+        "6",
+        "--heads",
+        "8",
+        "--batch-size",
+        "256",
+        "--candidates",
+        "100",
+        "--inference-candidates",
+        "1024",
+        "--validation-candidates",
+        "256",
+        "--validation-samples",
+        "16",
+        "--max-validation-origins",
+        "4096",
+        "--training-horizons-hours",
+        "1",
+        "12",
+        "24",
+        "--neural-precision",
+        "float32",
+        "--lr",
+        "0.00001",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

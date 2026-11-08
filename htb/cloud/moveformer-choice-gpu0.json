@@ -1,0 +1,38 @@
+{
+  "jobs": [
+    {
+      "name": "moveformer-empirical-varctx128-lr5e5-choice-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx128-lr5e5-choice-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx128-lr5e5/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "moveformer-empirical-varctx128-lr3e4-choice-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx128-lr3e4-choice-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx128-lr3e4/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

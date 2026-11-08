@@ -1,0 +1,32 @@
+{
+  "jobs": [
+    {
+      "name": "migration-ungulates-history_direct-seed17",
+      "data": "data/migration-expanded-dev-v2",
+      "task": "migration-train",
+      "output": "runs/migration-ungulates-history_direct-seed17",
+      "arguments": [
+        "--variant",
+        "history_direct",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "256",
+        "--width",
+        "128",
+        "--layers",
+        "2",
+        "--components",
+        "8",
+        "--validation-samples",
+        "32",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

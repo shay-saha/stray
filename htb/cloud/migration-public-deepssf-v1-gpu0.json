@@ -1,0 +1,35 @@
+{
+  "scope": "Local adaptations of public method families; same corrected TRAIN pool; metadata-only4096-origin development panel; not official MoveBench reproduction",
+  "jobs": [
+    {
+      "name": "public-author-core-deepSSF-GHSL",
+      "output": "cloud/migration-public-deepssf-v1-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_deepssf",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--batch-size",
+        "128",
+        "--window",
+        "101",
+        "--validation-samples",
+        "16",
+        "--validation-origins",
+        "4096",
+        "--train-pairs-per-epoch",
+        "100000",
+        "--device",
+        "cuda",
+        "--output",
+        "runs/migration-public-deepssf-v1",
+        "--context-mode",
+        "actual",
+        "--sources",
+        "data/ecology-sources",
+        "--epochs",
+        "12"
+      ]
+    }
+  ]
+}

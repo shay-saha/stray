@@ -1,0 +1,80 @@
+{
+  "gpu": "0",
+  "started_unix": 1794095790.824269,
+  "jobs": [
+    {
+      "name": "full-ecology-moe",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-ecology",
+        "full-moe-assemble",
+        "--output",
+        "runs/cloud/full-ecology-moe",
+        "--global-checkpoint",
+        "runs/cloud/full-ecology-global/best-trained.pt",
+        "--specialists",
+        "cloud/full-ecology-specialists.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ],
+      "started_unix": 1794095790.8243775,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794095801.0609531,
+      "checkpoint_sha256": "be3683e2e1cb0643337e77f296b2cb03e255b501913ea3a9a7cb93a7d5b4e6b5"
+    },
+    {
+      "name": "full-ecology-gated",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-ecology",
+        "full-moe-calibrate",
+        "--output",
+        "runs/cloud/full-ecology-gated",
+        "--checkpoint",
+        "runs/cloud/full-ecology-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ],
+      "started_unix": 1794095801.4161885,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794095819.274945,
+      "checkpoint_sha256": "13c32fdd11cc9d5c89bc98a8c6585037bf13b143a5d87df5a54a328a53990549"
+    },
+    {
+      "name": "full-ecology-table-gated",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-ecology",
+        "full-moe-calibrate",
+        "--output",
+        "runs/cloud/full-ecology-table-gated",
+        "--checkpoint",
+        "runs/cloud/full-ecology-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--table-only"
+      ],
+      "started_unix": 1794095819.5979128,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794095847.6357787,
+      "checkpoint_sha256": "c10503828a4666fbdc68923994b554727b00e2050664a998bff5158f38f5666f"
+    }
+  ],
+  "status": "complete",
+  "ended_unix": 1794095847.9663634
+}

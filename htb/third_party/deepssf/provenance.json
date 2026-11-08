@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/swforrest/deepSSF_package",
+  "commit": "4eef65e021de8384b570b079bd34fa3f90d949da",
+  "version": "0.3.2",
+  "licence": "MIT",
+  "source_sha256": {
+    "model.py": "c0b794dfd1708a6e6a1ef928e30f776fa9933d2e9102f34377933ba295f678c5",
+    "utils.py": "62a262b988d24cd1d103df032f73c24fc6d64a3729ab127e84feb73d54c01e54",
+    "LICENSE": "d7d214d8f94e17b2893bf907115eb5f746bbda3c9426ec56379b3def9b4aa6e2"
+  },
+  "upstream_paths": {
+    "model.py": "src/deepssf/model.py",
+    "utils.py": "src/deepssf/utils.py",
+    "LICENSE": "LICENSE"
+  },
+  "scope": "Exact author architecture and helper source only, no pretrained weights; module wiring is provided by migration_deepssf."
+}

@@ -1,0 +1,14 @@
+{
+  "jobs": [
+    {
+      "name": "migration-repaired-prepare-v1",
+      "output": "data/migration-repaired-prepare-v1-job",
+      "python_arguments": [
+        "-m",
+        "scripts.migration_repaired_run",
+        "--launch",
+        "cloud/migration-repaired-prepare-v1-launch.json"
+      ]
+    }
+  ]
+}

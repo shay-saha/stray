@@ -1,0 +1,43 @@
+{
+  "jobs": [
+    {
+      "name": "router-bank-audited",
+      "task": "router-audit",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-bank-audited",
+      "arguments": [
+        "--bank",
+        "runs/cloud/router-bank",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    },
+    {
+      "name": "router-global-audited",
+      "task": "router-fit",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-global-audited",
+      "arguments": [
+        "--bank",
+        "runs/cloud/router-bank-audited"
+      ]
+    },
+    {
+      "name": "router-global-audited-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/router-global-audited-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/router-global-audited/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

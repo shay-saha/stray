@@ -1,0 +1,83 @@
+{
+  "created_utc": "2026-11-08T09:46:07.128634+00:00",
+  "public_report": "reports/migration-public-panel-v1",
+  "manifest_sha256": "cb4c0386279df14c161226fa34a7af838feda076ba48293e331afff8060e944d",
+  "cases_sha256": "ee741b375a9d9930da80edcb678ecb9df3e4235007591c90e9c5ff855325344a",
+  "public_metrics_sha256": "22bc523792de39ee4fb1ca5b50e31c0cebf4d1dab1d14a65d0057c8e2fab1c31",
+  "full_metrics_sha256": "afe30bf92439784f5d33bd745625e32694b32fec81530274289863a270a5d54c",
+  "preflight_sha256": "40309ec7fe5df5864bb26324899395dc2400a60801d22937991afe4fb944726a",
+  "training_taxon_labels": 108,
+  "species_named_labels": 107,
+  "family_labels": [
+    "Testudinidae"
+  ],
+  "reviewed_observations": 34795705,
+  "training_studies": 131,
+  "case_studies": 144,
+  "case_counts": {
+    "test_individual": 168457,
+    "test_year": 35809,
+    "train": 799681,
+    "val_individual": 201563,
+    "val_year": 43896
+  },
+  "endpoint_comparison": {
+    "WildCast ensemble": 10.176893524324912,
+    "WildCast single": 10.484232009505025,
+    "Correlated random walk": 11.075591447532279,
+    "deepSSF adapter": 12.258571190211299,
+    "Stationary": 14.048731089226933
+  },
+  "public_panel_origins": 4096,
+  "public_panel_observed_targets": 8831,
+  "public_panel_horizons_days": [
+    0.041666666666666664,
+    0.5,
+    1.0
+  ],
+  "samples": 64,
+  "members": [
+    {
+      "variant": "history_direct",
+      "width": 128,
+      "layers": 2,
+      "components": 8,
+      "weight": 0.08587242858132559,
+      "checkpoint_sha256": "9f7ac022d8076ea4bdc6949bfff6b286955e69bf30ee55c308cf979c88a88375"
+    },
+    {
+      "variant": "history_direct",
+      "width": 512,
+      "layers": 6,
+      "components": 8,
+      "weight": 0.45647112195726214,
+      "checkpoint_sha256": "76fc72a65f14b2304fc07d9e8286e164ac25642ca413f68f12862db2c6b0d959"
+    },
+    {
+      "variant": "goal_route",
+      "width": 128,
+      "layers": 2,
+      "components": 8,
+      "weight": 0.1418859765402108,
+      "checkpoint_sha256": "c2016ca56541b8a0f97da17b6421f503ed9aa615c607458b1281ad4a6784c2d9"
+    },
+    {
+      "variant": "goal_route",
+      "width": 512,
+      "layers": 6,
+      "components": 8,
+      "weight": 0.31577047292120153,
+      "checkpoint_sha256": "b58c51a50e350c37546eb58bdc68efe7629788abf8415d77d1ab587894b1131d"
+    }
+  ],
+  "relative_energy_improvement_percent": {
+    "versus_CRW": 8.114220603610322,
+    "versus_deepSSF": 16.981405365974833,
+    "versus_single": 2.931435367907531
+  },
+  "interpretation": "Local development comparisons; ensemble weights fitted on development; no official benchmark, independent final-test or global-frontier-superiority claim",
+  "primary_method_sources": [
+    "https://github.com/cifkao/moveformer",
+    "https://github.com/swforrest/deepSSF_package"
+  ]
+}

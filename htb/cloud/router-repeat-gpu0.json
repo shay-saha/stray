@@ -1,0 +1,44 @@
+{
+  "jobs": [
+    {
+      "name": "repeat-ensemble-2027",
+      "task": "evaluate",
+      "data": "data/combined-memory",
+      "output": "runs/cloud/repeat-ensemble-2027",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64",
+        "--seed",
+        "2027"
+      ]
+    },
+    {
+      "name": "repeat-router-global-2027",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/repeat-router-global-2027",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/router-global/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64",
+        "--seed",
+        "2027"
+      ]
+    }
+  ]
+}

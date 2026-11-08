@@ -1,0 +1,14 @@
+{
+  "jobs": [
+    {
+      "name": "v2-medium",
+      "data": "data/v2", "output": "runs/cloud/v2-medium",
+      "arguments": ["--epochs", "30", "--patience", "7", "--batch-size", "512", "--width", "256", "--layers", "4", "--components", "12", "--anchors", "--lr", "0.0002", "--stratified-energy", "--energy-weight", "1", "--nll-weight", "0.1", "--precision", "bf16", "--seed", "17"]
+    },
+    {
+      "name": "v2-large",
+      "data": "data/v2", "output": "runs/cloud/v2-large",
+      "arguments": ["--epochs", "35", "--patience", "8", "--batch-size", "512", "--width", "512", "--layers", "6", "--components", "12", "--anchors", "--lr", "0.00015", "--stratified-energy", "--energy-weight", "1", "--nll-weight", "0.1", "--precision", "bf16", "--seed", "7"]
+    }
+  ]
+}

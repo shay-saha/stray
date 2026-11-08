@@ -1,0 +1,58 @@
+{
+  "jobs": [
+    {
+      "name": "trajectory-energy-seed42",
+      "task": "trajectory-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-energy-seed42",
+      "arguments": [
+        "--cache",
+        "runs/cloud/trajectory-memory-cache",
+        "--epochs",
+        "12",
+        "--patience",
+        "4",
+        "--validation-origins",
+        "1536",
+        "--validation-samples",
+        "16",
+        "--ode-steps",
+        "2",
+        "--max-train",
+        "24000",
+        "--lr",
+        "0.00002",
+        "--objective",
+        "energy",
+        "--training-samples",
+        "4",
+        "--prior-kind",
+        "copula",
+        "--batch-size",
+        "128",
+        "--state-weight",
+        "0"
+      ]
+    },
+    {
+      "name": "trajectory-energy-seed42-validation",
+      "task": "trajectory-evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/trajectory-energy-seed42-validation",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/trajectory-energy-seed42/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--samples",
+        "64",
+        "--batch-size",
+        "32",
+        "--baseline-checkpoints",
+        "runs/cloud/combined-no-memory-control/best.pt",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "runs/cloud/combined-memory-large/best.pt"
+      ]
+    }
+  ]
+}

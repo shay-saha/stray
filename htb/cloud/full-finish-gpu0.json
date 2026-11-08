@@ -1,0 +1,43 @@
+{
+  "jobs": [
+    {
+      "name": "full-ecology-moe",
+      "task": "full-moe-assemble",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-moe",
+      "arguments": [
+        "--global-checkpoint",
+        "runs/cloud/full-ecology-global/best-trained.pt",
+        "--specialists",
+        "cloud/full-ecology-specialists.json",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    },
+    {
+      "name": "full-ecology-gated",
+      "task": "full-moe-calibrate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-gated",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/full-ecology-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    },
+    {
+      "name": "full-ecology-table-gated",
+      "task": "full-moe-calibrate",
+      "data": "data/combined-ecology",
+      "output": "runs/cloud/full-ecology-table-gated",
+      "arguments": [
+        "--checkpoint",
+        "runs/cloud/full-ecology-moe/best.pt",
+        "--identity-audit",
+        "reports/identity-audit.json",
+        "--table-only"
+      ]
+    }
+  ]
+}

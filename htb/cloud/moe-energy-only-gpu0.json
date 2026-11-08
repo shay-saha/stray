@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "name": "moe-shared-energy-only",
+      "task": "moe-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-shared-energy-only",
+      "arguments": [
+        "--cache",
+        "runs/cloud/moe-cache",
+        "--mode",
+        "shared",
+        "--hidden",
+        "0",
+        "--lr",
+        "0.0003",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "512",
+        "--nll-weight",
+        "0"
+      ]
+    }
+  ]
+}

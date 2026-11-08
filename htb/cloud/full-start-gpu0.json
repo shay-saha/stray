@@ -1,0 +1,46 @@
+{
+  "jobs": [
+    {
+      "name": "full-existing-global",
+      "task": "train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/full-existing-global",
+      "arguments": [
+        "--init-checkpoint",
+        "runs/cloud/combined-memory-medium-seed17/best.pt",
+        "--width",
+        "256",
+        "--layers",
+        "4",
+        "--components",
+        "12",
+        "--anchors",
+        "--long-memory",
+        "--driver-base-features",
+        "180",
+        "--student-df",
+        "4",
+        "--lr",
+        "0.00001",
+        "--epochs",
+        "15",
+        "--patience",
+        "5",
+        "--batch-size",
+        "512",
+        "--energy-weight",
+        "1",
+        "--nll-weight",
+        "0.1",
+        "--stratified-energy",
+        "--energy-repeats",
+        "2",
+        "--precision",
+        "bf16",
+        "--preload",
+        "--identity-audit",
+        "reports/identity-audit.json"
+      ]
+    }
+  ]
+}

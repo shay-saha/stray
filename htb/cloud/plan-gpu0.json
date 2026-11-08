@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "name": "v2-proper-energy-all",
+      "data": "data/v2", "output": "runs/cloud/v2-proper-energy-all",
+      "arguments": ["--epochs", "30", "--patience", "7", "--batch-size", "512", "--width", "128", "--layers", "3", "--anchors", "--init-checkpoint", "runs/v2-all-anchored/best.pt", "--lr", "0.0001", "--stratified-energy", "--energy-weight", "1", "--nll-weight", "0.1", "--precision", "bf16"]
+    },
+    {
+      "name": "v2-no-weather-ablation",
+      "data": "data/v2", "output": "runs/cloud/v2-no-weather-ablation",
+      "arguments": ["--epochs", "25", "--patience", "6", "--batch-size", "512", "--width", "128", "--layers", "3", "--anchors", "--driver-groups", "memory,clock", "--init-checkpoint", "runs/multispecies-seed7/best.pt", "--lr", "0.0001", "--stratified-energy", "--energy-weight", "1", "--nll-weight", "0.1", "--precision", "bf16"]
+    },
+    {
+      "name": "v2-no-drivers-control",
+      "data": "data/v2", "output": "runs/cloud/v2-no-drivers-control",
+      "arguments": ["--epochs", "25", "--patience", "6", "--batch-size", "512", "--width", "128", "--layers", "3", "--driver-groups", "none", "--init-checkpoint", "runs/multispecies-seed7/best.pt", "--lr", "0.0001", "--stratified-energy", "--energy-weight", "1", "--nll-weight", "0.1", "--precision", "bf16"]
+    }
+  ]
+}

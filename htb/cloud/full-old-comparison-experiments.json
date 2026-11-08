@@ -1,0 +1,34 @@
+{
+  "old-routed": {
+    "data": "data/combined-landscape",
+    "checkpoints": [
+      "runs/cloud/router-global-audited/best.pt"
+    ]
+  },
+  "old-ensemble": {
+    "data": "data/combined-memory",
+    "checkpoints": [
+      "runs/cloud/combined-no-memory-control/best.pt",
+      "runs/cloud/combined-memory-medium-seed17/best.pt",
+      "runs/cloud/combined-memory-large/best.pt"
+    ]
+  },
+  "existing-full-global": {
+    "data": "data/combined-landscape",
+    "checkpoints": [
+      "runs/cloud/full-existing-global/best-trained.pt"
+    ]
+  },
+  "existing-full-moe": {
+    "data": "data/combined-landscape",
+    "checkpoints": [
+      "runs/cloud/full-existing-moe/best.pt"
+    ]
+  },
+  "existing-full-gated": {
+    "data": "data/combined-landscape",
+    "checkpoints": [
+      "runs/cloud/full-existing-gated/best.pt"
+    ]
+  }
+}

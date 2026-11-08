@@ -1,0 +1,22 @@
+{
+  "acquisition_finished": "data/migration-breadth-stage1/executions/b1f94af53c46d2176362b8008babd81a6b10865669ae72ace10f0c9b78798ba1/resumed-finished-20261108T031759.json",
+  "acquisition_finished_sha256": "c6b32817d26d15cb2ee703fbfc8a538eebf2b87e9c948e8405c92b75264a4486",
+  "availability": "reports/migration-breadth-time-availability-v1.json",
+  "code_sha256": {
+    "/workspace/wildcast/scripts/migration_breadth_qc_run.py": "e407f7ee0ce20f987c2f6ab0306ce1ff8c136515a6327cb5a824b3c54fb52400",
+    "wildcast/breadth_clean.py": "1778083ed37a0a7fddee706eb7e03a93864ada03ee2db87d14b42930b667fdf6",
+    "wildcast/marine_gps_clean.py": "752573198e9114f564fe4dc48c07c2cf7c20f3c0ce2e484e4bac7420e44642f6",
+    "wildcast/marine_intake.py": "7ce1d3751984ce9294fcc539463b584859bce01d1c78485ac0699911a1bcf60a",
+    "wildcast/migration_identity.py": "c188853e07dc9bad866386bd221878ca4828c3b01238a13edc62c8c7295b0da7"
+  },
+  "output": "data/migration-breadth-clean-v1",
+  "overrides": "reports/migration-breadth-source-overrides.json",
+  "overrides_sha256": "3f8508fc76177a7e6cc60475c3b8ffcb960a58aa2f669b72fe0b722fa6b1f611",
+  "plan": "data/migration-breadth-stage1/plan.json",
+  "plan_sha256": "b1f94af53c46d2176362b8008babd81a6b10865669ae72ace10f0c9b78798ba1",
+  "policy": "reports/migration-breadth-qc-policy-v2.json",
+  "raw_root": "data/migration-breadth-stage1/raw",
+  "scope": "Finite source QC and actual time availability only; no forecasts, reserved labels or model fits",
+  "train_end_year": 2020,
+  "workers": 4
+}

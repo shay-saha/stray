@@ -1,0 +1,35 @@
+{
+  "gpu": "0",
+  "started_unix": 1794079281.2291884,
+  "jobs": [
+    {
+      "name": "moveformer-empirical-varctx128-lr5e5-choice-validation",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-landscape",
+        "evaluate",
+        "--output",
+        "runs/cloud/moveformer-empirical-varctx128-lr5e5-choice-validation",
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx128-lr5e5/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ],
+      "started_unix": 1794079281.2293005,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794079334.9842668
+    }
+  ],
+  "status": "complete",
+  "ended_unix": 1794079334.9851022
+}

@@ -1,0 +1,13 @@
+{
+  "Accipitridae": "runs/cloud/full-existing-Accipitridae/best-trained.pt",
+  "Antilocapridae": "runs/cloud/full-existing-Antilocapridae/best-trained.pt",
+  "Cathartidae": "runs/cloud/full-existing-Cathartidae/best-trained.pt",
+  "Cercopithecidae": "runs/cloud/full-existing-Cercopithecidae/best-trained.pt",
+  "Ciconiidae": "runs/cloud/full-existing-Ciconiidae/best-trained.pt",
+  "Diomedeidae": "runs/cloud/full-existing-Diomedeidae/best-trained.pt",
+  "Elephantidae": "runs/cloud/full-existing-Elephantidae/best-trained.pt",
+  "Equidae": "runs/cloud/full-existing-Equidae/best-trained.pt",
+  "Felidae": "runs/cloud/full-existing-Felidae/best-trained.pt",
+  "Gruidae": "runs/cloud/full-existing-Gruidae/best-trained.pt",
+  "Phocidae": "runs/cloud/full-existing-Phocidae/best-trained.pt"
+}

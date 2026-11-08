@@ -1,0 +1,62 @@
+{
+  "gpu": "1",
+  "started_unix": 1794079131.3402026,
+  "jobs": [
+    {
+      "name": "moveformer-empirical-varctx256-seed42-choice-validation",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-landscape",
+        "evaluate",
+        "--output",
+        "runs/cloud/moveformer-empirical-varctx256-seed42-choice-validation",
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed42/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ],
+      "started_unix": 1794079131.3403077,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794079188.1502743
+    },
+    {
+      "name": "moveformer-empirical-varctx256-seed17-choice-validation",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/combined-landscape",
+        "evaluate",
+        "--output",
+        "runs/cloud/moveformer-empirical-varctx256-seed17-choice-validation",
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed17/best-choice.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ],
+      "started_unix": 1794079188.1511567,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794079248.8757284
+    }
+  ],
+  "status": "complete",
+  "ended_unix": 1794079248.8765829
+}

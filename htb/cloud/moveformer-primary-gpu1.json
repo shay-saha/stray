@@ -1,0 +1,92 @@
+{
+  "jobs": [
+    {
+      "name": "moveformer-empirical-varctx256-seed42",
+      "task": "moveformer-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed42",
+      "arguments": [
+        "--epochs",
+        "100",
+        "--patience",
+        "12",
+        "--batch-size",
+        "512",
+        "--width",
+        "256",
+        "--layers",
+        "4",
+        "--lr",
+        "0.0001",
+        "--seed",
+        "42",
+        "--proposal-kind",
+        "empirical",
+        "--variable-context",
+        "--warmup-steps",
+        "1000"
+      ]
+    },
+    {
+      "name": "moveformer-empirical-varctx256-seed42-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed42-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed42/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "moveformer-empirical-varctx256-seed17",
+      "task": "moveformer-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed17",
+      "arguments": [
+        "--epochs",
+        "100",
+        "--patience",
+        "12",
+        "--batch-size",
+        "512",
+        "--width",
+        "256",
+        "--layers",
+        "4",
+        "--lr",
+        "0.0001",
+        "--seed",
+        "17",
+        "--proposal-kind",
+        "empirical",
+        "--variable-context",
+        "--warmup-steps",
+        "1000"
+      ]
+    },
+    {
+      "name": "moveformer-empirical-varctx256-seed17-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-empirical-varctx256-seed17-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-empirical-varctx256-seed17/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

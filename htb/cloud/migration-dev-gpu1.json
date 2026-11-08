@@ -1,0 +1,32 @@
+{
+  "jobs": [
+    {
+      "name": "migration-dev-history_direct-seed17",
+      "data": "data/migration-dev-v1",
+      "task": "migration-train",
+      "output": "runs/migration-dev-history_direct-seed17",
+      "arguments": [
+        "--variant",
+        "history_direct",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "256",
+        "--width",
+        "96",
+        "--layers",
+        "2",
+        "--components",
+        "6",
+        "--validation-repeats",
+        "4",
+        "--seed",
+        "17",
+        "--device",
+        "cuda"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "gpu": "0",
+  "started_unix": 1794074822.8262057,
+  "jobs": [
+    {
+      "name": "eval-medium",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/v2",
+        "evaluate",
+        "--output",
+        "runs/cloud/eval-medium",
+        "--checkpoints",
+        "runs/cloud/v2-medium/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512"
+      ],
+      "started_unix": 1794074822.8263152,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794074859.581947
+    },
+    {
+      "name": "eval-proper",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/v2",
+        "evaluate",
+        "--output",
+        "runs/cloud/eval-proper",
+        "--checkpoints",
+        "runs/cloud/v2-proper-energy-all/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512"
+      ],
+      "started_unix": 1794074859.5828576,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794074881.312559
+    },
+    {
+      "name": "eval-no-drivers",
+      "command": [
+        "/venv/main/bin/python",
+        "-u",
+        "-m",
+        "wildcast.cli",
+        "--data",
+        "data/v2",
+        "evaluate",
+        "--output",
+        "runs/cloud/eval-no-drivers",
+        "--checkpoints",
+        "runs/cloud/v2-no-drivers-control/best.pt",
+        "--splits",
+        "val_temporal",
+        "val_individual",
+        "--batch-size",
+        "512"
+      ],
+      "started_unix": 1794074881.3135445,
+      "status": "complete",
+      "returncode": 0,
+      "ended_unix": 1794074912.0011375
+    }
+  ],
+  "status": "complete",
+  "ended_unix": 1794074912.0016208
+}

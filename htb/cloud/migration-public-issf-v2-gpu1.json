@@ -1,0 +1,69 @@
+{
+  "scope": "Same iSSF quadrature and feature recipe accelerated on GPU; previous slow run retained; both linear and MLP trained on same corrected pool",
+  "jobs": [
+    {
+      "name": "accelerated-iSSF-linear",
+      "output": "cloud/migration-public-issf-v2-linear-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_issf_accelerated",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--output",
+        "runs/migration-public-issf-v2-linear",
+        "--variant",
+        "linear",
+        "--sources",
+        "data/ecology-sources",
+        "--context-mode",
+        "actual",
+        "--device",
+        "cuda",
+        "--window",
+        "101",
+        "--batch-size",
+        "128",
+        "--train-pairs-per-epoch",
+        "100000",
+        "--validation-origins",
+        "4096",
+        "--validation-samples",
+        "16",
+        "--epochs",
+        "12"
+      ]
+    },
+    {
+      "name": "accelerated-iSSF-mlp",
+      "output": "cloud/migration-public-issf-v2-mlp-job",
+      "python_arguments": [
+        "-m",
+        "wildcast.migration_issf_accelerated",
+        "--data",
+        "data/migration-multiscale-repaired-v2/result",
+        "--output",
+        "runs/migration-public-issf-v2-mlp",
+        "--variant",
+        "mlp",
+        "--sources",
+        "data/ecology-sources",
+        "--context-mode",
+        "actual",
+        "--device",
+        "cuda",
+        "--window",
+        "101",
+        "--batch-size",
+        "128",
+        "--train-pairs-per-epoch",
+        "100000",
+        "--validation-origins",
+        "4096",
+        "--validation-samples",
+        "16",
+        "--epochs",
+        "12"
+      ]
+    }
+  ]
+}

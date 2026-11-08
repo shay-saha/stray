@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "name": "moveformer-author128-lr5e5",
+      "task": "moveformer-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-author128-lr5e5",
+      "arguments": [
+        "--epochs",
+        "100",
+        "--patience",
+        "12",
+        "--batch-size",
+        "512",
+        "--width",
+        "128",
+        "--layers",
+        "6",
+        "--lr",
+        "5e-05",
+        "--seed",
+        "42"
+      ]
+    },
+    {
+      "name": "moveformer-author128-lr5e5-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-author128-lr5e5-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-author128-lr5e5/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    },
+    {
+      "name": "moveformer-author128-lr3e4",
+      "task": "moveformer-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-author128-lr3e4",
+      "arguments": [
+        "--epochs",
+        "100",
+        "--patience",
+        "12",
+        "--batch-size",
+        "512",
+        "--width",
+        "128",
+        "--layers",
+        "6",
+        "--lr",
+        "0.0003",
+        "--seed",
+        "42"
+      ]
+    },
+    {
+      "name": "moveformer-author128-lr3e4-validation",
+      "task": "evaluate",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moveformer-author128-lr3e4-validation",
+      "arguments": [
+        "--checkpoints",
+        "runs/cloud/moveformer-author128-lr3e4/best.pt",
+        "--splits",
+        "val_individual",
+        "val_temporal",
+        "--batch-size",
+        "256",
+        "--samples",
+        "64"
+      ]
+    }
+  ]
+}

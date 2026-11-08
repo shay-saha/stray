@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "name": "moe-family-energy-only",
+      "task": "moe-train",
+      "data": "data/combined-landscape",
+      "output": "runs/cloud/moe-family-energy-only",
+      "arguments": [
+        "--cache",
+        "runs/cloud/moe-cache",
+        "--mode",
+        "family",
+        "--hidden",
+        "0",
+        "--lr",
+        "0.0003",
+        "--epochs",
+        "30",
+        "--patience",
+        "6",
+        "--batch-size",
+        "512",
+        "--nll-weight",
+        "0"
+      ]
+    }
+  ]
+}

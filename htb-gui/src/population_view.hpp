@@ -12,7 +12,8 @@ struct AnimalColorFamily {
 };
 
 std::span<const AnimalColorFamily> animal_color_key();
-ImU32 species_color(AnimalGroup group, std::size_t species);
+ImU32 species_color(const Species &species);
+ImU32 animal_color(const Species &species, std::string_view identity);
 ImFontAtlasRectId make_grain_sprite(ImFontAtlas &atlas);
 std::optional<AnimalId> draw_populations(ImDrawList &draw, const GlobeView &view, const Simulation &simulation,
                                          std::span<const std::uint8_t> enabled, float pixels_per_km,

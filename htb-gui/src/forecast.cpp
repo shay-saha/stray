@@ -132,7 +132,7 @@ AnimalGroup color_family(const std::string &taxon) {
     if (genus == g)
       return AnimalGroup::Grazer;
   for (const auto g : {"Canis", "Panthera", "Puma", "Lynx", "Vulpes", "Ursus",
-                       "Caracal", "Gulo", "Nyctereutes"})
+                       "Caracal", "Gulo", "Nyctereutes", "Pekania"})
     if (genus == g)
       return AnimalGroup::LandCarnivore;
   for (const auto g : {"Halichoerus", "Physeter", "Balaenoptera", "Zalophus"})
@@ -141,11 +141,14 @@ AnimalGroup color_family(const std::string &taxon) {
   for (const auto g : {"Chelonia", "Eretmochelys", "Testudinidae"})
     if (genus == g)
       return AnimalGroup::Reptile;
+  if (genus == "Manta" || genus == "Mobula")
+    return AnimalGroup::FishAndKrill;
   if (genus == "Papio")
     return AnimalGroup::Primate;
   for (const auto g :
        {"Brachylagus", "Tapirus", "Wallabia", "Eidolon", "Hypsignathus",
-        "Lavia", "Noctilio", "Phyllostomus", "Pteropus", "Tadarida"})
+        "Lavia", "Noctilio", "Phyllostomus", "Pteropus", "Tadarida",
+        "Phascolarctos"})
     if (genus == g)
       return AnimalGroup::OtherMammal;
   return AnimalGroup::Bird;

@@ -224,6 +224,9 @@ void App::draw_sidebar() {
   if (ImGui::SmallButton("Color key"))
     ImGui::OpenPopup("##color_key");
   if (ImGui::BeginPopup("##color_key")) {
+    ImGui::TextUnformatted("Species have distinct shades; individuals vary subtly.");
+    ImGui::TextUnformatted("Related genera share a main color.");
+    ImGui::Separator();
     for (const auto &family : animal_color_key()) {
       ImGui::TextColored(ImGui::ColorConvertU32ToFloat4(family.color), "%s",
                          family.label);
@@ -277,7 +280,7 @@ void App::draw_sidebar() {
       ImGui::SameLine();
       const auto group = species[i].group;
       ImGui::TextColored(
-          ImGui::ColorConvertU32ToFloat4(species_color(group, i)), "%s",
+          ImGui::ColorConvertU32ToFloat4(species_color(species[i])), "%s",
           species[i].name.data());
       if (species[i].scientific_name.empty()) {
         ImGui::SetItemTooltip(

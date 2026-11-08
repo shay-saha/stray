@@ -4,20 +4,22 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <unordered_map>
+#include <unordered_set>
 
 namespace wildlife {
 namespace {
 
 constexpr float earth_radius_km = 6371.0f;
 constexpr std::array palette{
-    AnimalColorFamily{"Birds", IM_COL32(210, 173, 122, 255)},
-    AnimalColorFamily{"Grazers and browsers", IM_COL32(156, 177, 139, 255)},
-    AnimalColorFamily{"Land carnivorans", IM_COL32(192, 133, 115, 255)},
-    AnimalColorFamily{"Primates", IM_COL32(191, 141, 170, 255)},
-    AnimalColorFamily{"Other land mammals", IM_COL32(183, 160, 148, 255)},
-    AnimalColorFamily{"Aquatic mammals", IM_COL32(154, 165, 211, 255)},
-    AnimalColorFamily{"Fish and krill", IM_COL32(118, 181, 170, 255)},
-    AnimalColorFamily{"Reptiles", IM_COL32(163, 149, 194, 255)}};
+    AnimalColorFamily{"Birds", IM_COL32(255, 190, 65, 255)},
+    AnimalColorFamily{"Grazers and browsers", IM_COL32(135, 235, 90, 255)},
+    AnimalColorFamily{"Land carnivorans", IM_COL32(255, 107, 88, 255)},
+    AnimalColorFamily{"Primates", IM_COL32(247, 104, 188, 255)},
+    AnimalColorFamily{"Other land mammals", IM_COL32(232, 155, 95, 255)},
+    AnimalColorFamily{"Aquatic mammals", IM_COL32(104, 159, 255, 255)},
+    AnimalColorFamily{"Fish and krill", IM_COL32(70, 232, 215, 255)},
+    AnimalColorFamily{"Reptiles", IM_COL32(184, 126, 255, 255)}};
 static_assert(palette.size() == static_cast<std::size_t>(AnimalGroup::Count));
 constexpr ImU32 ivory = IM_COL32(228, 222, 206, 255);
 
@@ -47,6 +49,48 @@ float distance_squared(ImVec2 a, ImVec2 b) {
   return dx * dx + dy * dy;
 }
 
+std::uint32_t color_hash(std::string_view name) {
+  std::uint32_t value = 2166136261u;
+  for (const unsigned char c : name)
+    value = (value ^ c) * 16777619u;
+  // Avalanche makes adjacent names/IDs produce distinct, stable shades.
+  value ^= value >> 16;
+  value *= 0x7feb352du;
+  value ^= value >> 15;
+  value *= 0x846ca68bu;
+  return value ^ (value >> 16);
+}
+
+ImU32 taxon_color(const Species &species, std::string_view identity) {
+  const std::string_view name =
+      species.scientific_name.empty() ? species.name : species.scientific_name;
+  const auto genus = name.substr(0, name.find(' '));
+  const auto genus_hash = color_hash(genus), taxon_hash = color_hash(name);
+  float hue = 0, saturation = 0, value = 0;
+  const auto base = ImGui::ColorConvertU32ToFloat4(
+      palette[static_cast<std::size_t>(species.group)].color);
+  ImGui::ColorConvertRGBtoHSV(base.x, base.y, base.z, hue, saturation, value);
+  // Family hue -> genus hue -> species shade. Names, rather than catalog
+  // indices, keep the key stable across filtering, imports and live cycles.
+  hue += .16f * (float(genus_hash & 65535u) / 65535.f - .5f);
+  hue += .024f * (float(taxon_hash & 1023u) / 1023.f - .5f);
+  saturation = .56f + .38f * float((taxon_hash >> 10) & 2047u) / 2047.f;
+  value = .83f + .17f * float((taxon_hash >> 21) & 2047u) / 2047.f;
+  if (!identity.empty()) {
+    const auto tag = color_hash(identity);
+    hue += .012f * (float(tag & 1023u) / 1023.f - .5f);
+    saturation = std::clamp(
+        saturation + .10f * (float((tag >> 10) & 2047u) / 2047.f - .5f), .45f,
+        1.f);
+    value = std::clamp(
+        value + .10f * (float((tag >> 21) & 2047u) / 2047.f - .5f), .75f, 1.f);
+  }
+  hue -= std::floor(hue);
+  float r = 0, g = 0, b = 0;
+  ImGui::ColorConvertHSVtoRGB(hue, saturation, value, r, g, b);
+  return ImGui::ColorConvertFloat4ToU32({r, g, b, 1});
+}
+
 } // namespace
 
 ImFontAtlasRectId make_grain_sprite(ImFontAtlas &atlas) {
@@ -73,12 +117,41 @@ ImFontAtlasRectId make_grain_sprite(ImFontAtlas &atlas) {
 
 std::span<const AnimalColorFamily> animal_color_key() { return palette; }
 
-ImU32 species_color(AnimalGroup group, std::size_t species) {
-  const ImU32 base = palette[static_cast<std::size_t>(group)].color;
-  constexpr std::array shades{-0.15f, -0.08f, 0.0f, 0.10f, 0.20f};
-  const float shade = shades[species % shades.size()];
-  return blend(base, shade < 0.0f ? IM_COL32(65, 66, 73, 255) : ivory,
-               std::abs(shade));
+ImU32 species_color(const Species &species) { return taxon_color(species, {}); }
+
+ImU32 animal_color(const Species &species, std::string_view identity) {
+  if (identity.empty())
+    return species_color(species);
+  struct IdentityHash {
+    using is_transparent = void;
+    std::size_t operator()(std::string_view key) const {
+      return std::hash<std::string_view>{}(key);
+    }
+  };
+  static std::unordered_map<std::string, ImU32, IdentityHash, std::equal_to<>>
+      colors;
+  static std::unordered_set<ImU32> occupied;
+  if (const auto found = colors.find(identity); found != colors.end())
+    return found->second;
+  const auto base = taxon_color(species, identity);
+  auto color = base;
+  auto random = color_hash(identity);
+  for (unsigned int attempt = 0; !occupied.insert(color).second; ++attempt) {
+    // Resolve quantized RGB collisions with a nearby shade, preserving the
+    // species/genus hue. Cache once per identity, including across live cycles.
+    const int radius = std::min(31u, 1 + attempt / 16);
+    const auto channel = [&](int shift) {
+      random = random * 1664525u + 1013904223u;
+      return std::clamp(int((base >> shift) & 255u) +
+                            int(random % (2 * radius + 1)) - radius,
+                        0, 255);
+    };
+    const int r = channel(IM_COL32_R_SHIFT), g = channel(IM_COL32_G_SHIFT),
+              b = channel(IM_COL32_B_SHIFT);
+    color = IM_COL32(r, g, b, 255);
+  }
+  colors.emplace(identity, color);
+  return color;
 }
 
 std::optional<AnimalId> draw_populations(
@@ -141,7 +214,8 @@ std::optional<AnimalId> draw_populations(
                                  pixels_per_km <= 0.20f))
           continue;
         const AnimalId animal{i, j};
-        const ImU32 color = species_color(species[colony.species].group, colony.species);
+        const ImU32 color = animal_color(species[colony.species],
+                                         simulation.animal_name(animal));
         stroke.clear();
         const auto flush = [&] {
           add_glow_trail(stroke, color, 3.8f + 1.6f * detail);
@@ -184,11 +258,16 @@ std::optional<AnimalId> draw_populations(
               2 * earth_radius_km * std::asin(std::min(1., chord * .5));
           // Subdivide on the globe, so a long route follows Earth's curvature
           // rather than drawing a straight screen-space shortcut at the limb.
+          const bool bird = species[colony.species].group == AnimalGroup::Bird;
           const int steps = std::clamp(
-              int(std::ceil(distance * pixels_per_km / 16.)), 1, 64);
+              int(std::ceil(distance * pixels_per_km / 16.)), bird ? 2 : 1, 64);
           for (int step = 1; step <= steps; ++step) {
             const double t = double(step) / steps;
             const double hour = std::lerp(ta, tb, t);
+            if (bird) {
+              point_at(simulation.sample_animal(animal, hour).position, hour);
+              continue;
+            }
             Vec3 p{float(std::lerp(double(a.x), double(b.x), t)),
                    float(std::lerp(double(a.y), double(b.y), t)),
                    float(std::lerp(double(a.z), double(b.z), t))};
@@ -243,7 +322,7 @@ std::optional<AnimalId> draw_populations(
       const auto point = positions[j];
       const auto &head = heads[j];
       const ImU32 color =
-          species_color(species[colony.species].group, colony.species);
+          animal_color(species[colony.species], simulation.animal_name(animal));
       const ImU32 highlight = blend(color, ivory, .18f);
       const float limb = std::clamp(facing[j] * 4.0f, 0.0f, 1.0f);
       const float radius =
@@ -280,7 +359,7 @@ std::optional<AnimalId> draw_populations(
       const auto index = colonies[selected->colony].species;
       draw.AddCircle(
           position, 5.0f,
-          species_color(species[index].group, index), 16,
+          animal_color(species[index], simulation.animal_name(*selected)), 16,
           1.2f);
     }
   }

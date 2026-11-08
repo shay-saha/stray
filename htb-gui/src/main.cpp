@@ -50,6 +50,13 @@ GLFWwindow *create_window() {
       height = std::min(height, work_height * 92 / 100);
     }
   }
+  if (const char *size = std::getenv("ATLAS_SCREENSHOT_SIZE")) {
+    int requested_width = 0, requested_height = 0;
+    if (std::sscanf(size, "%dx%d", &requested_width, &requested_height) == 2) {
+      width = std::clamp(requested_width, 760, 7680);
+      height = std::clamp(requested_height, 480, 4320);
+    }
+  }
   GLFWwindow *window =
       glfwCreateWindow(width, height, "Wildlife Atlas", nullptr, nullptr);
   if (window) {

@@ -54,3 +54,17 @@ id_ed25519
 *.tiff
 *.zip
 /htb/.venv
+
+# Local documentation excluded from the published repository
+/docs/screenshots/README.md
+/docs/submission/README.md
+/htb/MIGRATION_PLAN.md
+/htb/README.md
+/htb/RESEARCH.md
+/htb/third_party/moveformer/README.md
+/htb/third_party/x-transformers/README.md
+/htb-gui/README.md
+/htb-gui/assets/tracking-sources.md
+/htb-gui/docs/model-deployment.md
+/htb-gui/docs/rendering.md
+/htb-gui/third_party/README.md

@@ -12,7 +12,7 @@ A native C++ atlas powered by animal movement models and real GPS histories. Exp
 
 ## Run locally
 
-Install the [native dependencies](htb-gui/README.md#setup-and-options) and supply the [verified model bundle](htb-gui/docs/model-deployment.md) at `htb-gui/models/server-repaired-v2`. Then, from the repository root:
+Requires CMake 3.24+, a C++20 compiler, OpenGL 3.2+, libcurl and nlohmann-json. Supply the model bundle at `htb-gui/models/server-repaired-v2`, then run from the repository root:
 
 ```sh
 python3 -m venv htb/.venv
@@ -37,11 +37,11 @@ Press **Play** and choose a speed. Omit `ATLAS_FORECAST` to start continuous loc
 
 | Project                       | Contents                                                                 |
 | ----------------------------- | ------------------------------------------------------------------------ |
-| [Atlas](htb-gui/README.md)    | C++20/OpenGL desktop viewer, playback controls and inference integration |
-| [Stray models](htb/README.md) | Model architecture, data preparation, training and evaluation            |
+| [Atlas](htb-gui/)    | C++20/OpenGL desktop viewer, playback controls and inference integration |
+| [Stray models](htb/) | Model architecture, data preparation, training and evaluation            |
 
-[Controls and setup](htb-gui/README.md) · [Model and data provenance](htb-gui/docs/model-deployment.md) · [Rendering details](htb-gui/docs/rendering.md) · [Screenshots and figures](docs/submission/README.md)
+[Viewer code](htb-gui/src/) · [Model code](htb/wildcast/) · [Screenshots and figures](docs/submission/)
 
 The demo is a recursive model scenario, not a validated 50-year ecological forecast. Markers represent recorded animal identities; cohorts group studies and taxa rather than verified biological colonies. Taxon labels include some classifications above or below species level.
 
-Upstream models and map assets retain their [dependency notices](htb-gui/third_party/README.md) and [imagery attribution](htb-gui/README.md#map-data-and-attribution).
+Upstream dependency licenses remain in [htb/third_party](htb/third_party/). Map imagery credits: NASA, NOAA and [EOxCloudless by EOX](https://cloudless.eox.at/) (modified Copernicus Sentinel data, CC BY 4.0).

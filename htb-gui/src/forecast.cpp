@@ -595,7 +595,7 @@ std::optional<AnimalId>
 ForecastController::controls(Simulation &simulation,
                              std::vector<std::uint8_t> &enabled) {
   auto focus = apply(simulation, enabled);
-  ImGui::SeparatorText("WildCast cohort forecast");
+  ImGui::SeparatorText("Stray migration forecast");
   ImGui::TextWrapped("%s", status_.c_str());
   if (!health_.is_null()) {
     const std::string gpu =

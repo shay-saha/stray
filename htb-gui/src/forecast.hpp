@@ -42,7 +42,7 @@ private:
   void load_archive(nlohmann::json, const std::string &path);
   void start_forecast();
   void start_scenario(bool extend);
-  std::string url_, status_ = "Connecting to local WildCast...", job_id_,
+  std::string url_, status_ = "Connecting to local Stray model...", job_id_,
                     selected_id_;
   std::future<nlohmann::json> request_;
   std::shared_ptr<std::atomic_bool> stop_ =

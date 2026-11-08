@@ -138,7 +138,7 @@ void App::draw() {
   constexpr auto flags = ImGuiWindowFlags_NoDecoration |
                          ImGuiWindowFlags_NoMove |
                          ImGuiWindowFlags_NoSavedSettings;
-  ImGui::Begin("Wildlife Movement Atlas", nullptr, flags);
+  ImGui::Begin("Stray", nullptr, flags);
   draw_toolbar();
   ImGui::Separator();
   draw_sidebar();
@@ -151,9 +151,9 @@ void App::draw() {
 
 void App::draw_toolbar() {
   ImGui::AlignTextToFramePadding();
-  ImGui::TextUnformatted("Wildlife Movement Atlas");
+  ImGui::TextUnformatted("STRAY");
   ImGui::SameLine();
-  ImGui::TextDisabled("|  Observed wildlife forecasts");
+  ImGui::TextDisabled("|  Animal migration forecasts");
   ImGui::BeginDisabled(!forecast_.predicted());
   ImGui::SameLine();
   if (ImGui::Button(paused_ ? "Play" : "Pause"))

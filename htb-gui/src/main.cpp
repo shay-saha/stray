@@ -58,7 +58,7 @@ GLFWwindow *create_window() {
     }
   }
   GLFWwindow *window =
-      glfwCreateWindow(width, height, "Wildlife Atlas", nullptr, nullptr);
+      glfwCreateWindow(width, height, "Stray", nullptr, nullptr);
   if (window) {
     glfwSetWindowSizeLimits(window, std::min(width, 760), std::min(height, 480),
                             GLFW_DONT_CARE, GLFW_DONT_CARE);
@@ -141,7 +141,7 @@ int render_loop(GLFWwindow *window, RunMode mode, const char *executable,
   if ((focus_done || app.model_ready()) && !configure_camera())
     return 2;
   if (mode == RunMode::ForecastSmoke && !std::getenv("ATLAS_FORECAST")) {
-    std::fputs("Set ATLAS_FORECAST to a real WildCast JSON file for forecast "
+    std::fputs("Set ATLAS_FORECAST to a Stray forecast JSON file for forecast "
                "smoke testing.\n",
                stderr);
     return 1;
@@ -348,7 +348,7 @@ int main(int argc, char **argv) {
     if (argc == 2 && (option == "--help" || option == "-h")) {
       std::puts("Usage: wildlife_atlas [--smoke-test [dots | zoom | forecast] "
                 "[species]]\nSet ATLAS_FORECAST to "
-                "load a WildCast JSON on startup.");
+                "load a Stray forecast JSON on startup.");
       return 0;
     }
     if (argc == 2 && option == "--smoke-test") {

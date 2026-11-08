@@ -32,7 +32,7 @@ def main():
     p.add_argument('--renderer', choices=['dots','legacy'], default='dots', help='Sand-like particle map; legacy is a compatibility alias')
     args, gui_args = p.parse_known_args()
     if not Path(args.python).is_file() and not shutil.which(args.python):
-        p.error('WildCast Python was not found. Pass --python /path/to/your/cuda/python.')
+        p.error('Stray model Python was not found. Pass --python /path/to/your/cuda/python.')
     binary=ROOT / 'build/wildlife_atlas'
     if not args.no_build:
         subprocess.run(['cmake', '-S', str(ROOT), '-B', str(ROOT / 'build'), '-DCMAKE_BUILD_TYPE=Release'], check=True)
@@ -61,7 +61,7 @@ def main():
                 time.sleep(.2)
             else:
                 raise RuntimeError('Inference service did not become ready in 60 seconds.')
-        print(f"WildCast: {running['device']} | {running.get('gpu') or 'CPU'}", flush=True)
+        print(f"Stray: {running['device']} | {running.get('gpu') or 'CPU'}", flush=True)
         print(f"Renderer: {args.renderer} | {binary}", flush=True)
         env = {**os.environ, 'ATLAS_INFERENCE_URL': base}
         env['ATLAS_RENDERER']=args.renderer
